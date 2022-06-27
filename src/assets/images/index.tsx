@@ -1,5 +1,22 @@
 const images = {
   LOGO_ICON: require('./Group.png'),
   FAME_LOGO: require('./fameLoad.png'),
+  BACKGROUND_LOGIN: require('./backgroundLogin.png'),
+  BACKGROUND_OPACITY: require('./backgroundOpacity.png'),
+  MENU: require('./trangchu.png'),
+  PLAN: require('./plan.png'),
+  RESTAURANT: require('./restaurant.png'),
+  HOME_PAGE: require('./trangchu.png'),
+  FLIGHT: require('./flight.png'),
+  COMBO: require('./combo.png'),
+  DISCOUNT: require('./discount.png'),
+  SCHEDULE_ONE: require('./schedu.png'),
+  RIGHT_SCHEDULE: require('./rightSchedule.png'),
+  BOTTOM_SCHEDULE: require('./bottomSchedule.png'),
+  BOTTOM_SCHEDULE_ONE: require('./bottomSchedulle2.png'),
+  AVARTAR: require('./avarta.png'),
+  DESTINATION_POPULAR: require('./destination.png'),
+  DESTINATION_POPULAR_ONE: require('./destination2.png'),
+  EXPERIENCE: require('./experience.png'),
 };
 export default images;

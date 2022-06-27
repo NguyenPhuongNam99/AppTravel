@@ -1,20 +1,23 @@
 import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SplashScreen from './src/features/splashscreen';
-const App = () => {
-  const Stack = createNativeStackNavigator();
+import StackNavigation from './src/navigations/StackNavigation';
+import Register from './src/features/register';
+const Tab = createBottomTabNavigator();
 
+const App = () => {
+  const [state, setState] = React.useState(true);
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-      </Stack.Navigator>
+      {!state ? (
+        <Tab.Navigator>
+          <Tab.Screen name="Login" component={StackNavigation} />
+          <Tab.Screen name="Register" component={Register} />
+        </Tab.Navigator>
+      ) : (
+        <StackNavigation />
+      )}
     </NavigationContainer>
   );
 };

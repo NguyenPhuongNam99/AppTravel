@@ -1,18 +1,18 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import {
-  View,
-  StyleSheet,
   Image,
   ImageBackground,
+  Text,
   TextInput,
   TouchableOpacity,
-  Text,
+  View,
 } from 'react-native';
 import images from '../../assets/images';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
+import {StyleSheet} from 'react-native';
 
-const Login = () => {
+const Register = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -20,12 +20,17 @@ const Login = () => {
         source={images.BACKGROUND_LOGIN}
         resizeMode={'stretch'}
         style={styles.imageBackground}>
-        <View style={{width: '100%', height: '100%', zIndex: 99}}>
+        <View style={styles.blockImageContainer}>
           <View style={styles.topLevel}>
             <Image source={images.LOGO_ICON} style={styles.logoIcon} />
           </View>
           <View style={styles.twoLevel}>
-            <View style={styles.blockLevel}>
+            <View style={styles.blockContent}>
+              <TextInput
+                style={styles.input}
+                placeholder="Nhập email của bạn"
+                placeholderTextColor={'white'}
+              />
               <TextInput
                 style={styles.input}
                 placeholder="Nhập tài khoản của bạn"
@@ -36,30 +41,25 @@ const Login = () => {
                 placeholder="Nhập mật khẩu của bạn"
                 placeholderTextColor={'white'}
               />
-              <TouchableOpacity
-                style={styles.submit}
-                onPress={() => navigation.navigate('HomePage' as never)}>
-                <Text style={styles.colorSubmit}>Đăng nhập</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={[styles.submit, styles.positionForget]}>
-                <Text style={styles.colorSubmit}>Quên mật khẩu</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.submit, styles.positionChangeAcount]}
-                onPress={() => navigation.navigate('Register' as never)}>
+              <TouchableOpacity style={styles.submit}>
                 <Text style={styles.colorSubmit}>Đăng ký</Text>
               </TouchableOpacity>
+
+              <Text style={styles.askQuestion}>
+                Bạn đã có tài khoản OGGO?{' '}
+                <Text
+                  style={styles.loginText}
+                  onPress={() => navigation.goBack()}>
+                  Đăng nhập
+                </Text>
+              </Text>
             </View>
           </View>
         </View>
-        <Image
-          source={images.BACKGROUND_OPACITY}
-          style={{width: '100%', height: '100%', position: 'absolute'}}
-        />
+        <Image source={images.BACKGROUND_OPACITY} style={styles.imageOpacity} />
       </ImageBackground>
     </View>
   );
 };
 
-export default Login;
+export default Register;
