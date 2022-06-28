@@ -18,5 +18,13 @@ const images = {
   DESTINATION_POPULAR: require('./destination.png'),
   DESTINATION_POPULAR_ONE: require('./destination2.png'),
   EXPERIENCE: require('./experience.png'),
+  HOTEL: require('./ks.jpeg'),
+  STAR: require('./star.png'),
+  DISCOUNT_BACKGROUND: require('./discount.jpeg'),
+  POPULAR_PLACE: require('./destinationPopular.png'),
+  EXPERIENCE_SPECIAL: require('./specialExperience.png'),
+  HOTEL1: require('./hotel1.png'),
+  HOTEL2: require('./hotel2.png'),
+  HOTEL3: require('./hotel3.png'),
 };
 export default images;

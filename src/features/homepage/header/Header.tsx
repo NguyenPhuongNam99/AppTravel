@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TextInput, View} from 'react-native';
+import {Image, Text, TextInput, View, SafeAreaView} from 'react-native';
 import styles from '../styles';
 import images from '../../../assets/images';
 import ListMenuIcon from './ListMenuIcon';

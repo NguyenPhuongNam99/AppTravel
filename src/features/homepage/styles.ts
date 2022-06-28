@@ -147,9 +147,36 @@ const styles = StyleSheet.create({
   destinationBlock: {width: 150, height: 200},
   titleDestination: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 10,
     left: 10,
     color: 'white',
-  }
+  },
+  hotelContainer: {
+    width: 180,
+    height: 227,
+    marginLeft: 16,
+    marginBottom: 20,
+    marginTop: 16,
+  },
+  hotelTop: {flex: 0.66, backgroundColor: 'blue'},
+  hotelBottom: {
+    flex: 0.34,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+  },
+  bottomStar: {flexDirection: 'row', justifyContent: 'space-between'},
+  colorBottom: {color: '#A1A1A1'},
+  fontWeight: {fontWeight: 'bold'},
+  row: {flexDirection: 'row'},
+  colorRed: {color: 'red'},
+  specialContainer: {
+    width: '100%',
+    height: 230,
+    marginLeft: 16,
+    marginTop: 16,
+  },
+  specialBlock: {width: 220, height: 230},
+  specialImage: {width: '100%', height: 200},
+  specialTitle: {color: '#3076FE'}
 });
 export default styles;

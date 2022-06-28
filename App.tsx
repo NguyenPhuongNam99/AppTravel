@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import StackNavigation from './src/navigations/StackNavigation';
 import Register from './src/features/register';
+import Login from './src/features/login';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -12,8 +13,8 @@ const App = () => {
     <NavigationContainer>
       {!state ? (
         <Tab.Navigator>
-          <Tab.Screen name="Login" component={StackNavigation} />
-          <Tab.Screen name="Register" component={Register} />
+          <Tab.Screen name="Login" component={Login} />
+          <Tab.Screen name="StackNavigation" component={StackNavigation} />
         </Tab.Navigator>
       ) : (
         <StackNavigation />
