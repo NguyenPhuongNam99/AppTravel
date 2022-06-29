@@ -26,5 +26,6 @@ const images = {
   HOTEL1: require('./hotel1.png'),
   HOTEL2: require('./hotel2.png'),
   HOTEL3: require('./hotel3.png'),
+  PAY: require('./chinh-sach-thanh-toan.jpeg'),
 };
 export default images;

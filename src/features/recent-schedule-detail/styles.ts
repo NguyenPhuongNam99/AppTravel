@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: 9
   },
-  bottomLeft1: {flexDirection: 'row', alignItems: 'center'},
+  bottomLeft1: {flexDirection: 'row', alignItems: 'center', },
   bottomRight1: {
     backgroundColor: '#FF5F24',
     height: '100%',

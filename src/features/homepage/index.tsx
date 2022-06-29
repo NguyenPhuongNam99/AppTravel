@@ -13,7 +13,8 @@ import images from '../../assets/images';
 import {dataMenuIcon} from './fake-data/FakeData';
 import TitleBlock from './Title-block/TitleBlock';
 import RecentSchedule from './recent-schedule/RecentSchedule';
-import AppMaterIcon from '../../components/icon/AppMaterialIcons';
+import ListPopularPlace from '../../components/list-popolar-place/ListPopularPlace';
+import ListHotelResort from '../../components/list-hotel-resort';
 
 const HomePage = () => {
   return (
@@ -53,15 +54,7 @@ const HomePage = () => {
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}
         />
-        <View style={styles.destinationPopolar}>
-          <View style={styles.destinationBlock}>
-            <Image
-              source={images.DESTINATION_POPULAR}
-              style={styles.imageSchedule}
-            />
-            <Text style={styles.titleDestination}>Lý Sơn, Quảng Ngãi</Text>
-          </View>
-        </View>
+        <ListPopularPlace />
         <TitleBlock
           label="Trải nghiệm nổi bật"
           navigateScreen={'SpecialExprience'}
@@ -74,36 +67,12 @@ const HomePage = () => {
           </View>
         </View>
         <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
-        <View style={styles.destinationPopolar}>
-          <View style={styles.destinationBlock}>
-            <Image
-              source={images.DESTINATION_POPULAR}
-              style={styles.imageSchedule}
-            />
-            <Text style={styles.titleDestination}>Lý Sơn, Quảng Ngãi</Text>
-          </View>
-        </View>
+        <ListPopularPlace />
         <TitleBlock
           label="Khách sạn & Resort"
           navigateScreen={'HotelResortDetail'}
         />
-        <View style={styles.hotelContainer}>
-          <View style={styles.hotelTop}>
-            <Image source={images.HOTEL} style={styles.imageSchedule} />
-          </View>
-          <View style={styles.hotelBottom}>
-            <View style={styles.bottomStar}>
-              <Text style={styles.colorBottom}>Khách sạn</Text>
-              <Image source={images.STAR} />
-            </View>
-            <Text style={styles.fontWeight}>The Herriott Hotel & Suite</Text>
-            <View style={styles.row}>
-              <AppMaterIcon name="place" color={'blue'} />
-              <Text>Phước Mỹ, Đà Nẵng</Text>
-            </View>
-            <Text style={styles.colorRed}>500,000 đ/ đêm</Text>
-          </View>
-        </View>
+        <ListHotelResort />
       </View>
     </ScrollView>
   );

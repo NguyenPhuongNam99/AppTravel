@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     paddingLeft: 7
   },
   destinationPopolar: {width: '100%', height: 200, marginLeft: 16, marginTop: 16},
-  destinationBlock: {width: 150, height: 200},
+  destinationBlock: {width: 150, height: '100%'},
   titleDestination: {
     position: 'absolute',
     bottom: 10,

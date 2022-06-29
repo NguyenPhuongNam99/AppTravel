@@ -4,6 +4,19 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from '../styles';
 
 const RecentSchedule = () => {
+  const data = [
+    {
+      id: '1',
+      imageTopLeft: images.SCHEDULE_ONE,
+      imageTopRight: images.RIGHT_SCHEDULE,
+      imageRightLeft: images.BOTTOM_SCHEDULE,
+      imageRight: images.BOTTOM_SCHEDULE_ONE,
+      place: 'Đà Lạt, Lâm Đồng',
+      time: '(5 ngày)',
+      price: '5,200,000 đ/ người',
+    },
+  ];
+
   return (
     <TouchableOpacity style={styles.scheduleContainer}>
       <View style={styles.topSchedule}>
