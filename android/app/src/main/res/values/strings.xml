@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OKGO</string>
+     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAFlFURrQHBz5Wq-Wdny51py2Gul2PC05c</string>
 </resources>

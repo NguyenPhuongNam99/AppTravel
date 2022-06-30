@@ -21,6 +21,8 @@ import PayGuide from '../features/profile/setting/pay';
 import Favourite from '../features/profile/favourite';
 import InformationProfile from '../features/profile/profile-information';
 import UpdateInformationProfile from '../features/profile/profile-information/profile-information-update';
+import Notification from '../features/notification';
+import DetailPlace from '../features/detail-place';
 
 const StackNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -57,6 +59,8 @@ const StackNavigation = () => {
         name="UpdateInformationProfile"
         component={UpdateInformationProfile}
       />
+      <Stack.Screen name="Notification" component={Notification} />
+      <Stack.Screen name="DetailPlace" component={DetailPlace} />
     </Stack.Navigator>
   );
 };

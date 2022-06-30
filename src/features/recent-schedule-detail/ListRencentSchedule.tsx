@@ -4,8 +4,10 @@ import {styles} from './styles';
 import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import AppIonicons from '../../components/icon/AppIonicons';
+import {useNavigation} from '@react-navigation/core';
 
 const ListRencentSchedule = () => {
+  const navigation = useNavigation();
   const data = [
     {
       id: '1',
@@ -27,7 +29,9 @@ const ListRencentSchedule = () => {
       showsHorizontalScrollIndicator={false}
       renderItem={({item}) => {
         return (
-          <View style={styles.scheduleContainer}>
+          <TouchableOpacity
+            style={styles.scheduleContainer}
+            onPress={() => navigation.navigate('DetailPlace' as never)}>
             <View style={styles.scheduleBlock}>
               <View style={styles.scheduleTop}>
                 <View style={styles.topLeftSchedule}>
@@ -85,7 +89,7 @@ const ListRencentSchedule = () => {
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         );
       }}
     />

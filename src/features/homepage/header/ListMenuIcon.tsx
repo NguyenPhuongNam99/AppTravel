@@ -20,6 +20,9 @@ const ListMenuIcon = () => {
     if (item.id === String(1)) {
       navigation.navigate('Profile' as never);
     }
+    if (item.id === String(3)) {
+      navigation.navigate('Notification' as never);
+    }
   };
   return (
     <View style={styles.listIcon}>
