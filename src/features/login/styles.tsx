@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: '#055EEE',
   },
+  imageAbsolute: {width: '100%', height: '100%', position: 'absolute'},
+  listContent: {width: '100%', height: '100%', zIndex: 99},
 });
 
 export default styles;

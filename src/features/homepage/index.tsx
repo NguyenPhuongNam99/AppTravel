@@ -15,8 +15,23 @@ import TitleBlock from './Title-block/TitleBlock';
 import RecentSchedule from './recent-schedule/RecentSchedule';
 import ListPopularPlace from '../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../components/list-hotel-resort';
+import homePageApi from './homepageApi';
 
 const HomePage = () => {
+  const _getListUser = async () => {
+    try {
+      const response = await homePageApi.getListUser();
+      console.log('response new data ', response);
+    } catch (error) {
+      console.log('err new', error);
+    }
+  };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      _getListUser();
+    }, 5000);
+  }, []);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>

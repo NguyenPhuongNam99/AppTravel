@@ -1,7 +1,6 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
-  StyleSheet,
   Image,
   ImageBackground,
   TextInput,
@@ -11,16 +10,35 @@ import {
 import images from '../../assets/images';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
+import loginAPI from './loginApi';
 
 const Login = () => {
   const navigation = useNavigation();
+  const [data, setData] = useState({
+    userName: '',
+    password: '',
+  });
+
+  const _onpRESS = async () => {
+    try {
+      const params = {
+        username: data.userName,
+        password: data.password,
+      };
+      const response = await loginAPI.login(params);
+      navigation.navigate('HomePage' as never);
+      console.log('response new', response);
+    } catch (error) {
+      console.log('err new', error);
+    }
+  };
   return (
     <View style={styles.container}>
       <ImageBackground
         source={images.BACKGROUND_LOGIN}
         resizeMode={'stretch'}
         style={styles.imageBackground}>
-        <View style={{width: '100%', height: '100%', zIndex: 99}}>
+        <View style={styles.listContent}>
           <View style={styles.topLevel}>
             <Image source={images.LOGO_ICON} style={styles.logoIcon} />
           </View>
@@ -30,15 +48,21 @@ const Login = () => {
                 style={styles.input}
                 placeholder="Nhập tài khoản của bạn"
                 placeholderTextColor={'white'}
+                value={data.userName}
+                onChangeText={(text: string) =>
+                  setData({...data, userName: text})
+                }
               />
               <TextInput
                 style={styles.input}
                 placeholder="Nhập mật khẩu của bạn"
                 placeholderTextColor={'white'}
+                value={data.password}
+                onChangeText={(text: string) =>
+                  setData({...data, password: text})
+                }
               />
-              <TouchableOpacity
-                style={styles.submit}
-                onPress={() => navigation.navigate('HomePage' as never)}>
+              <TouchableOpacity style={styles.submit} onPress={_onpRESS}>
                 <Text style={styles.colorSubmit}>Đăng nhập</Text>
               </TouchableOpacity>
 
@@ -55,7 +79,7 @@ const Login = () => {
         </View>
         <Image
           source={images.BACKGROUND_OPACITY}
-          style={{width: '100%', height: '100%', position: 'absolute'}}
+          style={styles.imageAbsolute}
         />
       </ImageBackground>
     </View>
