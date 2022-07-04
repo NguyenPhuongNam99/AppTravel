@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   Image,
@@ -10,7 +10,8 @@ import {
 import images from '../../assets/images';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
-import loginAPI from './loginApi';
+import {userContext} from '../../hook/useLogin';
+import Loading from '../../components/loading';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -18,20 +19,16 @@ const Login = () => {
     userName: '',
     password: '',
   });
+  const {_onLogin, getIsLoading} = useContext(userContext);
+  const loading = getIsLoading();
+  console.log('loading new', loading);
 
-  const _onpRESS = async () => {
-    try {
-      const params = {
-        username: data.userName,
-        password: data.password,
-      };
-      const response = await loginAPI.login(params);
-      navigation.navigate('HomePage' as never);
-      console.log('response new', response);
-    } catch (error) {
-      console.log('err new', error);
-    }
+  const onSubmit = () => {
+    _onLogin(data.userName, data.password)
+      .then(() => {})
+      .catch(err => console.log('err ', err));
   };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -62,7 +59,7 @@ const Login = () => {
                   setData({...data, password: text})
                 }
               />
-              <TouchableOpacity style={styles.submit} onPress={_onpRESS}>
+              <TouchableOpacity style={styles.submit} onPress={onSubmit}>
                 <Text style={styles.colorSubmit}>Đăng nhập</Text>
               </TouchableOpacity>
 
@@ -76,7 +73,9 @@ const Login = () => {
               </TouchableOpacity>
             </View>
           </View>
+          {loading && <Loading />}
         </View>
+
         <Image
           source={images.BACKGROUND_OPACITY}
           style={styles.imageAbsolute}

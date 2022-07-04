@@ -5,6 +5,7 @@ import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
+import {scheduleData} from '../homepage/fake-data/FakeData';
 
 const ListRencentSchedule = () => {
   const navigation = useNavigation();
@@ -24,9 +25,7 @@ const ListRencentSchedule = () => {
   ];
   return (
     <FlatList
-      data={data}
-      horizontal
-      showsHorizontalScrollIndicator={false}
+      data={scheduleData}
       renderItem={({item}) => {
         return (
           <TouchableOpacity
@@ -37,7 +36,7 @@ const ListRencentSchedule = () => {
                 <View style={styles.topLeftSchedule}>
                   <Image
                     resizeMode="cover"
-                    source={item.imageTop}
+                    source={item.imageTopLeft}
                     style={styles.imageSchedule}
                   />
                 </View>
@@ -51,13 +50,13 @@ const ListRencentSchedule = () => {
                   <View style={styles.topRightBottom}>
                     <View style={styles.bottomLeft}>
                       <Image
-                        source={item.imageRightLeft}
+                        source={item.imageTopLeftBottom}
                         style={styles.imageSchedule}
                       />
                     </View>
                     <View style={styles.bottomRight}>
                       <Image
-                        source={item.imageRight}
+                        source={item.imageTopRightBottom}
                         style={styles.imageSchedule}
                       />
                     </View>

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  Alert,
   Image,
   ImageBackground,
   Text,
@@ -11,8 +10,8 @@ import {
 import images from '../../assets/images';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
-import axios from 'axios';
 import registerApi from './registerApi';
+import Loading from '../../components/loading';
 
 const Register = () => {
   const [value, setValue] = useState({
@@ -20,6 +19,8 @@ const Register = () => {
     accountName: '',
     password: '',
   });
+  const [loading, setLoading] = useState<boolean>(false);
+
   const navigation = useNavigation();
   const subit = async () => {
     const params = {
@@ -28,10 +29,21 @@ const Register = () => {
       password: value.password,
     };
     try {
-      const response = await registerApi._onRegister(params);
-      console.log('response new', response);
+      setLoading(true);
+      await registerApi._onRegister(params).then(
+        () => (
+          navigation.navigate('Login' as never),
+          setValue({
+            email: '',
+            accountName: '',
+            password: '',
+          })
+        ),
+      );
+      setLoading(false);
     } catch (error) {
       console.log('err ne', error);
+      setLoading(false);
     }
   };
 
@@ -74,7 +86,12 @@ const Register = () => {
                   setValue({...value, password: text})
                 }
               />
-              <TouchableOpacity style={styles.submit} onPress={() => subit()}>
+              <TouchableOpacity
+                disabled={
+                  !value.accountName && !value.password && !value.email && true
+                }
+                style={styles.submit}
+                onPress={subit}>
                 <Text style={styles.colorSubmit}>Đăng ký</Text>
               </TouchableOpacity>
 
@@ -88,6 +105,7 @@ const Register = () => {
               </Text>
             </View>
           </View>
+          {loading && <Loading />}
         </View>
         <Image source={images.BACKGROUND_OPACITY} style={styles.imageOpacity} />
       </ImageBackground>

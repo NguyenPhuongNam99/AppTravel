@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   imageBlock: {
     height: 180,
     width: '100%',
-    opacity: 0.8,
+    // opacity: 0.8,
   },
   textTitle: {
     position: 'absolute',

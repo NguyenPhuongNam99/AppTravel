@@ -1,29 +1,37 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {FlatList, Image, Text, View} from 'react-native';
 import Header from '../../components/header/Header';
 import {styles} from './styles';
 import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
+import {dataSpecialExperience} from '../homepage/fake-data/FakeData';
 
 const SpecialExprience = () => {
   return (
     <View style={styles.container}>
       <Header title="Trải nghiệm nổi bật" />
-      <View style={styles.specialContainer}>
-        <View style={styles.specialBlock}>
-          <View style={styles.specialTop}>
-            <Image source={images.EXPERIENCE_SPECIAL} style={styles.image} />
-          </View>
-          <View style={styles.specialBottom}>
-            <Text>Ngắm bình minh Phú Yên</Text>
-            <View style={styles.flex}>
-              <AppMaterIcon name="place" color={'#3076FE'} />
-              <Text>Phú Yên, Việt Nam</Text>
+      <FlatList
+        data={dataSpecialExperience}
+        renderItem={({item}) => {
+          return (
+            <View style={styles.specialContainer}>
+              <View style={styles.specialBlock}>
+                <View style={styles.specialTop}>
+                  <Image source={item.image} style={styles.image} />
+                </View>
+                <View style={styles.specialBottom}>
+                  <Text>{item.title}</Text>
+                  <View style={styles.flex}>
+                    <AppMaterIcon name="place" color={'#3076FE'} />
+                    <Text>{item.place}</Text>
+                  </View>
+                  <Text style={styles.colorTitle}>Từ {item.price}</Text>
+                </View>
+              </View>
             </View>
-            <Text style={styles.colorTitle}>Từ 1.000.000 đ</Text>
-          </View>
-        </View>
-      </View>
+          );
+        }}
+      />
     </View>
   );
 };

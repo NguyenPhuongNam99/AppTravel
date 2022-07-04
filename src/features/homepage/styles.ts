@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   padding: {
     paddingLeft: 7
   },
-  destinationPopolar: {width: '100%', height: 200, marginLeft: 16, marginTop: 16},
+  destinationPopolar: {width: 150, height: 200, marginLeft: 16, marginTop: 16, borderRadius: 20},
   destinationBlock: {width: 150, height: '100%'},
   titleDestination: {
     position: 'absolute',
@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
   row: {flexDirection: 'row'},
   colorRed: {color: 'red'},
   specialContainer: {
-    width: '100%',
-    height: 230,
+    width: 220,
+    height: 235,
     marginLeft: 16,
     marginTop: 16,
   },

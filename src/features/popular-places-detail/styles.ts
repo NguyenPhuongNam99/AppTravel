@@ -20,13 +20,14 @@ export const styles = StyleSheet.create({
   imageBlock: {
     height: 180,
     width: '100%',
-    opacity: 0.8,
+    // opacity: 0.8,
   },
   textTitle: {
     position: 'absolute',
-    top: '40%',
-    left: '45%',
+    top: '44%',
+    // left: '45%',
     color: 'white',
+    alignSelf: 'center'
   },
   textPlace: {
     position: 'absolute',
