@@ -263,7 +263,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':react-native-vector-icons')
-    implementation project(':react-native-maps')
     implementation project(':react-native-background-timer')
 
     //noinspection GradleDynamicVersion

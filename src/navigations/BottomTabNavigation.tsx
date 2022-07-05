@@ -17,8 +17,12 @@ function BottomTabNavigation() {
         name="HomePage"
         component={HomePage}
         options={{
-          tabBarIcon: () => (
-            <AppIonicons name="ios-home" size={27} color={'#9A9A9A'} />
+          tabBarIcon: tabInfo => (
+            <AppIonicons
+              name="ios-home"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
           ),
         }}
       />
@@ -26,8 +30,12 @@ function BottomTabNavigation() {
         name="Discount"
         component={Discount}
         options={{
-          tabBarIcon: () => (
-            <AppFoundation name="shopping-bag" size={27} color={'#9A9A9A'} />
+          tabBarIcon: tabInfo => (
+            <AppFoundation
+              name="shopping-bag"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
           ),
         }}
       />
@@ -35,8 +43,12 @@ function BottomTabNavigation() {
         name="Notification"
         component={Notification}
         options={{
-          tabBarIcon: () => (
-            <AppMaterIcon name="notifications" size={27} color={'#9A9A9A'} />
+          tabBarIcon: tabInfo => (
+            <AppMaterIcon
+              name="notifications"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
           ),
         }}
       />
@@ -44,8 +56,12 @@ function BottomTabNavigation() {
         name="Profile"
         component={Profile}
         options={{
-          tabBarIcon: () => (
-            <AppMaterIcon name="account-circle" size={27} color={'#9A9A9A'} />
+          tabBarIcon: tabInfo => (
+            <AppMaterIcon
+              name="account-circle"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
           ),
         }}
       />

@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
-import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
@@ -9,20 +8,6 @@ import {scheduleData} from '../homepage/fake-data/FakeData';
 
 const ListRencentSchedule = () => {
   const navigation = useNavigation();
-  const data = [
-    {
-      id: '1',
-      headerTitle: 'Đà Lạt, Lâm Đồng',
-      time: '(5 ngày)',
-      place: 'Việt Nam',
-      title: 'Trải nghiệm vẻ đẹp của Đà Lạt',
-      price: '5,200,000 đ/ người',
-      imageTop: images.SCHEDULE_ONE,
-      imageTopRight: images.RIGHT_SCHEDULE,
-      imageRightLeft: images.BOTTOM_SCHEDULE,
-      imageRight: images.BOTTOM_SCHEDULE_ONE,
-    },
-  ];
   return (
     <FlatList
       data={scheduleData}
@@ -30,7 +15,12 @@ const ListRencentSchedule = () => {
         return (
           <TouchableOpacity
             style={styles.scheduleContainer}
-            onPress={() => navigation.navigate('DetailPlace' as never)}>
+            onPress={() =>
+              navigation.navigate(
+                'RecentScheduleDetailV2' as never,
+                {item: item} as never,
+              )
+            }>
             <View style={styles.scheduleBlock}>
               <View style={styles.scheduleTop}>
                 <View style={styles.topLeftSchedule}>
@@ -66,7 +56,7 @@ const ListRencentSchedule = () => {
               <View style={styles.scheduleBottom}>
                 <View style={styles.titleContainer}>
                   <Text style={styles.bold}>
-                    {item.headerTitle}
+                    {item.title}{' '}
                     <Text style={styles.colorTime}>{item.time}</Text>
                   </Text>
                   <View style={styles.destination}>
@@ -76,7 +66,7 @@ const ListRencentSchedule = () => {
                 </View>
                 <View style={styles.bottomBlock}>
                   <View style={styles.bottomLeft1}>
-                    <Text>{item.title}</Text>
+                    <Text numberOfLines={1}>{item.description}</Text>
                   </View>
                   <TouchableOpacity style={styles.bottomRight1}>
                     <Text style={styles.price}>{item.price}</Text>

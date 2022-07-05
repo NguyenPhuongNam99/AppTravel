@@ -96,3 +96,16 @@ export const createAppError = (type, error, appErrorCode) => {
 export const handleException = (error: unknown): void => {
   console.log(error);
 };
+
+export const checkbackground = (indexValue: number, indexData: number) => {
+  if (indexValue === indexData) {
+    return {backgroundColor: '#FF5F24'};
+  }
+  return {backgroundColor: '#ECF1FF'};
+};
+export const checkColor = (indexValue: number, indexData: number) => {
+  if (indexValue === indexData) {
+    return {color: 'white'};
+  }
+  return {color: '#242424'};
+};

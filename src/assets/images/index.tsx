@@ -61,5 +61,10 @@ const images = {
   HOTELROSRT: require('./scheduleData27.jpeg'),
   HOTELROSRT1: require('./scheduleData28.jpeg'),
   HOTELROSRT2: require('./scheduleData29.jpeg'),
+  MAP: require('./map.png'),
+  SCHEDULE_DATA31: require('./scheduleData31.jpeg'),
+  SCHEDULE_DATA32: require('./scheduleData32.jpeg'),
+  SCHEDULE_DATA33: require('./scheduleData33.jpeg'),
+  SCHEDULE_DATA34: require('./scheduleData35.jpeg'),
 };
 export default images;

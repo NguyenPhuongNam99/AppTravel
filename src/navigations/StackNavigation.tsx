@@ -25,6 +25,8 @@ import Notification from '../features/notification';
 import DetailPlace from '../features/detail-place';
 import BottomTabNavigation from './BottomTabNavigation';
 import {userAppUser} from '../hook/useLogin';
+import RecentScheduleDetailV2 from '../features/detail-ver2/recent-schedule-detail';
+import ScheduleOverview from '../features/scheduleOverview';
 
 const StackNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -84,6 +86,11 @@ const StackNavigation = () => {
           />
           <Stack.Screen name="Notification" component={Notification} />
           <Stack.Screen name="DetailPlace" component={DetailPlace} />
+          <Stack.Screen
+            name="RecentScheduleDetailV2"
+            component={RecentScheduleDetailV2}
+          />
+          <Stack.Screen name="ScheduleOverview" component={ScheduleOverview} />
         </Stack.Navigator>
       )}
     </>

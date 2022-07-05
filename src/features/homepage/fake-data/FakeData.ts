@@ -62,21 +62,293 @@ export const scheduleData = [
     imageTopRight: images.SCHEDULE_DATA2,
     imageTopLeftBottom: images.SCHEDULE_DATA3,
     imageTopRightBottom: images.SCHEDULE_DATA4,
+    durationTime: '5/12 - 10/12',
     title: 'Tràng An, Ninh Bình',
     place: 'Việt Nam',
     price: '5,200,000 đ/ người',
-    time: '10 giờ trước'
+    time: '10 giờ trước',
+    description: 'Di sản thiên nhiên thế giới',
+    headerText1: 'Khám phá Danh lam thắng cảnh Tràng An Ninh Bình',
+    textHeader1: 'Tràng An là một Khu du lịch sinh thái nằm trong Quần thể di sản thế giới Tràng An thuộc tỉnh Ninh Bình. Nơi đây đã được Chính phủ Việt Nam xếp hạng di tích quốc gia đặc biệt quan trọng và UNESCO công nhận là di sản thế giới kép từ năm 2014 (Di sản Văn hóa và Thiên nhiên). Bài viết này sẽ tổng hợp những thông tin hữu ích nhất cho du khách trong chuyến hành trình du lịch khám phá Tràng An Ninh Bình.',
+    headerText2: 'Di chuyển từ Thành Phố Hà Nội đi Mã Phì Lèng',
+    textHeader2: 'Xe máy từ 200k đến 500k, Ô tô từ 500k đến 1 triệu',
+    HeaderText3: 'Thời điểm thích hợp để khám phá là :',
+    textHeader3: '8h sáng đến 17h chiều',
+    HeaderText4: 'Nơi ở :',
+    textHeader4: 'Đến với nơi đây có rất nhiều lựa chọn về nơi ở cho quý khách như ở HomeStay, khách sạn hay những nhà lưu chú của người dân',
+    Day1: {
+      date: '5/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day2: {
+      date: '6/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day3: {
+      date: '7/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day4: {
+      date: '8/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        
+      ]
+    },
+
   },
   {
     id: '2',
-    imageTopLeft: images.SCHEDULE_ONE,
-    imageTopRight: images.RIGHT_SCHEDULE,
-    imageTopLeftBottom: images.BOTTOM_SCHEDULE,
-    imageTopRightBottom: images.BOTTOM_SCHEDULE_ONE,
-    title: 'Đà Lạt, Lâm Đồng',
+    imageTopLeft: images.SCHEDULE_DATA31,
+    imageTopRight: images.SCHEDULE_DATA32,
+    imageTopLeftBottom: images.SCHEDULE_DATA33,
+    imageTopRightBottom: images.SCHEDULE_DATA34,
+    durationTime: '5/12 - 10/12',
+    title: 'Hà Giang ơi ơii!',
     place: 'Việt Nam',
     price: '5,200,000 đ/ người',
-    time: '10 giờ trước'
+    time: '10 giờ trước',
+    description: 'Mảnh đất thiên nhiên đất trời',
+    headerText1: 'Khám phá những con đèo độc nhất vô nhị của Việt Nam',
+    textHeader1: 'Đèo Mã Pì Lèng hay còn gọi là Mả Pí Lèng, Mã Pỉ Lèng (nghĩa là “sống mũi con ngựa”) được mệnh danh là vua của các con đèo ở vùng núi Tây Bắc, là cung đường đèo hiểm trở dài khoảng 20km, thuộc xã Pả Vi và Pải Lủng, huyện Mèo Vạc và xã Tả Lủng huyện Đồng Văn.',
+    headerText2: 'Di chuyển từ Thành Phố Hà Nội đi Mã Phì Lèng',
+    textHeader2: 'Xe máy từ 200k đến 500k, Ô tô từ 500k đến 1 triệu',
+    HeaderText3: 'Thời điểm thích hợp để khám phá là :',
+    textHeader3: '8h sáng đến 17h chiều',
+    HeaderText4: 'Nơi ở :',
+    textHeader4: 'Đến với nơi đây có rất nhiều lựa chọn về nơi ở cho quý khách như ở HomeStay, khách sạn hay những nhà lưu chú của người dân',
+    Day1: {
+      date: '5/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day2: {
+      date: '6/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day3: {
+      date: '7/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day4: {
+      date: '8/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        
+      ]
+    },
+
   },
   {
     id: '3',
@@ -84,10 +356,147 @@ export const scheduleData = [
     imageTopRight: images.SCHEDULE_DATA6,
     imageTopLeftBottom: images.SCHEDULE_DATA7,
     imageTopRightBottom: images.SCHEDULE_DATA8,
+    durationTime: '5/12 - 10/12',
     title: 'Bái Đính, Ninh Bình',
     place: 'Việt Nam',
     price: '5,200,000 đ/ người',
-    time: '10 giờ trước'
+    time: '10 giờ trước',
+    description: 'Cuội nguồn của Phật Giáo VN',
+    headerText1: 'Dõi theo cuội nguồn Phật giáo Việt Nam',
+    textHeader1: 'Chùa Bái Đính là một danh thắng tâm linh nằm trong quần thể khu du lịch sinh thái Bái Đính – Tràng An với bề dày lịch sử hơn 1000 năm tuổi gắn với vùng đất của nhiều triều đại phong kiến từ nhà Đinh, nhà Tiền Lê đến nhà Lý. Cùng khám phá những kinh nghiệm đi chùa Bái Đính – đệ nhất danh thắng tâm linh ở Ninh Bình ',
+    headerText2: 'Di chuyển từ Thành Phố Hà Nội đi Mã Phì Lèng',
+    textHeader2: 'Xe máy từ 200k đến 500k, Ô tô từ 500k đến 1 triệu',
+    HeaderText3: 'Thời điểm thích hợp để trải nghiệm và học hỏi là :',
+    textHeader3: '8h sáng đến 17h chiều',
+    HeaderText4: 'Nơi ở :',
+    textHeader4: 'Đến với không gian học Phật giáo, bạn có thể xin lưu trú lại trù hoặc ở các nhà lều dưới chân chùa. Hi vọng sẽ mang lại cho bạn nhiều trải nghiệm quý giá và học hỏi được cho bản thân mình khi ở lại chùa vào ban đêm để tu dưỡng, tĩnh tâm một cách dễ dàng',
+    Day1: {
+      date: '5/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day2: {
+      date: '6/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        
+      ]
+    },
+    Day3: {
+      date: '7/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day4: {
+      date: '8/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        
+      ]
+    },
+
   },
   {
     id: '4',
@@ -95,10 +504,146 @@ export const scheduleData = [
     imageTopRight: images.SCHEDULE_DATA10,
     imageTopLeftBottom: images.SCHEDULE_DATA11,
     imageTopRightBottom: images.SCHEDULE_DATA12,
+    durationTime: '5/12 - 10/12',
     title: 'Chùa Đồng, Yên Tử',
     place: 'Việt Nam',
     price: '5,200,000 đ/ người',
-    time: '10 giờ trước'
+    time: '10 giờ trước',
+    description: 'Di tích lịch sử của Quốc gia',
+    headerText1: 'Khám phá Di tích lịch sử của Quốc gia',
+    textHeader1: 'Chùa Đồng là địa điểm nổi tiếng nhất trong quần thể di tích danh thắng Yên Tử (Quảng Ninh), là đích đến của mọi tăng ni, phật tử, du khách thập phương khi hành hương về đất thiêng Yên Tử. Theo quan niệm của các tăng ni, phật tử, chùa Đồng là nơi con người có thể cầu viện được "sinh lực vũ trụ” cho mọi mặt cuộc đời.',
+    headerText2: 'Di chuyển từ Thành Phố Hà Nội đi Mã Phì Lèng',
+    textHeader2: 'Xe máy từ 200k đến 500k, Ô tô từ 500k đến 1 triệu',
+    HeaderText3: 'Thời điểm thích hợp để khám phá là :',
+    textHeader3: '8h sáng đến 17h chiều',
+    HeaderText4: 'Nơi ở :',
+    textHeader4: 'Đến với không gian học Phật giáo, bạn có thể xin lưu trú lại trù hoặc ở các nhà lều dưới chân chùa. Hi vọng sẽ mang lại cho bạn nhiều trải nghiệm quý giá và học hỏi được cho bản thân mình khi ở lại chùa vào ban đêm để tu dưỡng, tĩnh tâm một cách dễ dàng',
+    Day1: {
+      date: '5/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day2: {
+      date: '6/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day3: {
+      date: '7/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+      ]
+    },
+    Day4: {
+      date: '8/12/2019',
+      schedule: [
+        {
+          idSchedule: '1',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        {
+          idSchedule: '2',
+          namePlace: 'Làng chài Nhơn Hải',
+          durationGo: '1 giờ',
+          distanCar: '17 km',
+          timeStart: '8:15'
+        }, {
+          idSchedule: '3',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        }, {
+          idSchedule: '4',
+          namePlace: 'Tháp đôi',
+          durationGo: '45 phút',
+          distanCar: '17 km',
+          timeStart: '7:00'
+        },
+        
+      ]
+    },
+
   },
 ]
 

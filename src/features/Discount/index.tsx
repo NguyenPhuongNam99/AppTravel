@@ -1,10 +1,16 @@
 import React from 'react';
-import {Image, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
 import Header from '../../components/header/Header';
 import images from '../../assets/images';
 import styles from './styles';
 import {dataDiscount} from '../homepage/fake-data/FakeData';
-// import MapView from 'react-native-maps';
 
 const Discount = () => {
   return (
