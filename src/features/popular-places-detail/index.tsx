@@ -5,8 +5,10 @@ import Header from '../../components/header/Header';
 import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import {dataListPoPularPlace} from '../homepage/fake-data/FakeData';
+import {useNavigation} from '@react-navigation/core';
 
 const PlacePoplular = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Header title="Địa điểm phổ biến" />
@@ -14,8 +16,16 @@ const PlacePoplular = () => {
         data={dataListPoPularPlace}
         style={{marginBottom: 10}}
         renderItem={({item}) => {
+          console.log('item data', item);
           return (
-            <TouchableOpacity style={styles.popularContainer}>
+            <TouchableOpacity
+              style={styles.popularContainer}
+              onPress={() =>
+                navigation.navigate(
+                  'PopularPlaceDetailV2' as never,
+                  {item: item} as never,
+                )
+              }>
               <View style={styles.popularBlock}>
                 {/* <View style={styles.position} /> */}
                 <Image

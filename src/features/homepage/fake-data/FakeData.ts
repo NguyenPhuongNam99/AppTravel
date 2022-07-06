@@ -76,131 +76,146 @@ export const scheduleData = [
     textHeader3: '8h sáng đến 17h chiều',
     HeaderText4: 'Nơi ở :',
     textHeader4: 'Đến với nơi đây có rất nhiều lựa chọn về nơi ở cho quý khách như ở HomeStay, khách sạn hay những nhà lưu chú của người dân',
-    Day1: {
-      date: '5/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day2: {
-      date: '6/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day3: {
-      date: '7/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day4: {
-      date: '8/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        
-      ]
-    },
+    listSchedule: [
+     {
+        date: '5/12/2019',
+        datetime: 'Ngày 1',
+        schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Ninh Bình',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Đền Thánh Cao Sơn',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tràng An',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Cố đô Hoa Lư',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+        ]
+      },
+      {
+        date: '6/12/2019',
+        datetime: 'Ngày 2',
+        schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData5
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Tam Cốc Bích Động',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData6
+          }, {
+            idSchedule: '3',
+            namePlace: 'Rừng Cúc Phương',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData7
+          }
+        ]
+      },
+       {
+        date: '7/12/2019',
+        datetime: 'Ngày 3',
+        schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+        ]
+      },
+      {
+        date: '8/12/2019',
+        datetime: 'Ngày 4',
+        schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+          
+        ]
+      },
+    ]
 
   },
   {
@@ -223,131 +238,104 @@ export const scheduleData = [
     textHeader3: '8h sáng đến 17h chiều',
     HeaderText4: 'Nơi ở :',
     textHeader4: 'Đến với nơi đây có rất nhiều lựa chọn về nơi ở cho quý khách như ở HomeStay, khách sạn hay những nhà lưu chú của người dân',
-    Day1: {
-      date: '5/12/2019',
-      schedule: [
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Hà Giang',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData8
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Cổng Trời Quản Bạ',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData9
+          }, {
+            idSchedule: '3',
+            namePlace: 'Dinh thự họ Vương',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData10
+          }, {
+            idSchedule: '4',
+            namePlace: 'Cột Cờ Lũng Cú',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData11
+          },
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Pú Đao',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData13
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Quản Bạ',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData14
+          },
+         ]
+       },
         {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day2: {
-      date: '6/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day3: {
-      date: '7/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day4: {
-      date: '8/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        
-      ]
-    },
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Đồng Văn -Lũng Cú',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData15
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Đồng Văn -Lũng Cú',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData17
+          },
+         
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Quay trở về thành phố Hà Giang',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData16
+          },
+         
+         ]
+       },
+     ]
 
   },
   {
@@ -370,132 +358,152 @@ export const scheduleData = [
     textHeader3: '8h sáng đến 17h chiều',
     HeaderText4: 'Nơi ở :',
     textHeader4: 'Đến với không gian học Phật giáo, bạn có thể xin lưu trú lại trù hoặc ở các nhà lều dưới chân chùa. Hi vọng sẽ mang lại cho bạn nhiều trải nghiệm quý giá và học hỏi được cho bản thân mình khi ở lại chùa vào ban đêm để tu dưỡng, tĩnh tâm một cách dễ dàng',
-    Day1: {
-      date: '5/12/2019',
-      schedule: [
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'thăm quan chùa',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData19
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tam Cốc',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData20
+          }, {
+            idSchedule: '1',
+            namePlace: 'Hang Múa',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
         {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day2: {
-      date: '6/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        
-      ]
-    },
-    Day3: {
-      date: '7/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day4: {
-      date: '8/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        
-      ]
-    },
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
+     ]
 
   },
   {
@@ -518,131 +526,153 @@ export const scheduleData = [
     textHeader3: '8h sáng đến 17h chiều',
     HeaderText4: 'Nơi ở :',
     textHeader4: 'Đến với không gian học Phật giáo, bạn có thể xin lưu trú lại trù hoặc ở các nhà lều dưới chân chùa. Hi vọng sẽ mang lại cho bạn nhiều trải nghiệm quý giá và học hỏi được cho bản thân mình khi ở lại chùa vào ban đêm để tu dưỡng, tĩnh tâm một cách dễ dàng',
-    Day1: {
-      date: '5/12/2019',
-      schedule: [
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
         {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day2: {
-      date: '6/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day3: {
-      date: '7/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-      ]
-    },
-    Day4: {
-      date: '8/12/2019',
-      schedule: [
-        {
-          idSchedule: '1',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        {
-          idSchedule: '2',
-          namePlace: 'Làng chài Nhơn Hải',
-          durationGo: '1 giờ',
-          distanCar: '17 km',
-          timeStart: '8:15'
-        }, {
-          idSchedule: '3',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        }, {
-          idSchedule: '4',
-          namePlace: 'Tháp đôi',
-          durationGo: '45 phút',
-          distanCar: '17 km',
-          timeStart: '7:00'
-        },
-        
-      ]
-    },
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+          {
+            idSchedule: '2',
+            namePlace: 'Làng chài Nhơn Hải',
+            durationGo: '1 giờ',
+            distanCar: '17 km',
+            timeStart: '8:15',
+            image: images.DetailData2
+          }, {
+            idSchedule: '3',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData3
+          }, {
+            idSchedule: '4',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData4
+          },
+           
+         ]
+       },
+     ]
 
   },
 ]
@@ -650,27 +680,30 @@ export const scheduleData = [
 export const dataListPoPularPlace = [
   {
     id: '1',
-    title: 'Rừng Dừa',
+    title: 'Rừng Dừa Bảy Mẫu',
     image: images.SCHEDULE_DATA15,
-    place: 'Quảng Nam'
+    place: 'Quảng Nam, Việt Nam',
+    price: '2.500.000đ'
   },
   {
     id: '2',
     title: 'Cầu Tình Yêu',
     image: images.SCHEDULE_DATA14,
-    place: 'Đà Nẵng'
+    place: 'Đà Nẵng, Việt Nam',
+    price: '2.500.000đ'
   },
   {
     id: '3',
     title: 'Cá Chép Hoá Rồng',
     image: images.SCHEDULE_DATA13,
-    place: 'Đà Nẵng'
+    place: 'Đà Nẵng, Việt Nam',
+    price: '2.500.000đ'
   },
   {
     id: '4',
     title: 'Lý Sơn, Quảng Ngãi',
     image: images.SCHEDULE_DATA24,
-    place: 'Quảng Ngãi',
+    place: 'Quảng Ngãi, Việt Nam',
     price: '2.500.000đ'
   },
 ]

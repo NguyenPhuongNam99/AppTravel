@@ -40,8 +40,12 @@ export const styles = StyleSheet.create({
     marginTop: 16,
     marginLeft: 16,
   },
-  blockviewPlan: {width: 150, height: '100%', marginRight: 16},
-  viewPlan: {width: 150, height: 240, backgroundColor: 'blue'},
+  blockviewPlan: {
+    width: 150,
+    height: '100%',
+    marginRight: 16,
+  },
+  viewPlan: {width: 150, height: 200},
   back: {position: 'absolute', top: '20%', left: 10},
   viewTitleBlock: {
     flexDirection: 'column',

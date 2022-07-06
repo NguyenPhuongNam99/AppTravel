@@ -27,6 +27,9 @@ import BottomTabNavigation from './BottomTabNavigation';
 import {userAppUser} from '../hook/useLogin';
 import RecentScheduleDetailV2 from '../features/detail-ver2/recent-schedule-detail';
 import ScheduleOverview from '../features/scheduleOverview';
+import DetailPlan from '../features/scheduleOverview/plan-detail';
+import TitleBlock from '../features/homepage/Title-block/TitleBlock';
+import PopularPlaceDetailV2 from '../features/detail-ver2/popular-place-detail';
 
 const StackNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -53,7 +56,7 @@ const StackNavigation = () => {
             name="BottomTabNavigation"
             component={BottomTabNavigation}
           />
-
+          <Stack.Screen name="TitleBlock" component={TitleBlock} />
           <Stack.Screen name="HomePage" component={HomePage} />
           <Stack.Screen name="Discount" component={Discount} />
           <Stack.Screen
@@ -91,6 +94,11 @@ const StackNavigation = () => {
             component={RecentScheduleDetailV2}
           />
           <Stack.Screen name="ScheduleOverview" component={ScheduleOverview} />
+          <Stack.Screen name="DetailPlan" component={DetailPlan} />
+          <Stack.Screen
+            name="PopularPlaceDetailV2"
+            component={PopularPlaceDetailV2}
+          />
         </Stack.Navigator>
       )}
     </>

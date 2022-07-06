@@ -21,7 +21,8 @@ const ScheduleOverview = ({route}) => {
   const [indexData, setIndexData] = useState<number>(0);
   const navigation = useNavigation();
 
-  console.log('item preess,', item);
+  console.log('item preess,', item?.listSchedule[0].schedule.length);
+  console.log('newwww ====', item?.listSchedule[0].date);
 
   const dataMenuOverviewSchedule = [
     {
@@ -47,7 +48,7 @@ const ScheduleOverview = ({route}) => {
       {/* <SafeAreaView style={styles.safeView} /> */}
       <View style={styles.imageBlock}>
         <Image
-          source={item.imageTopLeft}
+          source={item?.imageTopLeft}
           resizeMode="stretch"
           style={styles.fullwidth}
         />
@@ -62,7 +63,7 @@ const ScheduleOverview = ({route}) => {
       </View>
       <View style={styles.titleAvatar}>
         <Text style={styles.bold}>{item.title}</Text>
-        <Text>{item.durationTime}</Text>
+        <Text>{item?.durationTime}</Text>
       </View>
       <View style={styles.blockMenuIcon}>
         <FlatList
@@ -80,19 +81,24 @@ const ScheduleOverview = ({route}) => {
           }}
         />
       </View>
-      <TitleBlock label="Kế hoạch" navigateScreen={'Discount'} />
+      <TitleBlock
+        label="Kế hoạch"
+        navigateScreen={'DetailPlan'}
+        passData={item}
+      />
+
       <View style={styles.planContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.blockviewPlan}>
             <View style={styles.viewPlan}>
-              <Image source={item.imageTopRight} style={styles.fullwidth} />
+              <Image source={item?.imageTopRight} style={styles.fullwidth} />
             </View>
             <View style={styles.viewTitleBlock}>
-              <Text>{item.Day1.date}</Text>
+              <Text>{item?.listSchedule[0].date}</Text>
               <Text
                 style={
                   styles.colorDestination
-                }>{`${item.Day1.schedule.length} điểm đến`}</Text>
+                }>{`${item?.listSchedule[0].schedule.length} điểm đến`}</Text>
             </View>
           </View>
           <View style={styles.blockviewPlan}>
@@ -103,11 +109,11 @@ const ScheduleOverview = ({route}) => {
               />
             </View>
             <View style={styles.viewTitleBlock}>
-              <Text>{item.Day2.date}</Text>
+              <Text>{item?.listSchedule[1].date}</Text>
               <Text
                 style={
                   styles.colorDestination
-                }>{`${item.Day2.schedule.length} điểm đến`}</Text>
+                }>{`${item?.listSchedule[1].schedule.length} điểm đến`}</Text>
             </View>
           </View>
           <View style={styles.blockviewPlan}>
@@ -118,11 +124,11 @@ const ScheduleOverview = ({route}) => {
               />
             </View>
             <View style={styles.viewTitleBlock}>
-              <Text>{item.Day3.date}</Text>
+              <Text>{item?.listSchedule[2].date}</Text>
               <Text
                 style={
                   styles.colorDestination
-                }>{`${item.Day3.schedule.length} điểm đến`}</Text>
+                }>{`${item?.listSchedule[2].schedule.length} điểm đến`}</Text>
             </View>
           </View>
           <View style={styles.blockviewPlan}>
@@ -130,11 +136,11 @@ const ScheduleOverview = ({route}) => {
               <Image source={item.imageTopLeft} style={styles.fullwidth} />
             </View>
             <View style={styles.viewTitleBlock}>
-              <Text>{item.Day4.date}</Text>
+              <Text>{item?.listSchedule[3].date}</Text>
               <Text
                 style={
                   styles.colorDestination
-                }>{`${item.Day4.schedule.length} điểm đến`}</Text>
+                }>{`${item?.listSchedule[3].schedule.length} điểm đến`}</Text>
             </View>
           </View>
         </ScrollView>
@@ -155,7 +161,7 @@ const ScheduleOverview = ({route}) => {
       </View>
       <View style={styles.blockSubmit}>
         <View style={styles.leftSubmit}>
-          <Text style={styles.colorLeftSubmit}>{item.price}</Text>
+          <Text style={styles.colorLeftSubmit}>{item?.price}</Text>
         </View>
         <View style={styles.rightSubmit}>
           <TouchableOpacity

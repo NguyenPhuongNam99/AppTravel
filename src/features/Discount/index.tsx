@@ -12,7 +12,9 @@ import images from '../../assets/images';
 import styles from './styles';
 import {dataDiscount} from '../homepage/fake-data/FakeData';
 
-const Discount = () => {
+const Discount = ({route}) => {
+  const {item} = route.params;
+  console.log('item discount', item);
   return (
     <View style={styles.container}>
       <Header title="Khuyến mại" />

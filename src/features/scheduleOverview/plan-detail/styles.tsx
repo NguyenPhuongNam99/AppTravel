@@ -1,0 +1,117 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  blockimage: {
+    width: '100%',
+    height: 170,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {width: '100%', height: '100%', opacity: 0.85},
+  position: {
+    position: 'absolute',
+  },
+  colorWhite: {color: 'white', textAlign: 'center'},
+  DateContainer: {
+    width: '100%',
+    marginTop: 16,
+    paddingHorizontal: 16,
+  },
+  DateView: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#BEBEBE',
+    width: '100%',
+    paddingBottom: 4,
+  },
+  blockDate: {
+    width: 90,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  contentContainer: {
+    width: '100%',
+    height: '100%',
+    // marginTop: 16,
+  },
+  listContainer: {
+    width: '100%',
+    height: 80,
+    paddingHorizontal: 16,
+    marginTop: 16,
+    borderRadius: 15,
+  },
+  blockList: {
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    borderRadius: 15,
+  },
+  leftList: {
+    width: '10%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  rightList: {
+    width: '90%',
+    height: '100%',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+  },
+  rightLeftList: {
+    width: '35%',
+    height: '100%',
+  },
+  rightDoubleList: {
+    width: '65%',
+    height: '100%',
+    paddingLeft: 10,
+    paddingVertical: 10,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  dottedView: {
+    width: 18,
+    height: 18,
+    borderRadius: 20,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fullWidth: {width: '100%', height: '100%'},
+  blockSubmit: {
+    position: 'absolute',
+    width: '100%',
+    height: 60,
+    bottom: 0,
+    left: 0,
+    backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+  },
+  leftSubmit: {
+    width: '60%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  colorLeftSubmit: {color: '#FF5F24', fontSize: 16},
+  rightSubmit: {
+    width: '40%',
+    height: '100%',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  rightClick: {
+    width: 92,
+    height: 30,
+    backgroundColor: '#FF5F24',
+    borderRadius: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
