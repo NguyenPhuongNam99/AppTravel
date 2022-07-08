@@ -22,6 +22,9 @@
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
   std::shared_ptr<const facebook::react::ReactNativeConfig> _reactNativeConfig;
   facebook::react::ContextContainer::Shared _contextContainer;
+  
+  
+  
 }
 @end
 #endif
@@ -30,7 +33,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // [GMSServices provideAPIKey:@"AIzaSyA29HCnJTw_bZ9ZMsoW6k7Z6OSXOmk-4_c"];
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];

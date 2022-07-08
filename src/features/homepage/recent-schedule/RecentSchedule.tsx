@@ -3,8 +3,10 @@ import React from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from '../styles';
 import {scheduleData} from '../fake-data/FakeData';
+import {useNavigation} from '@react-navigation/core';
 
 const RecentSchedule = () => {
+  const navigation = useNavigation();
   const data = [
     {
       id: '1',
@@ -25,7 +27,14 @@ const RecentSchedule = () => {
       showsHorizontalScrollIndicator={false}
       renderItem={({item}) => {
         return (
-          <TouchableOpacity style={styles.scheduleContainer}>
+          <TouchableOpacity
+            style={styles.scheduleContainer}
+            onPress={() =>
+              navigation.navigate(
+                'RecentScheduleDetailV2' as never,
+                {item: item} as never,
+              )
+            }>
             <View style={styles.topSchedule}>
               <View style={styles.topLeftSchedule}>
                 <Image

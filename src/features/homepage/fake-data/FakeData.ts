@@ -683,28 +683,52 @@ export const dataListPoPularPlace = [
     title: 'Rừng Dừa Bảy Mẫu',
     image: images.SCHEDULE_DATA15,
     place: 'Quảng Nam, Việt Nam',
-    price: '2.500.000đ'
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    image1: images.popularDetail,
+    image2: images.popularDetail2,
+    image3: images.popularDetail3,
+    textHeader: 'Rừng dừa Bảy Mẫu thuộc xã Cẩm Thanh, Thành phố Hội An, Tỉnh Quảng Nam, cách trung tâm Hội An khoảng 3km. Gọi là Bảy Mẫu vì thời xưa khu rừng dừa này chỉ có bảy mẫu thôi, đến nay diện tích khu rừng đã hơn 200 mẫu nhưng người dân nơi đây đã quá quen với tên gọi Bảy Mẫu thân thương này.Khu rừng dừa rộng lớn này nằm cạnh 3 con sông nổi tiếng tại Hội An đó là sông Hoài, sông Thu Bồn và sông Đế Võng đổ về biển.',
+    textContent: 'Vì nơi đây có dòng nước lợ rất thích hợp cho sự phát triển của dừa nước nên càng ngày khu rừng dừa nơi đây càng rộng lớn và xanh tốt hòa với hình ảnh sông nước hữu tình tạo cho du khách cảm giác như đang ở một tỉnh nào đó thuộc miền Tây hiền hòa, mộc mạc.'
   },
   {
     id: '2',
     title: 'Cầu Tình Yêu',
     image: images.SCHEDULE_DATA14,
     place: 'Đà Nẵng, Việt Nam',
-    price: '2.500.000đ'
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    image1: images.popularDetail4,
+    image2: images.popularDetail5,
+    image3: images.popularDetail6,
+    textHeader: 'Cầu tình yêu Đà Nẵng tuy không có lịch sử lâu đời hay kiến trúc độc đáo như những cây cầu khác tại Đà thành nhưng mỗi ổ khoá được treo trên cầu này lại là một câu chuyện tình yêu lãng mạn, cuốn hút du khách.',
+    textContent: 'Nằm giữa trung tâm của thành phố, cây cầu tình yêu Đà Nẵng là nơi check in yêu thích của nhiều bạn trẻ. Không những vậy, những hoạt động vui chơi, giải trí gần cây cầu cũng là điều khiến mọi du khách muốn trải nghiệm, khám phá.'
   },
   {
     id: '3',
     title: 'Cá Chép Hoá Rồng',
     image: images.SCHEDULE_DATA13,
     place: 'Đà Nẵng, Việt Nam',
-    price: '2.500.000đ'
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    image1: images.popularDetail7,
+    image2: images.popularDetail8,
+    image3: images.popularDetail9,
+    textHeader: 'Tượng cá chép hóa rồng Đà Nẵng có ý nghĩa đặc biệt đối với hoạt động du lịch của “thành phố đáng sống”. Đến với Đà Nẵng, nhất định phải ghé qua địa chỉ này để tham quan và check-in.',
+    textContent: 'Bên cạnh cầu Rồng, núi Ngũ Hành Sơn, biển Mỹ Khê,… thì tượng cá chép hóa rồng Đà Nẵng cũng là một trong những địa điểm “sống ảo” lý tưởng tại thành phố này. Du lịch Đà Nẵng, bạn nên lựa chọn tham quan điểm đến này để lưu lại những khoảnh khắc kỷ niệm và khám phá về ý nghĩa của bức tượng!'
   },
   {
     id: '4',
     title: 'Lý Sơn, Quảng Ngãi',
     image: images.SCHEDULE_DATA24,
     place: 'Quảng Ngãi, Việt Nam',
-    price: '2.500.000đ'
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    image1: images.popularDetail10,
+    image2: images.popularDetail11,
+    image3: images.popularDetail12,
+    textHeader: 'Đảo Lý Sơn là một trong những điểm du lịch biển tuyệt vời ở dải đất miền Trung, là huyện đảo duy nhất của tỉnh Quảng Ngãi.Huyện đảo Lý Sơn cách đất liền 15 hải lý (khoảng 27 km) và bao gồm đảo Lớn, đảo Bé, hòn Mù Cu. Trong đó, đảo Bé (hay còn gọi là đảo An Bình) là một hòn đảo có diện tích rất nhỏ với 0.69 km2 và nằm cách đảo Lớn khoảng 7 km.',
+    textContent: 'Lý Sơn là nơi bạn có thể đắm mình trong làn nước xanh ngắt trong vắt, khám phá những gam màu độc đáo của thiên nhiên hoang sơ và tận hưởng những giây phút bình yên giữa biển trời mênh mông.'
   },
 ]
 

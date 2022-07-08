@@ -92,5 +92,18 @@ const images = {
   DetailData20: require('./detailData18.png'),
   DetailData21: require('./detailData19.jpeg'),
   DetailData22: require('./detailData20.jpeg'),
+
+  popularDetail: require('./populardetail.jpeg'),
+  popularDetail2: require('./populardetail2.jpeg'),
+  popularDetail3: require('./populardetail3.jpeg'),
+  popularDetail4: require('./populardetail4.png'),
+  popularDetail5: require('./populardetail5.jpeg'),
+  popularDetail6: require('./populardetail6.jpeg'),
+  popularDetail7: require('./populardetail7.jpeg'),
+  popularDetail8: require('./populardetail8.jpeg'),
+  popularDetail9: require('./populardetail9.jpeg'),
+  popularDetail10: require('./populardetail10.jpeg'),
+  popularDetail11: require('./populardetail11.jpeg'),
+  popularDetail12: require('./populardetail12.jpeg'),
 };
 export default images;

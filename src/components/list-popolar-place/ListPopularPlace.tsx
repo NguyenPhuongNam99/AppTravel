@@ -1,9 +1,10 @@
 import React from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from '../../features/homepage/styles';
+import {useNavigation} from '@react-navigation/core';
 
 const ListPopularPlace = data => {
-  console.log('data new', data);
+  const navigation = useNavigation();
   return (
     <FlatList
       data={data.data}
@@ -12,7 +13,14 @@ const ListPopularPlace = data => {
       showsHorizontalScrollIndicator={false}
       renderItem={({item}) => {
         return (
-          <View style={styles.destinationPopolar}>
+          <TouchableOpacity
+            style={styles.destinationPopolar}
+            onPress={() =>
+              navigation.navigate(
+                'PopularPlaceDetailV2' as never,
+                {item: item} as never,
+              )
+            }>
             <View style={styles.destinationBlock}>
               <Image
                 source={item.image}
@@ -21,7 +29,7 @@ const ListPopularPlace = data => {
               />
               <Text style={styles.titleDestination}>{item.title}</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         );
       }}
     />

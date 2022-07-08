@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   FlatList,
   Image,
-  SafeAreaView,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -15,14 +14,20 @@ import TitleBlock from '../homepage/Title-block/TitleBlock';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
+import OrderSuccess from '../../components/orderSuccess';
+import {useAppSelector, useAppDispatch} from '../../app/store';
+import {setOpenModal} from './scheduleOverviewSlice';
 
 const ScheduleOverview = ({route}) => {
   const {item} = route.params;
   const [indexData, setIndexData] = useState<number>(0);
   const navigation = useNavigation();
+  const openModal = useAppSelector(
+    state => state.scheduleOverviewSlice.openModal,
+  );
+  const dispatch = useAppDispatch();
 
-  console.log('item preess,', item?.listSchedule[0].schedule.length);
-  console.log('newwww ====', item?.listSchedule[0].date);
+  console.log('openModal', openModal);
 
   const dataMenuOverviewSchedule = [
     {
@@ -166,16 +171,12 @@ const ScheduleOverview = ({route}) => {
         <View style={styles.rightSubmit}>
           <TouchableOpacity
             style={styles.rightClick}
-            onPress={() =>
-              navigation.navigate(
-                'ScheduleOverview' as never,
-                {item: item} as never,
-              )
-            }>
+            onPress={() => dispatch(setOpenModal(true))}>
             <Text style={styles.colorWhite}>Đặt ngay</Text>
           </TouchableOpacity>
         </View>
       </View>
+      {openModal && <OrderSuccess />}
     </View>
   );
 };
