@@ -5,6 +5,8 @@ import {useNavigation} from '@react-navigation/core';
 
 const ListPopularPlace = data => {
   const navigation = useNavigation();
+  console.log('data newww', data);
+
   return (
     <FlatList
       data={data.data}

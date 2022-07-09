@@ -6,6 +6,7 @@ import TitleBlock from '../../homepage/Title-block/TitleBlock';
 import ListPopularPlace from '../../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../../components/list-hotel-resort';
 import RecentSchedule from '../../homepage/recent-schedule/RecentSchedule';
+import {dataListPoPularPlace} from '../../homepage/fake-data/FakeData';
 
 const ComboIcon = () => {
   return (
@@ -25,7 +26,7 @@ const ComboIcon = () => {
           label="Gợi ý tại điểm đến"
           navigateScreen={'HotelResortDetail'}
         />
-        <ListPopularPlace />
+        <ListPopularPlace data={dataListPoPularPlace} />
         <TitleBlock label="Combo giá rẻ" navigateScreen={'HotelResortDetail'} />
         <RecentSchedule />
       </View>

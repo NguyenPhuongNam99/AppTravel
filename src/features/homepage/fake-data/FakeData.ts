@@ -739,6 +739,82 @@ export const dataSpecialExperience = [
     title: 'Hà Giang ơi !',
     place: 'Hà Giang, Việt Nam',
     price: '2.000.000đ',
+    durationTime: '5/12 - 10/12',
+    image1: images.specialdetail,
+    image2: images.specialdetail2,
+    image3: images.specialdetail1,
+    time: '10 giờ trước',
+    description: 'Cuội nguồn của Phật Giáo VN',
+    headerText1: 'Những thông tin về du lịch Hà Giang',
+    textHeader1: 'Du lịch Hà Giang tự túc là một trải nghiệm cực kì thú vị và đáng nhớ. Đó là chia sẻ của rất nhiều phượt thủ đã từng đến với vùng đất này. Nhưng không dễ dàng gì để có một trải nghiệm tuyệt vời, bởi địa hình nơi đây khiến nhiều người trùng bước. ',
+    headerText2: 'Di chuyển từ Thành Phố Hà Nội đi Mã Phì Lèng',
+    textHeader2: 'Không kể những tỉnh thành ở gần với Hà Giang. Đa phần các phượt thủ khi khám phá vùng đất này đều xuất phát từ Hà Nội. Khoảng cách từ Hà Nội lên Hà Giang cỡ 300km. Bạn có thể lựa chọn 1 trong 2 tuyến đường để di chuyển. Có thể đi theo quốc lộ 32 hoặc đi theo hướng Phạm Văn Đồng – Nội Bài.',
+    HeaderText3: 'Thời điểm thích hợp để trải nghiệm và học hỏi là :',
+    textHeader3: 'Với những người đi phượt thường sẽ không quan tâm quá nhiều đến thời điểm du lịch lý tưởng. Bởi đa phần mọi người đều hứng lên rồi đi, không cần nghĩ ngợi. Song nếu như bạn vẫn muốn tìm được một thời điểm phù hợp nhất để khám phá vùng đất này. Thì bạn có thể yên tâm rằng, mảnh đất Hà Giang mỗi thời điểm sẽ mang mỗi đẹp riêng. Đặc biệt ở đây mỗi mùa xuân, hạ, thu, đông đều có những loài hoa đặc trưng.',
+    HeaderText4: 'Nơi ở :',
+    textHeader4: 'Dịch vụ du lịch ở Hà Giang khá đầy đủ. Việc tìm một địa điểm lưu trú ở đây không quá khó. Bạn hoàn toàn có thể tìm một địa điểm để nghỉ chân khi đến vùng đất địa đầu Tổ Quốc.',
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+
+         ]
+       },
+        {
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+       
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+         
+         ]
+       },
+     ]
   },
  
   {
@@ -746,21 +822,264 @@ export const dataSpecialExperience = [
     image: images.SCHEDULE_DATA25,
     title: 'Cầu Thê Húc',
     place: 'Hà Nội, Việt Nam',
-    price: '2.500.000đ'
+    price: '30.000đ',  durationTime: '5/12 - 10/12',
+    time: '10 giờ trước',
+    image1: images.specialdetail4,
+    image2: images.specialdetail5,
+    image3: images.specialdetail3,
+    description: 'Cuội nguồn của Phật Giáo VN',
+    headerText1: '5 điểm khám phá khi tham quan cầu Thê Húc',
+    textHeader1: 'Cầu bắc qua hồ Hoàn Kiếm được làm bằng gỗ thô và sơn màu đỏ, thiết kế cầu cong cong và uốn như hình con tôm. Là cây cầu dẫn đến đền Ngọc Sơn với nghĩa giữ lại ánh sáng đẹp của bầu trời. Từ cầu Thê Húc bạn có thể đến tham quan đền Ngọc Sơn - một ngôi đền thờ nằm trên đảo Ngọc hồ Hoàn Kiếm.',
+    headerText2: 'Đến cầu Thê Húc bằng cách nào ?    ',
+    textHeader2: 'Cầu Thê Húc nằm ở hồ Hoàn Kiếm phố Đinh Tiên Hoàng, Hàng Trống. Cầu dẫn đến đền Ngọc Sơn vì vậy bạn có thể đến tham quan cầu Thê Húc bằng bất cứ phương tiện gì trong nội thành Hà Nội.',
+    HeaderText3: 'Nên tham quan cầu Thê Húc vào buổi nào ? ',
+    textHeader3: 'Tham quan cầu Thế Húc vào bất cứ thời gian nào trong ngày, nếu kết hợp tham quan đền Ngọc Sơn thì giờ mở cửa của đền từ 07:00 đến 18:00 hằng ngày và đến 21:00 vào ngày cuối tuần. Tham quan cầu Thê Húc cả vào thời gian ban ngày hay đêm xuống cũng đều chiêm ngưỡng được vẻ đẹp của cầu giữa lòng hồ Hoàn Kiếm.',
+    HeaderText4: 'Tham quan cầu Thê Húc trong bao lâu ?    ',
+    textHeader4: 'Bạn có thể kết hợp tham quan một vòng các thắng cảnh quanh hồ Hoàn Kiếm và đền Ngọc Sơn. Thời gian tham quan mất gần khoảng từ 1 đến 2 giờ. ',
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.specialdetail
+          },
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+
+         ]
+       },
+        {
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+       
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+         
+         ]
+       },
+     ]
   },
   {
     id: '3',
-    image: images.SCHEDULE_DATA17,
+    image: images.specialdetail13,
     title: 'Phú Quốc trong tôi',
     place: 'Kiên Giang, Việt Nam',
-    price: '1.000.000đ'
+    price: '1.000.000đ',
+    durationTime: '5/12 - 10/12',
+    image1: images.specialdetail7,
+    image2: images.specialdetail8,
+    image3: images.specialdetail9,
+    time: '10 giờ trước',
+    description: 'Cuội nguồn của Phật Giáo VN',
+    headerText1: 'Kinh nghiệm du lịch Phú Quốc    ',
+    textHeader1: 'Có rất nhiều mỹ từ được dành cho Phú Quốc: Đảo Ngọc, Bali của Việt Nam, thiên đường ngắm hoàng hôn… Tất cả đều là một thỏi nam châm hút những tín đồ biển xanh chuyền tay nhau kinh nghiệm du lịch Phú Quốc tự túc, để được trải nghiệm trọn vẹn hòn đảo này.Thuộc tỉnh Kiên Giang, Phú Quốc là hòn đảo lớn nhất Việt Nam và vịnh Thái Lan. Mọi người thường bảo “lên rừng xuống biển", nhưng chỉ cần đến Phú Quốc bạn sẽ được trải nghiệm hết những điều đó. Phú Quốc có những bãi biển cát trắng nước xanh, có vườn quốc gia với hệ sinh thái đa dạng, có những con suối trong vắt, và cả những hòn đảo xinh đẹp, bình yên.',
+    headerText2: 'Đến Phú Quốc bằng cách nào?    ',
+    textHeader2: 'Vé máy bay đi Phú Quốc,Bằng xe khách & phà/ tàu cao tốc,',
+    HeaderText3: 'Du lịch Phú Quốc tự túc mùa nào đẹp?    ',
+    textHeader3: 'Hơi “ngược ngạo" so với các thành phố biển khác, trong khi mùa hè là mùa đẹp nhất cho những chuyến đi bổ sung “vitamin Sea” thì Phú Quốc lại vào mùa mưa. Thời điểm đẹp nhất để đi du lịch Phú Quốc là vào tháng 10 - tháng 4 năm sau vì đây chính là mùa khô của hòn đảo. Lúc này thời tiết không quá nắng, nhiệt độ chỉ khoảng 27 độ C, biển êm, phù hợp cho các hoạt động vui chơi. Đây cũng chính là mùa cao điểm của giá vé máy bay đi Phú Quốc',
+    HeaderText4: 'Khách sạn và homestay Phú Quốc    ',
+    textHeader4: 'Được mệnh danh là thiên đường du lịch nên sự lựa chọn về khách sạn tại Phú Quốc là vô cùng đa dạng, từ các khu resort 4-5 sao với trải nghiệm nghỉ dưỡng tối đa, đến các homestay nhỏ xinh, thiết kế dễ thương mà review cũng “xịn sò” không kém cho các tín đồ sống ảo.Hầu hết các khách sạn Phú Quốc tầm trung 2-3 sao và các homestay, nhà nghỉ sẽ tập trung ở khu vực thị trấn Dương Đông, tiện lợi để đi đến các nơi khác trên đảo mà buổi tối cũng nhộn nhịp hơn. Nếu muốn chọn các khu resort, khách sạn 4-5 sao cao cấp hơn tại Phú Quốc như Novotel, Sol Beach thì bạn cần đi xa khỏi Dương Đông khoảng 8km, ở khu vực có phần yên tĩnh hơn tại Đường Bào, Dương Tơ…',
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+
+         ]
+       },
+        {
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+       
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+         
+         ]
+       },
+     ]
   },
   {
     id: '4',
-    image: images.SCHEDULE_DATA16,
+    image: images.specialdetail12,
     title: 'Ngắm bình minh Phú Yên',
     place: 'Phú Yên, Việt Nam',
-    price: '3.000.000đ'
+    price: '3.000.000đ',
+    durationTime: '5/12 - 10/12',
+    image1: images.specialdetail10,
+    image2: images.specialdetail11,
+    image3: images.specialdetail14,
+    time: '10 giờ trước',
+    description: 'Cuội nguồn của Phật Giáo VN',
+    headerText1: ' kinh nghiệm du lịch Phú Yên tự túc, phá đảo xứ hoa vàng',
+    textHeader1: 'Sở hữu vẻ đẹp hoang sơ và bình dị, Phú Yên dần trở thành một điểm dừng chân cực hot cho những ai đam mê xê dịch trong những năm gần đây.',
+    headerText2: 'Đến Phú Yên bằng cách nào?    ',
+    textHeader2: 'Với hệ thống sân bay, ga tàu hay bến xe khá phát triển, bạn có thể đến Phú Yên bằng nhiều lựa chọn phương tiện khác nhau, đó là:Vé máy bay đi Phú Yên,Vé tàu hỏa đến Phú Yên,Vé xe khách đến Phú Yên',
+    HeaderText3: 'Thời gian du lịch Phú Yên lý tưởng - du lịch Phú Yên mùa nào đẹp?',
+    textHeader3: 'Thời tiết Phú Yên trong năm được chia thành 2 mùa chính là mùa nắng và mùa mưa. Trong đó, mùa nắng từ tháng 1 đến tháng 8 là thời điểm Phú Yên đẹp nhất với nắng vàng rực rỡ, hoàn hảo cho các hoạt động du lịch - tham quan ở biển đảo và cả núi rừng. Đặc biệt, vào 2 tháng đầu năm (tháng 1 và tháng 2), nơi đây còn tổ chức một số lễ hội truyền thống như đua thuyền đầm Hồ Loan (7/1), đua ngựa (8/1), nghe bài chòi,... vô cùng đặc sắc. Vào thời gian cao điểm như trên, Phú Yên sẽ đón rất nhiều lượt khách du lịch nên bạn cần đặt vé và khách sạn trước 1 - 2 tháng để tránh tình trạng “cháy” vé, hết phòng hoặc phải mua giá đắt.    ',
+    HeaderText4: 'Đi du lịch Phú Yên thì ở đâu?    ',
+    textHeader4: 'Đi cùng với sự phát triển du lịch, các loại hình khách sạn ở Phú Yên cũng ngày càng phát triển đa dạng và chất lượng hơn. Tùy vào sở thích của mình, bạn có thể lựa chọn khách sạn từ 5 sao cho đến homestay, nằm ở khu vực trung tâm thành phố hay các khu du lịch biển ngoại thành.Trong đó, các resort biển hay khách sạn 4 - 5 sao là hình thức lưu trú phổ biến đối với phân khúc khách hàng cao cấp. Khách du lịch lựa chọn các địa điểm này vì được đáp ứng nhu cầu nghỉ dưỡng, chất lượng phòng với view cực xịn và các dịch vụ tích hợp đa dạng như spa, phòng gym, bể bơi, nhà hàng, bar,... Một số resort và khách sạn tiêu biểu có thể nhắc đến là: Stelia Beach Resort, Sao Mai Beach Resort, Sai Gon Phu Yen Hotel,...     ',
+    listSchedule: [
+      {
+         date: '5/12/2019',
+         datetime: 'Ngày 1',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Thăm quan chùa Bái Đính',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData18
+          },
+          
+         ]
+       },
+       {
+         date: '6/12/2019',
+         datetime: 'Ngày 2',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData21
+          },
+
+         ]
+       },
+        {
+         date: '7/12/2019',
+         datetime: 'Ngày 3',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+       
+         ]
+       },
+       {
+         date: '8/12/2019',
+         datetime: 'Ngày 4',
+         schedule: [
+          {
+            idSchedule: '1',
+            namePlace: 'Tháp đôi',
+            durationGo: '45 phút',
+            distanCar: '17 km',
+            timeStart: '7:00',
+            image: images.DetailData1
+          },
+         
+         ]
+       },
+     ]
   },
  
  

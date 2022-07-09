@@ -136,5 +136,22 @@ const images = {
   hoteldetail12: require('./hoteldetail12.jpeg'),
   hoteldetail13: require('./hoteldetail13.jpeg'),
   hoteldetail14: require('./hoteldetail13.jpeg'),
+
+  //special detail
+  specialdetail: require('./sepcialdetail.jpeg'),
+  specialdetail1: require('./specialdetail1.jpeg'),
+  specialdetail2: require('./specialdetail2.jpeg'),
+  specialdetail3: require('./specialdeatil3.jpeg'),
+  specialdetail4: require('./specialdetail4.jpeg'),
+  specialdetail5: require('./specialdetail5.jpeg'),
+  specialdetail6: require('./specialdetail6.jpeg'),
+  specialdetail7: require('./specialdetail7.jpeg'),
+  specialdetail8: require('./specialdetail8.webp'),
+  specialdetail9: require('./specialdetail9.jpeg'),
+  specialdetail10: require('./specialdetail10.jpeg'),
+  specialdetail11: require('./specialdetail11.jpeg'),
+  specialdetail12: require('./specialdetail12.jpeg'),
+  specialdetail13: require('./specialdetail13.jpeg'),
+  specialdetail14: require('./specialdetail14.webp'),
 };
 export default images;

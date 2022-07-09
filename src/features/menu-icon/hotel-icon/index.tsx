@@ -6,6 +6,7 @@ import images from '../../../assets/images';
 import TitleBlock from '../../homepage/Title-block/TitleBlock';
 import ListPopularPlace from '../../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../../components/list-hotel-resort';
+import {dataListPoPularPlace} from '../../homepage/fake-data/FakeData';
 
 const HotelIcon = () => {
   return (
@@ -28,7 +29,7 @@ const HotelIcon = () => {
           label="Gợi ý tại điểm đến"
           navigateScreen={'HotelResortDetail'}
         />
-        <ListPopularPlace />
+        <ListPopularPlace data={dataListPoPularPlace} />
         <TitleBlock
           label="Đề xuất cho bạn"
           navigateScreen={'HotelResortDetail'}

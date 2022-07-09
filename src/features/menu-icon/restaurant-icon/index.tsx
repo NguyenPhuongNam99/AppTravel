@@ -5,6 +5,7 @@ import Header from '../../../components/header/Header';
 import TitleBlock from '../../homepage/Title-block/TitleBlock';
 import ListPopularPlace from '../../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../../components/list-hotel-resort';
+import {dataListPoPularPlace} from '../../homepage/fake-data/FakeData';
 
 const RestaurantIcon = () => {
   return (
@@ -25,7 +26,7 @@ const RestaurantIcon = () => {
           navigateScreen={'HotelResortDetail'}
         />
         <View style={{width: '100%', height: 220}}>
-          <ListPopularPlace />
+          <ListPopularPlace data={dataListPoPularPlace} />
         </View>
         <TitleBlock
           label="Đề xuất cho bạn"

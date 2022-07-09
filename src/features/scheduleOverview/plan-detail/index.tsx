@@ -27,7 +27,7 @@ const DetailPlan = ({route}) => {
     <View style={styles.container}>
       <View style={styles.blockimage}>
         <Image
-          source={passData.imageTopLeft}
+          source={passData.imageTopLeft || passData.image}
           resizeMode="cover"
           style={styles.image}
         />
