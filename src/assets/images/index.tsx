@@ -105,5 +105,36 @@ const images = {
   popularDetail10: require('./populardetail10.jpeg'),
   popularDetail11: require('./populardetail11.jpeg'),
   popularDetail12: require('./populardetail12.jpeg'),
+
+  //destination detail v2
+  destinationdetail: require('./destinationdetail.jpeg'),
+  destinationdetail2: require('./destinationdetail1.jpeg'),
+  destinationdetail3: require('./destinationdetail3.jpeg'),
+  destinationdetail4: require('./destinationdetail4.jpeg'),
+  destinationdetail5: require('./destinationdetail5.jpeg'),
+  destinationdetail6: require('./destinationdetail6.jpeg'),
+  destinationdetail7: require('./destinationdetail7.jpeg'),
+  destinationdetail8: require('./destinationdetail8.jpeg'),
+  destinationdetail9: require('./destinationdetail9.jpeg'),
+  destinationdetail10: require('./destinationdetail10.jpeg'),
+  destinationdetail11: require('./destinationdetail11.webp'),
+  destinationdetail12: require('./destinationdetail12.webp'),
+
+  //hotedetail and home page
+  hoteldetail: require('./hoteldetail.jpeg'),
+  hoteldetail1: require('./hoteldetail1.jpeg'),
+  hoteldetail2: require('./hoteldetail2.jpeg'),
+  hoteldetail3: require('./hoteldetail3.jpeg'),
+  hoteldetail4: require('./hoteldetail4.webp'),
+  hoteldetail5: require('./hoteldetail5.jpeg'),
+  hoteldetail6: require('./hoteldetail6.jpeg'),
+  hoteldetail7: require('./hoteldetail7.png'),
+  hoteldetail8: require('./hoteldetail8.jpeg'),
+  hoteldetail9: require('./hoteldetail9.jpeg'),
+  hoteldetail10: require('./hoteldetail10.jpeg'),
+  hoteldetail11: require('./hoteldetail11.jpeg'),
+  hoteldetail12: require('./hoteldetail12.jpeg'),
+  hoteldetail13: require('./hoteldetail13.jpeg'),
+  hoteldetail14: require('./hoteldetail13.jpeg'),
 };
 export default images;

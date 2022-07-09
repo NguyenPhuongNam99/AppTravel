@@ -53,8 +53,8 @@ const ScheduleOverview = ({route}) => {
       {/* <SafeAreaView style={styles.safeView} /> */}
       <View style={styles.imageBlock}>
         <Image
-          source={item?.imageTopLeft}
-          resizeMode="stretch"
+          source={item?.imageTopLeft || item.image}
+          resizeMode="cover"
           style={styles.fullwidth}
         />
         <Image source={images.AVARTAR} style={styles.avatar} />
@@ -96,7 +96,10 @@ const ScheduleOverview = ({route}) => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.blockviewPlan}>
             <View style={styles.viewPlan}>
-              <Image source={item?.imageTopRight} style={styles.fullwidth} />
+              <Image
+                source={item?.imageTopRight || item.image1}
+                style={styles.fullwidth}
+              />
             </View>
             <View style={styles.viewTitleBlock}>
               <Text>{item?.listSchedule[0].date}</Text>
@@ -109,7 +112,7 @@ const ScheduleOverview = ({route}) => {
           <View style={styles.blockviewPlan}>
             <View style={styles.viewPlan}>
               <Image
-                source={item.imageTopRightBottom}
+                source={item.imageTopRightBottom || item.image2}
                 style={styles.fullwidth}
               />
             </View>
@@ -124,7 +127,7 @@ const ScheduleOverview = ({route}) => {
           <View style={styles.blockviewPlan}>
             <View style={styles.viewPlan}>
               <Image
-                source={item.imageTopLeftBottom}
+                source={item.imageTopLeftBottom || item.image3}
                 style={styles.fullwidth}
               />
             </View>
@@ -138,7 +141,10 @@ const ScheduleOverview = ({route}) => {
           </View>
           <View style={styles.blockviewPlan}>
             <View style={styles.viewPlan}>
-              <Image source={item.imageTopLeft} style={styles.fullwidth} />
+              <Image
+                source={item.imageTopLeft || item.image}
+                style={styles.fullwidth}
+              />
             </View>
             <View style={styles.viewTitleBlock}>
               <Text>{item?.listSchedule[3].date}</Text>
@@ -176,7 +182,7 @@ const ScheduleOverview = ({route}) => {
           </TouchableOpacity>
         </View>
       </View>
-      {openModal && <OrderSuccess />}
+      {openModal && <OrderSuccess title={'Tour'} />}
     </View>
   );
 };

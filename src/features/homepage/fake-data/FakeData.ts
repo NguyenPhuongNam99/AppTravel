@@ -738,14 +738,15 @@ export const dataSpecialExperience = [
     image: images.SCHEDULE_DATA18,
     title: 'Hà Giang ơi !',
     place: 'Hà Giang, Việt Nam',
-    price: '2.000.000đ'
+    price: '2.000.000đ',
   },
+ 
   {
     id: '2',
-    image: images.SCHEDULE_DATA16,
-    title: 'Ngắm bình minh Phú Yên',
-    place: 'Phú Yên, Việt Nam',
-    price: '3.000.000đ'
+    image: images.SCHEDULE_DATA25,
+    title: 'Cầu Thê Húc',
+    place: 'Hà Nội, Việt Nam',
+    price: '2.500.000đ'
   },
   {
     id: '3',
@@ -754,14 +755,15 @@ export const dataSpecialExperience = [
     place: 'Kiên Giang, Việt Nam',
     price: '1.000.000đ'
   },
- 
   {
     id: '4',
-    image: images.SCHEDULE_DATA25,
-    title: 'Cầu Thê Húc',
-    place: 'Hà Nội, Việt Nam',
-    price: '2.500.000đ'
-  }
+    image: images.SCHEDULE_DATA16,
+    title: 'Ngắm bình minh Phú Yên',
+    place: 'Phú Yên, Việt Nam',
+    price: '3.000.000đ'
+  },
+ 
+ 
 ]
 
 export const Destination12 = [
@@ -769,21 +771,53 @@ export const Destination12 = [
     id: '1',
     title: 'Hà Giang',
     image: images.SCHEDULE_DATA19,
+    image1: images.destinationdetail,
+    image2: images.destinationdetail2,
+    image3: images.destinationdetail3,
+    place: 'Hà Giang, Việt Nam',
+    price: '1.500.000đ',
+    timeOpen: '8.00 - 18.00',
+    textHeader: 'Khung cảnh hùng vĩ của mảnh đất cực Bắc Tổ quốc mùa nào cũng đáng đi, đáng chiêm ngưỡng, trên đường đi bạn sẽ bắt gặp những nơi có nhưng con đường chạy ngút lên trời xanh, những nơi hình hài đất nước nổi lên như bản đồ, hoặc những nơi có ruộng bậc thang rộng lớn',
+    textContent: 'Hà Giang không chỉ đẹp bởi phong cảnh hùng vĩ, nơi đây còn nổi tiếng với muôn loài hoa. Ở nơi đây hoa nở quanh năm với các mầu sắc diệu kỳ như: màu vàng của Hoa Cải, màu tím của hoa Tam Giác Mạch, màu trắng tinh khổi của Hoa Mận.'
   },
   {
     id: '2',
     title: 'Phú Quốc',
     image: images.SCHEDULE_DATA22,
+    image1: images.destinationdetail4,
+    image2: images.destinationdetail5,
+    image3: images.destinationdetail6,
+    place: 'Kiên Giang, Việt Nam',
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    textHeader: 'Thuộc địa phận tỉnh Kiên Giang, nằm trong vịnh Thái Lan, đảo Phú Quốc từ lâu đã nổi tiếng với du khách từ mọi miền đất nước và cả khách du lịch quốc tế. Không chỉ là hòn đảo xinh đẹp với phong cảnh thiên nhiên yên bình, hoang sơ, khí hậu thuận lợi cho hoạt động vui chơi, nghỉ dưỡng, Phú Quốc còn là điểm đến lý tưởng cho nhiều hoạt động khám phá thiên nhiên kỳ thú.',
+    textContent: 'Hòn đảo ngọc sở hữu nhiều bãi biển đẹp trải dài từ Bắc đảo tới Nam đảo, 99 ngọn núi, đồi và khu rừng nguyên sinh phong phú hệ động thực vật. Tại Bắc đảo Phú Quốc, du khách có thể ghé thăm những điếm đến nổi tiếng như làng chài Rạch Vẹm, Hòn Một, Bãi Dài, VinWonders Phú Quốc và Vinpearl Safari Phú Quốc, mũi Gành Dầu… Còn tại Nam đảo, 12 hòn đảo lớn nhỏ nằm trong quần đảo An Thới như Hòn Móng Tay, Hòn Thơm, Hòn Gầm Ghì… sẽ là điểm dừng chân lý tưởng cho các hoạt động khám phá thiên nhiên Phú Quốc.'
   },
   {
     id: '3',
     title: 'Đền Hùng',
     image: images.SCHEDULE_DATA21,
+    image1: images.destinationdetail7,
+    image2: images.destinationdetail8,
+    image3: images.destinationdetail9,
+    place: 'Lào Cai, Việt Nam',
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    textHeader: 'Khu Di tích lịch sử Đền Hùng thuộc thôn Cổ Tích - xã Hy Cương - thành phố Việt Trì - tỉnh Phú Thọ, là nơi thờ cúng các vua Hùng đã có công dựng nước, tổ tiên của dân tộc Việt Nam. Đền Hùng cách trung tâm thành phố Việt Trì 7km về phía Bắc, cách thủ đô Hà Nội 90km. Từ Hà Nội, du khách có thể đến Đền Hùng bằng đường bộ theo quốc lộ 2 hoặc tuyến đường sắt Hà Nội - Lào Cai.',
+    textContent: 'Đền Hùng là di tích lịch sử văn hoá đặc biệt quan trọng của quốc gia, được xây dựng trên núi Hùng - thuộc đất Phong Châu - vốn là đất kế đô của Nhà nước Văn Lang 4.000 năm trước đây. Toàn bộ Khu di tích có 4 đền, 1 chùa và 1 lăng hài hoà trong cảnh thiên nhiên, có địa thế cao rất ngoạn mục, hùng vĩ, đất đầy khí thiêng của sơn thuỷ hội tụ.'
   },
   {
     id: '4',
     title: 'Lý Sơn, Quảng Ngãi',
     image: images.SCHEDULE_DATA23,
+    image1: images.destinationdetail10,
+    image2: images.destinationdetail11,
+    image3: images.destinationdetail12,
+    place: 'Quảng Nam, Việt Nam',
+    price: '2.500.000đ',
+    timeOpen: '10.00 - 18.00',
+    textHeader: 'Đảo Lý Sơn được nhiều người biết đến như một thiên đường giữa đại dương bao la. Ai đến Lý Sơn rồi cũng đều mê mẩn, đều giữ cho mình những hoài niệm chẳng thể nào quên.',
+    textContent: 'Những ngôi đền, chùa cổ linh thiêng ở trên đảo Lý Sơn cũng là một trong những điểm đến hấp dẫn du khách. Trong đó phải kể đến chùa Hang, chùa Đục, hang Câu, miếu bà Chúa Ngọc, đình làng An Hải, dinh Bà Roi, giếng Vua, miệng Núi lửa, di tích hải đội Hoàng Sa – Trường Sa, Âm Linh Tự và một số ngôi mộ cổ,….'
   },
 ]
 
@@ -794,31 +828,91 @@ export const dataResortHotel = [
     headerTtile: 'Khách sạn',
     place: 'Phước Mỹ, Đà Nẵng',
     price: '500,000 đ/ đêm',
-    image: images.HOTEL,
-    image1: images.HOTELROSRT,
-    image2: images.HOTELROSRT1,
-    imag3: images.HOTELROSRT2
+    image: images.hoteldetail,
+    image1: images.hoteldetail1,
+    image2: images.hoteldetail2,
+    image3: images.hoteldetail3,
+    durationTime: '5/12 - 10/12',
+    time: '10 giờ trước',
+    description: 'Di tích lịch sử của Quốc gia',
+    headerText1: 'Giới thiệu khách sạn',
+    textHeader1: 'Du lịch Đà Nẵng chưa bao giờ hết “hot”. Thời tiết mát mẻ, vẻ đẹp lãng mạn luôn thu hút những ai đang tìm một kỳ nghỉ giữa thành phố ngàn thông. Bên cạnh khí hậu, Đà Nẵng còn được thiên nhiên ưu ái cho những đồi chè xanh ngút mắt và đủ loại hoa khoe sắc quanh năm.',
+    headerText2: 'Phân khúc khách sạn',
+    textHeader2: 'Các khách sạn Đà Nẵng cũng rất đa dạng về phân khúc: từ sang trọng đến bình dân, từ resort nghỉ dưỡng đến villa riêng tư cho chuyến nghỉ ngơi cùng gia đình và bạn bè. Tất nhiên cũng không thể thiếu các hostel và homestay mang đến những trải nghiệm địa phương đặc sắc dành cho các bạn trẻ mê xê dịch. ',
+    HeaderText3: 'Thời điểm mở cửa là :',
+    textHeader3: '8h sáng đến 22h đêm',
+    HeaderText4: 'Các điểm thích thú xung quanh :',
+    textHeader4: 'Và đã du lịch Đà Nẵng rồi thì cũng đừng quên thưởng thức những món đặc sản chỉ riêng thành phố sương mù mới có. Bánh căn, bánh mì xíu mại, hay một ly sữa đậu nành nóng chắc chắn sẽ làm bạn ấm bụng giữa tiết trời se lạnh. Còn chờ gì mà không chọn ngay một khách sạn Đà Nẵng để thỏa ước mơ “đi trốn” giữa ngàn thông cho một kì nghỉ chẳng thể lãng mạn hơn!',
+
   },
   {
-    id: '1',
-    title: 'The Marrios Thach That',
-    headerTtile: 'Khách sạn',
-    place: 'Thạch Thất, Hà Nội',
-    price: '300,000 đ/ đêm',
-    image: images.SCHEDULE_DATA26,
-    image1: images.HOTELROSRT,
-    image2: images.HOTELROSRT1,
-    imag3: images.HOTELROSRT2
-  },
-  {
-    id: '1',
+    id: '2',
     title: 'Hoa Lac Resort',
     headerTtile: 'Khách sạn',
     place: 'Thạch Thất, Hà Nội',
     price: '200,000 đ/ đêm',
-    image: images.HOTEL,
-    image1: images.HOTELROSRT,
-    image2: images.HOTELROSRT1,
-    imag3: images.HOTELROSRT2
+    image: images.hoteldetail7,
+    image1: images.hoteldetail8,
+    image2: images.hoteldetail9,
+    image3: images.hoteldetail10,
+    durationTime: '5/12 - 10/12',
+    time: '10 giờ trước',
+    description: 'Di tích lịch sử của Quốc gia',
+    headerText1: 'Giới thiệu khách sạn',
+    textHeader1: 'Du lịch Thạch Thất chưa bao giờ hết “hot”. Thời tiết mát mẻ, vẻ đẹp lãng mạn luôn thu hút những ai đang tìm một kỳ nghỉ giữa thành phố ngàn thông. Bên cạnh khí hậu, Thạch Thất còn được thiên nhiên ưu ái cho những đồi chè xanh ngút mắt và đủ loại hoa khoe sắc quanh năm.',
+    headerText2: 'Phân khúc khách sạn',
+    textHeader2: 'Các khách sạn Thạch Thất cũng rất đa dạng về phân khúc: từ sang trọng đến bình dân, từ resort nghỉ dưỡng đến villa riêng tư cho chuyến nghỉ ngơi cùng gia đình và bạn bè. Tất nhiên cũng không thể thiếu các hostel và homestay mang đến những trải nghiệm địa phương đặc sắc dành cho các bạn trẻ mê xê dịch. ',
+    HeaderText3: 'Thời điểm mở cửa là :',
+    textHeader3: '8h sáng đến 22h đêm',
+    HeaderText4: 'Các điểm thích thú xung quanh :',
+    textHeader4: 'Và đã du lịch Thạch Thất rồi thì cũng đừng quên thưởng thức những món đặc sản chỉ riêng thành phố sương mù mới có. Bánh căn, bánh mì xíu mại, hay một ly sữa đậu nành nóng chắc chắn sẽ làm bạn ấm bụng giữa tiết trời se lạnh. Còn chờ gì mà không chọn ngay một khách sạn Thạch Thất để thỏa ước mơ “đi trốn” giữa ngàn thông cho một kì nghỉ chẳng thể lãng mạn hơn!',
+  
+  },
+  {
+    id: '3',
+    title: 'The Marrios Soc Son',
+    headerTtile: 'Khách sạn',
+    place: 'Sóc Sơn, Hà Nội',
+    price: '300,000 đ/ đêm',
+    image: images.hoteldetail6,
+    image1: images.hoteldetail5,
+    image2: images.hoteldetail4,
+    image3: images.hoteldetail7,
+    durationTime: '5/12 - 10/12',
+    time: '10 giờ trước',
+    description: 'Di tích lịch sử của Quốc gia',
+    headerText1: 'Giới thiệu khách sạn',
+    textHeader1: 'Du lịch Sóc Sơn chưa bao giờ hết “hot”. Thời tiết mát mẻ, vẻ đẹp lãng mạn luôn thu hút những ai đang tìm một kỳ nghỉ giữa thành phố ngàn thông. Bên cạnh khí hậu, Sóc Sơn còn được thiên nhiên ưu ái cho những đồi chè xanh ngút mắt và đủ loại hoa khoe sắc quanh năm.',
+    headerText2: 'Phân khúc khách sạn',
+    textHeader2: 'Các khách sạn Sóc Sơn cũng rất đa dạng về phân khúc: từ sang trọng đến bình dân, từ resort nghỉ dưỡng đến villa riêng tư cho chuyến nghỉ ngơi cùng gia đình và bạn bè. Tất nhiên cũng không thể thiếu các hostel và homestay mang đến những trải nghiệm địa phương đặc sắc dành cho các bạn trẻ mê xê dịch. ',
+    HeaderText3: 'Thời điểm mở cửa là :',
+    textHeader3: '8h sáng đến 22h đêm',
+    HeaderText4: 'Các điểm thích thú xung quanh :',
+    textHeader4: 'Và đã du lịch Sóc Sơn rồi thì cũng đừng quên thưởng thức những món đặc sản chỉ riêng thành phố sương mù mới có. Bánh căn, bánh mì xíu mại, hay một ly sữa đậu nành nóng chắc chắn sẽ làm bạn ấm bụng giữa tiết trời se lạnh. Còn chờ gì mà không chọn ngay một khách sạn Sóc Sơn để thỏa ước mơ “đi trốn” giữa ngàn thông cho một kì nghỉ chẳng thể lãng mạn hơn!',
+   
+  },
+ 
+  {
+    id: '4',
+    title: 'Hai Duong Resort',
+    headerTtile: 'Khách sạn',
+    place: 'Thanh Miện, Hải Dương',
+    price: '200,000 đ/ đêm',
+    image: images.hoteldetail11,
+    image1: images.hoteldetail12,
+    image2: images.hoteldetail13,
+    image3: images.hoteldetail14,
+    durationTime: '5/12 - 10/12',
+    time: '10 giờ trước',
+    description: 'Di tích lịch sử của Quốc gia',
+    headerText1: 'Giới thiệu khách sạn',
+    textHeader1: 'Du lịch Hải Dương chưa bao giờ hết “hot”. Thời tiết mát mẻ, vẻ đẹp lãng mạn luôn thu hút những ai đang tìm một kỳ nghỉ giữa thành phố ngàn thông. Bên cạnh khí hậu, Hải Dương còn được thiên nhiên ưu ái cho những đồi chè xanh ngút mắt và đủ loại hoa khoe sắc quanh năm.',
+    headerText2: 'Phân khúc khách sạn',
+    textHeader2: 'Các khách sạn Hải Dương cũng rất đa dạng về phân khúc: từ sang trọng đến bình dân, từ resort nghỉ dưỡng đến villa riêng tư cho chuyến nghỉ ngơi cùng gia đình và bạn bè. Tất nhiên cũng không thể thiếu các hostel và homestay mang đến những trải nghiệm địa phương đặc sắc dành cho các bạn trẻ mê xê dịch. ',
+    HeaderText3: 'Thời điểm mở cửa là :',
+    textHeader3: '8h sáng đến 22h đêm',
+    HeaderText4: 'Các điểm thích thú xung quanh :',
+    textHeader4: 'Và đã du lịch Hải Dương rồi thì cũng đừng quên thưởng thức những món đặc sản chỉ riêng thành phố sương mù mới có. Bánh căn, bánh mì xíu mại, hay một ly sữa đậu nành nóng chắc chắn sẽ làm bạn ấm bụng giữa tiết trời se lạnh. Còn chờ gì mà không chọn ngay một khách sạn Hải Dương để thỏa ước mơ “đi trốn” giữa ngàn thông cho một kì nghỉ chẳng thể lãng mạn hơn!',
+  
   },
 ];

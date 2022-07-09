@@ -1,9 +1,27 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import images from '../../../assets/images';
+import AppIonicons from '../../../components/icon/AppIonicons';
+import {useNavigation} from '@react-navigation/core';
+import {setOpenModal} from '../../scheduleOverview/scheduleOverviewSlice';
+import {useAppDispatch, useAppSelector} from '../../../app/store';
+import OrderSuccess from '../../../components/orderSuccess';
 
 const PopularPlaceDetailV2 = ({route}) => {
   const {item} = route.params;
+  const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const openModal = useAppSelector(
+    state => state.scheduleOverviewSlice.openModal,
+  );
+  console.log('open new', openModal);
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
@@ -16,6 +34,13 @@ const PopularPlaceDetailV2 = ({route}) => {
             </Text>
             <Text style={styles.colorWhite}>{item.place}</Text>
           </View>
+          <AppIonicons
+            name="chevron-back-outline"
+            color={'white'}
+            size={20}
+            style={styles.back}
+            onPress={() => navigation.goBack()}
+          />
           <View style={styles.infoContainer}>
             <View style={styles.infoBlock}>
               <Text style={styles.bold}>
@@ -52,18 +77,21 @@ const PopularPlaceDetailV2 = ({route}) => {
             </View>
           </View>
         </View>
-        <View
-          style={{
-            width: '100%',
-            marginTop: 16,
-            paddingHorizontal: 16,
-          }}>
-          <Text style={{lineHeight: 19}}>{item.textHeader}</Text>
+        <View style={styles.blockContent}>
+          <Text style={styles.lineHeight}>{item.textHeader}</Text>
         </View>
-        <View style={{width: '100%', marginTop: 16, paddingHorizontal: 16}}>
-          <Text style={{lineHeight: 19}}>{item.textContent}</Text>
+        <View style={styles.blockContent}>
+          <Text style={styles.lineHeight}>{item.textContent}</Text>
         </View>
       </ScrollView>
+      <View style={styles.clickFee}>
+        <TouchableOpacity
+          style={styles.blockFee}
+          onPress={() => dispatch(setOpenModal(true))}>
+          <Text style={styles.colorFee}>Đặt vé</Text>
+        </TouchableOpacity>
+      </View>
+      {openModal && <OrderSuccess title={'vé'} />}
     </View>
   );
 };
@@ -71,7 +99,8 @@ const PopularPlaceDetailV2 = ({route}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: 16,
+    paddingBottom: 50,
+    zIndex: 0,
   },
   blockImage: {width: '100%', height: 240},
   fullWidth: {width: '100%', height: '100%'},
@@ -142,6 +171,33 @@ const styles = StyleSheet.create({
   blockImageContent: {
     width: '30%',
     height: '100%',
+  },
+  back: {position: 'absolute', top: '20%', left: '3%', zIndex: 99},
+  blockContent: {
+    width: '100%',
+    marginTop: 16,
+    paddingHorizontal: 16,
+  },
+  lineHeight: {lineHeight: 19},
+  clickFee: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'white',
+    position: 'absolute',
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  blockFee: {
+    width: 100,
+    height: 30,
+    backgroundColor: '#FF5F24',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  colorFee: {
+    color: 'white',
   },
 });
 

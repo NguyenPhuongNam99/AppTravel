@@ -4,18 +4,26 @@ import images from '../../../assets/images';
 import AppIonicons from '../../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
 import {styles} from './styles';
+import {setOpenModal} from '../../scheduleOverview/scheduleOverviewSlice';
+import {useAppDispatch, useAppSelector} from '../../../app/store';
+import OrderSuccess from '../../../components/orderSuccess';
 
 const RecentScheduleDetailV2 = ({route}) => {
   const navigation = useNavigation();
-  const {item} = route.params;
+  const {item, hotel} = route?.params;
+  const dispatch = useAppDispatch();
+  const openModal = useAppSelector(
+    state => state.scheduleOverviewSlice.openModal,
+  );
+
   return (
     <>
       <View style={styles.container}>
         <ScrollView style={{marginBottom: 50}}>
           <View style={styles.blockImageContainer}>
             <Image
-              source={item.imageTopLeft}
-              resizeMode="stretch"
+              source={item.imageTopLeft || item.image}
+              resizeMode="cover"
               style={styles.fullWidth}
             />
             <View style={styles.viewPosition}>
@@ -46,21 +54,21 @@ const RecentScheduleDetailV2 = ({route}) => {
           <View style={styles.blockImage}>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopRight}
+                source={item.imageTopRight || item.image1}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopRightBottom}
+                source={item.imageTopRightBottom || item.image2}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopLeftBottom}
+                source={item.imageTopLeftBottom || item.image3}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
@@ -92,16 +100,23 @@ const RecentScheduleDetailV2 = ({route}) => {
         <View style={styles.rightSubmit}>
           <TouchableOpacity
             style={styles.rightClick}
-            onPress={() =>
-              navigation.navigate(
-                'ScheduleOverview' as never,
-                {item: item} as never,
-              )
-            }>
-            <Text style={styles.colorWhite}>xem chi tiết</Text>
+            onPress={() => {
+              if (!hotel) {
+                navigation.navigate(
+                  'ScheduleOverview' as never,
+                  {item: item} as never,
+                );
+              } else {
+                dispatch(setOpenModal(true));
+              }
+            }}>
+            <Text style={styles.colorWhite}>
+              {!hotel ? 'Xem chi tiết' : 'Đặt phòng'}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
+      {openModal && <OrderSuccess title="khách sạn" />}
     </>
   );
 };

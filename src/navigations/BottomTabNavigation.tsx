@@ -7,6 +7,7 @@ import AppMaterIcon from '../components/icon/AppMaterialIcons';
 import Notification from '../features/notification';
 import AppFoundation from '../components/icon/AppFoundation';
 import Discount from '../features/Discount';
+import Favourite from '../features/profile/favourite';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,19 +28,6 @@ function BottomTabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Discount"
-        component={Discount}
-        options={{
-          tabBarIcon: tabInfo => (
-            <AppFoundation
-              name="shopping-bag"
-              size={27}
-              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Notification"
         component={Notification}
         options={{
@@ -52,6 +40,20 @@ function BottomTabNavigation() {
           ),
         }}
       />
+      <Tab.Screen
+        name="Favourite"
+        component={Favourite}
+        options={{
+          tabBarIcon: tabInfo => (
+            <AppFoundation
+              name="foot"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
+          ),
+        }}
+      />
+
       <Tab.Screen
         name="Profile"
         component={Profile}

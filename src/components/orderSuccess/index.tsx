@@ -6,7 +6,11 @@ import {setOpenModal} from '../../features/scheduleOverview/scheduleOverviewSlic
 import AppAntDesign from '../../components/icon/AppAntDesign';
 import {useNavigation} from '@react-navigation/core';
 
-const OrderSuccess = () => {
+interface TypeOrderSucees {
+  title: string;
+}
+
+const OrderSuccess: React.FC<TypeOrderSucees> = ({title}) => {
   const openModal = useAppSelector(
     state => state.scheduleOverviewSlice.openModal,
   );
@@ -30,7 +34,7 @@ const OrderSuccess = () => {
               color: '#FF5F24',
               fontSize: 14,
             }}>
-            Chúc mừng bạn đã đặt Tour thành công
+            Chúc mừng bạn đã đặt {title} thành công
           </Text>
 
           <TouchableOpacity

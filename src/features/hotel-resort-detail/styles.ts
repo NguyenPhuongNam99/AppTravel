@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     width: '47.8%',
     height: '96%',
   },
-  bottomStar: {flexDirection: 'row', justifyContent: 'space-between'},
+  bottomStar: {flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'center'},
   colorBottom: {color: '#A1A1A1'},
   fontWeight: {fontWeight: 'bold'},
   placeRow: {flexDirection: 'row', justifyContent: 'space-between', width: '100%'},
