@@ -116,7 +116,7 @@ const RecentScheduleDetailV2 = ({route}) => {
           </TouchableOpacity>
         </View>
       </View>
-      {openModal && <OrderSuccess title="khách sạn" />}
+      {openModal && <OrderSuccess />}
     </>
   );
 };

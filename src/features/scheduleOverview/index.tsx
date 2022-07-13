@@ -16,7 +16,6 @@ import {useNavigation} from '@react-navigation/core';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import OrderSuccess from '../../components/orderSuccess';
 import {useAppSelector, useAppDispatch} from '../../app/store';
-import {setOpenModal} from './scheduleOverviewSlice';
 
 const ScheduleOverview = ({route}) => {
   const {item} = route.params;
@@ -177,12 +176,11 @@ const ScheduleOverview = ({route}) => {
         <View style={styles.rightSubmit}>
           <TouchableOpacity
             style={styles.rightClick}
-            onPress={() => dispatch(setOpenModal(true))}>
+            onPress={() => navigation.navigate('Payment' as never)}>
             <Text style={styles.colorWhite}>Đặt ngay</Text>
           </TouchableOpacity>
         </View>
       </View>
-      {openModal && <OrderSuccess title={'Tour'} />}
     </View>
   );
 };

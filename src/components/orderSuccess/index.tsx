@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Modal} from 'react-native-paper';
 import {useAppSelector, useAppDispatch} from '../../app/store';
 import {setOpenModal} from '../../features/scheduleOverview/scheduleOverviewSlice';
 import AppAntDesign from '../../components/icon/AppAntDesign';
 import {useNavigation} from '@react-navigation/core';
 
-interface TypeOrderSucees {
-  title: string;
-}
-
-const OrderSuccess: React.FC<TypeOrderSucees> = ({title}) => {
+const OrderSuccess = () => {
   const openModal = useAppSelector(
     state => state.scheduleOverviewSlice.openModal,
   );
@@ -34,7 +36,7 @@ const OrderSuccess: React.FC<TypeOrderSucees> = ({title}) => {
               color: '#FF5F24',
               fontSize: 14,
             }}>
-            Chúc mừng bạn đã đặt {title} thành công
+            Chúc mừng bạn đã thanh toán thành công
           </Text>
 
           <TouchableOpacity

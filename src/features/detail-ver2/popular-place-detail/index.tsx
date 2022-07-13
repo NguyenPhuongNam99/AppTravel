@@ -87,11 +87,11 @@ const PopularPlaceDetailV2 = ({route}) => {
       <View style={styles.clickFee}>
         <TouchableOpacity
           style={styles.blockFee}
-          onPress={() => dispatch(setOpenModal(true))}>
+          onPress={() => navigation.navigate('Payment' as never)}>
           <Text style={styles.colorFee}>Đặt vé</Text>
         </TouchableOpacity>
       </View>
-      {openModal && <OrderSuccess title={'vé'} />}
+      {openModal && <OrderSuccess />}
     </View>
   );
 };

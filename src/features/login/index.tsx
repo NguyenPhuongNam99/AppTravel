@@ -63,7 +63,11 @@ const Login = () => {
                 <Text style={styles.colorSubmit}>Đăng nhập</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={[styles.submit, styles.positionForget]}>
+              <TouchableOpacity
+                style={[styles.submit, styles.positionForget]}
+                onPress={() =>
+                  navigation.navigate('BottomTabNavigation' as never)
+                }>
                 <Text style={styles.colorSubmit}>Quên mật khẩu</Text>
               </TouchableOpacity>
               <TouchableOpacity

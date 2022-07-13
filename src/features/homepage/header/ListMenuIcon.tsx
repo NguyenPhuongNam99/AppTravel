@@ -18,7 +18,7 @@ const ListMenuIcon = () => {
       navigation.navigate('ComboIcon' as never);
     }
     if (item.id === String(1)) {
-      navigation.navigate('Profile' as never);
+      navigation.navigate('Payment' as never);
     }
     if (item.id === String(3)) {
       navigation.navigate('Notification' as never);
