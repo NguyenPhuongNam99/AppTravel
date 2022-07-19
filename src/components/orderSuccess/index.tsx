@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Modal} from 'react-native-paper';
 import {useAppSelector, useAppDispatch} from '../../app/store';
 import {setOpenModal} from '../../features/scheduleOverview/scheduleOverviewSlice';
@@ -20,12 +14,11 @@ const OrderSuccess = () => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
 
-  //   setTimeout(() => {
-  //     dispatch(setOpenModal(false));
-  //   }, 2000);
-
   return (
-    <Modal visible={visiable} onDismiss={() => dispatch(setOpenModal(false))}>
+    <Modal
+      visible={visiable}
+      onDismiss={() => dispatch(setOpenModal(false))}
+      style={{width: '100%', height: '100%'}}>
       <View style={styles.container}>
         <View style={styles.blockContent}>
           <AppAntDesign name="checkcircleo" color={'green'} size={48} />
@@ -41,7 +34,7 @@ const OrderSuccess = () => {
 
           <TouchableOpacity
             onPress={() => (
-              navigation.navigate('BottomTabNavigation' as never),
+              navigation.navigate('HomePage' as never),
               dispatch(setOpenModal(false))
             )}
             style={{
@@ -63,8 +56,8 @@ const OrderSuccess = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'green',
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 99,

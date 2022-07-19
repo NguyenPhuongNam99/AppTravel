@@ -11,7 +11,7 @@ const RestaurantIcon = () => {
   return (
     <ScrollView style={styles.scroll}>
       <View style={styles.container}>
-        <Header title="Nhà hàng" />
+        <Header title="Nhà hàng" backOption={false} />
         <View style={styles.searchContainer}>
           <View style={styles.searchblock}>
             <TextInput

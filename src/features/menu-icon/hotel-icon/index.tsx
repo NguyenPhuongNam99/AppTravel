@@ -12,7 +12,7 @@ const HotelIcon = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
-        <Header title="Khách sạn" />
+        <Header title="Khách sạn" backOption={false} />
         <View style={styles.searchContainer}>
           <View style={styles.searchblock}>
             <TextInput

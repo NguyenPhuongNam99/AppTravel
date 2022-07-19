@@ -1,23 +1,15 @@
 import React from 'react';
-import {
-  Image,
-  Text,
-  View,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
+import {Image, Text, View, TouchableOpacity, FlatList} from 'react-native';
 import Header from '../../components/header/Header';
-import images from '../../assets/images';
 import styles from './styles';
 import {dataDiscount} from '../homepage/fake-data/FakeData';
+import MapView from 'react-native-maps';
 
 const Discount = ({route}) => {
   const {item} = route.params;
-  console.log('item discount', item);
   return (
     <View style={styles.container}>
-      <Header title="Khuyến mại" />
+      <Header title="Khuyến mại" backOption={true} />
       <FlatList
         data={dataDiscount}
         renderItem={({item}) => {
@@ -39,6 +31,18 @@ const Discount = ({route}) => {
           );
         }}
       />
+      {/* <MapView
+        style={{width: 200, height: 200, backgroundColor: 'green'}}
+        // provider={PROVIDER_GOOGLE}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        zoomEnabled={true}
+        showsUserLocation={true}
+      /> */}
     </View>
   );
 };

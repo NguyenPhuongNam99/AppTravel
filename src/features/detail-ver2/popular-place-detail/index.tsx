@@ -21,7 +21,6 @@ const PopularPlaceDetailV2 = ({route}) => {
   const openModal = useAppSelector(
     state => state.scheduleOverviewSlice.openModal,
   );
-  console.log('open new', openModal);
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>

@@ -72,18 +72,26 @@ const styles = StyleSheet.create({
     height: 150,
     flexDirection: 'row',
     marginTop: 16,
-    borderRadius: 15,
+    borderRadius: 6,
+    paddingHorizontal: 16,
+    
   },
   listDiscount: {
     width: '100%',
     height: 150,
     marginLeft: 16,
+    borderRadius: 6,
+    overflow: 'hidden'
   },
   discount: {
-    width: 300,
+    width: '100%',
     height: '100%',
-    borderRadius: 15,
+    borderRadius: 6,
     marginRight: 16,
+    // backgroundColor: 'blue',
+    overflow: 'hidden'
+    // marginLeft: 20,
+ 
   },
   scheduleContainer: {
     width: 300,
@@ -100,7 +108,9 @@ const styles = StyleSheet.create({
   },
   bottomSchedule: {flex: 0.3},
   blockBottomSchedule: {width: '100%', height: '100%', marginVertical: 9},
-  imageSchedule: {width: '100%', height: '100%'},
+  imageSchedule: {width: '100%', height: '100%', borderRadius: 6},
+  imageScheduleFull: {width: '100%', height: '100%'},
+
   topLeftSchedule: {flex: 0.4},
   topRightSchedule: {flex: 0.57},
   topRightHeader: {flex: 0.49, borderRadius: 20},
@@ -143,8 +153,8 @@ const styles = StyleSheet.create({
   padding: {
     paddingLeft: 7
   },
-  destinationPopolar: {width: 150, height: 200, marginLeft: 16, marginTop: 16, borderRadius: 20},
-  destinationBlock: {width: 150, height: '100%'},
+  destinationPopolar: {width: 150, height: 200, marginLeft: 16, marginTop: 16, borderRadius: 6},
+  destinationBlock: {width: 150, height: '100%', borderRadius: 6},
   titleDestination: {
     position: 'absolute',
     bottom: 10,
@@ -158,7 +168,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 16,
   },
-  hotelTop: {flex: 0.66, backgroundColor: 'blue'},
+  hotelTop: {flex: 0.66},
   hotelBottom: {
     flex: 0.34,
     flexDirection: 'column',
@@ -176,7 +186,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   specialBlock: {width: 220, height: 230},
-  specialImage: {width: '100%', height: 200},
+  specialImage: {width: '100%', height: 200, borderRadius: 6},
   specialTitle: {color: '#3076FE'}
 });
 export default styles;

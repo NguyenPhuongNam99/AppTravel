@@ -9,7 +9,7 @@ import {dataSpecialExperience} from '../homepage/fake-data/FakeData';
 const SpecialExprience = () => {
   return (
     <View style={styles.container}>
-      <Header title="Trải nghiệm nổi bật" />
+      <Header title="Trải nghiệm nổi bật" backOption={true} />
       <FlatList
         data={dataSpecialExperience}
         renderItem={({item}) => {

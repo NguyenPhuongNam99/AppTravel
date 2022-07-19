@@ -5,14 +5,16 @@ import {useNavigation} from '@react-navigation/core';
 import AppIonicons from '../icon/AppIonicons';
 import styles from '../header/styles';
 
-const Header: React.FC<TypeHeader> = ({title}) => {
+const Header: React.FC<TypeHeader> = ({title, backOption}) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{width: '100%', backgroundColor: 'white'}}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <AppIonicons name="chevron-back-outline" size={25} />
-        </TouchableOpacity>
+        {backOption && (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <AppIonicons name="chevron-back-outline" size={25} />
+          </TouchableOpacity>
+        )}
         <Text style={styles.title}>{title}</Text>
       </View>
     </SafeAreaView>

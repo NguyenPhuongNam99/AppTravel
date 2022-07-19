@@ -6,7 +6,7 @@ import ListRencentSchedule from '../../recent-schedule-detail/ListRencentSchedul
 const Favourite = () => {
   return (
     <View>
-      <Header title="Yêu thích" />
+      <Header title="Yêu thích" backOption={false} />
       <ListRencentSchedule />
     </View>
   );

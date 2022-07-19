@@ -1,5 +1,4 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from '../features/splashscreen';
 import Login from '../features/login/index';
 import Register from '../features/register';
@@ -31,69 +30,103 @@ import DetailPlan from '../features/scheduleOverview/plan-detail';
 import TitleBlock from '../features/homepage/Title-block/TitleBlock';
 import PopularPlaceDetailV2 from '../features/detail-ver2/popular-place-detail';
 import Payment from '../features/payments';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import OrderSuccess from '../components/orderSuccess/index';
 
-const StackNavigation = () => {
-  const Stack = createNativeStackNavigator();
-  const {getIsLogin} = userAppUser();
-  const isLogin = getIsLogin();
+const StackHome = createNativeStackNavigator();
+const StackNotifi = createNativeStackNavigator();
+const StackFavourite = createNativeStackNavigator();
+const StackProfile = createNativeStackNavigator();
+const StackLogin = createNativeStackNavigator();
 
+// const {getIsLogin} = userAppUser();
+// const isLogin = getIsLogin();
+
+export const StackLoginScreen = () => {
   return (
-    <>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-
-        <Stack.Screen
-          name="BottomTabNavigation"
-          component={BottomTabNavigation}
-        />
-        <Stack.Screen name="TitleBlock" component={TitleBlock} />
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="Discount" component={Discount} />
-        <Stack.Screen
-          name="RecentScheduleDetail"
-          component={RecentScheduleDetail}
-        />
-        <Stack.Screen name="PlacePoplular" component={PlacePoplular} />
-        <Stack.Screen name="SpecialExprience" component={SpecialExprience} />
-        <Stack.Screen name="Place12" component={Place12} />
-        <Stack.Screen name="HotelResortDetail" component={HotelResortDetail} />
-        <Stack.Screen name="HotelIcon" component={HotelIcon} />
-        <Stack.Screen name="RestaurantIcon" component={RestaurantIcon} />
-        <Stack.Screen name="ComboIcon" component={ComboIcon} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Setting" component={Setting} />
-        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
-        <Stack.Screen name="TermUse" component={TermUse} />
-        <Stack.Screen name="PayGuide" component={PayGuide} />
-        <Stack.Screen name="Favourite" component={Favourite} />
-        <Stack.Screen
-          name="InformationProfile"
-          component={InformationProfile}
-        />
-        <Stack.Screen
-          name="UpdateInformationProfile"
-          component={UpdateInformationProfile}
-        />
-        <Stack.Screen name="Notification" component={Notification} />
-        <Stack.Screen name="DetailPlace" component={DetailPlace} />
-        <Stack.Screen
-          name="RecentScheduleDetailV2"
-          component={RecentScheduleDetailV2}
-        />
-        <Stack.Screen name="ScheduleOverview" component={ScheduleOverview} />
-        <Stack.Screen name="DetailPlan" component={DetailPlan} />
-        <Stack.Screen
-          name="PopularPlaceDetailV2"
-          component={PopularPlaceDetailV2}
-        />
-        <Stack.Screen name="Payment" component={Payment} />
-      </Stack.Navigator>
-    </>
+    <StackLogin.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="SplashScreen" component={SplashScreen} />
+      <StackHome.Screen name="Login" component={Login} />
+      <StackHome.Screen name="Register" component={Register} />
+    </StackLogin.Navigator>
   );
 };
-export default StackNavigation;
+
+export const StackHomeScreen = () => {
+  return (
+    <StackHome.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="HomePage" component={HomePage} />
+      <StackHome.Screen name="TitleBlock" component={TitleBlock} />
+      <StackHome.Screen name="Discount" component={Discount} />
+      <StackHome.Screen
+        name="RecentScheduleDetail"
+        component={RecentScheduleDetail}
+      />
+      <StackHome.Screen name="PlacePoplular" component={PlacePoplular} />
+      <StackHome.Screen name="SpecialExprience" component={SpecialExprience} />
+      <StackHome.Screen name="Place12" component={Place12} />
+      <StackHome.Screen
+        name="HotelResortDetail"
+        component={HotelResortDetail}
+      />
+      <StackHome.Screen name="HotelIcon" component={HotelIcon} />
+      <StackHome.Screen name="RestaurantIcon" component={RestaurantIcon} />
+      <StackHome.Screen name="ComboIcon" component={ComboIcon} />
+      <StackHome.Screen name="Profile" component={Profile} />
+      <StackHome.Screen name="Setting" component={Setting} />
+      <StackHome.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <StackHome.Screen name="TermUse" component={TermUse} />
+      <StackHome.Screen name="PayGuide" component={PayGuide} />
+
+      <StackHome.Screen name="DetailPlace" component={DetailPlace} />
+      <StackHome.Screen
+        name="RecentScheduleDetailV2"
+        component={RecentScheduleDetailV2}
+      />
+      <StackHome.Screen name="ScheduleOverview" component={ScheduleOverview} />
+      <StackHome.Screen name="DetailPlan" component={DetailPlan} />
+      <StackHome.Screen
+        name="PopularPlaceDetailV2"
+        component={PopularPlaceDetailV2}
+      />
+      <StackHome.Screen name="Payment" component={Payment} />
+      <StackHome.Screen name="OrderSuccess" component={OrderSuccess} />
+    </StackHome.Navigator>
+  );
+};
+
+export const StackFavouriteScreen = () => {
+  return (
+    <StackFavourite.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="Favourite" component={Favourite} />
+    </StackFavourite.Navigator>
+  );
+};
+
+export const StackProfileScreen = () => {
+  return (
+    <StackProfile.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="Profile" component={Profile} />
+      <StackHome.Screen name="Setting" component={Setting} />
+      <StackHome.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <StackHome.Screen name="TermUse" component={TermUse} />
+      <StackHome.Screen name="PayGuide" component={PayGuide} />
+      <StackHome.Screen
+        name="InformationProfile"
+        component={InformationProfile}
+      />
+      <StackHome.Screen
+        name="UpdateInformationProfile"
+        component={UpdateInformationProfile}
+      />
+    </StackProfile.Navigator>
+  );
+};
+
+export const StackNotificationScreen = () => {
+  return (
+    <StackNotifi.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="Notification" component={Notification} />
+    </StackNotifi.Navigator>
+  );
+};

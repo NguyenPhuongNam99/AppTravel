@@ -39,27 +39,27 @@ const RecentSchedule = () => {
               <View style={styles.topLeftSchedule}>
                 <Image
                   source={item.imageTopLeft}
-                  style={styles.imageSchedule}
+                  style={styles.imageScheduleFull}
                 />
               </View>
               <View style={styles.topRightSchedule}>
                 <View style={styles.topRightHeader}>
                   <Image
                     source={item.imageTopRight}
-                    style={styles.imageSchedule}
+                    style={styles.imageScheduleFull}
                   />
                 </View>
                 <View style={styles.topBottomSchedule}>
                   <View style={styles.topBottomItem}>
                     <Image
                       source={item.imageTopLeftBottom}
-                      style={styles.imageSchedule}
+                      style={styles.imageScheduleFull}
                     />
                   </View>
                   <View style={styles.topBottomItem}>
                     <Image
                       source={item.imageTopRightBottom}
-                      style={styles.imageSchedule}
+                      style={styles.imageScheduleFull}
                     />
                   </View>
                 </View>

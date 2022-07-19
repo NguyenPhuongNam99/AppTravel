@@ -6,6 +6,7 @@ import {
   Image,
   FlatList,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import styles from './styles';
 import Header from './header/Header';
@@ -18,6 +19,7 @@ import ListHotelResort from '../../components/list-hotel-resort';
 import homePageApi from './homepageApi';
 import SpecialExprienceHome from './special-experience-home';
 import {Destination12, dataListPoPularPlace} from './fake-data/FakeData';
+import Carousel from 'react-native-banner-carousel';
 
 const HomePage = () => {
   const _getListUser = async () => {
@@ -48,23 +50,30 @@ const HomePage = () => {
         </View>
         <TitleBlock label="Khuyến mại" navigateScreen={'Discount'} />
         <View style={styles.blockDiscountContainer}>
-          <FlatList
-            data={dataDiscount}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={styles.listDiscount}
-            renderItem={({item}) => {
-              return (
-                <View style={styles.discount}>
-                  <Image
-                    source={item.image}
-                    resizeMode="cover"
-                    style={{width: 300, height: '100%'}}
-                  />
-                </View>
-              );
-            }}
-          />
+          <View
+            style={{
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+            }}>
+            <Carousel autoplay autoplayTimeout={3000} loop index={0}>
+              {dataDiscount.map((item, index) => {
+                return (
+                  <View style={styles.discount}>
+                    <Image
+                      source={item.image}
+                      resizeMode="cover"
+                      style={{
+                        width: '91.7%',
+                        height: '100%',
+                        borderRadius: 6,
+                      }}
+                    />
+                  </View>
+                );
+              })}
+            </Carousel>
+          </View>
         </View>
         <TitleBlock
           label="Lịch trình gần đây"

@@ -1,3 +1,4 @@
 export interface TypeHeader {
-    title: string
+    title: string;
+    backOption: boolean
 }

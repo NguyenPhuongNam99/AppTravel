@@ -9,7 +9,7 @@ import {Destination12} from '../homepage/fake-data/FakeData';
 const Place12 = () => {
   return (
     <View style={styles.container}>
-      <Header title="Điểm đến tháng 12" />
+      <Header title="Điểm đến tháng 12" backOption={true} />
       <FlatList
         data={Destination12}
         renderItem={({item}) => {

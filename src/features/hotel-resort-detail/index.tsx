@@ -13,7 +13,7 @@ const HotelResortDetail = () => {
   return (
     // dataResortHotel
     <View style={styles.container}>
-      <Header title="Khách sạn & Resort" />
+      <Header title="Khách sạn & Resort" backOption={true} />
       <FlatList
         data={dataResortHotel}
         renderItem={({item}) => {

@@ -6,7 +6,7 @@ const TermUse = () => {
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
-        <Header title="Điều khoản sử dụng" />
+        <Header title="Điều khoản sử dụng" backOption={true} />
         <View style={styles.view}>
           <Text>
             1. Đối tượng tham gia Người dùng được tham gia đặt phòng khách sạn,

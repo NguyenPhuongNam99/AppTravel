@@ -11,7 +11,7 @@ const PlacePoplular = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Header title="Địa điểm phổ biến" />
+      <Header title="Địa điểm phổ biến" backOption={true} />
       <FlatList
         data={dataListPoPularPlace}
         style={{marginBottom: 10}}

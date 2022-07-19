@@ -8,6 +8,12 @@ import Notification from '../features/notification';
 import AppFoundation from '../components/icon/AppFoundation';
 import Discount from '../features/Discount';
 import Favourite from '../features/profile/favourite';
+import {
+  StackHomeScreen,
+  StackFavouriteScreen,
+  StackProfileScreen,
+  StackNotificationScreen,
+} from './StackNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +21,8 @@ function BottomTabNavigation() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}}>
       <Tab.Screen
-        name="HomePage"
-        component={HomePage}
+        name="StackHomeScreen"
+        component={StackHomeScreen}
         options={{
           tabBarIcon: tabInfo => (
             <AppIonicons
@@ -28,8 +34,8 @@ function BottomTabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Notification"
-        component={Notification}
+        name="StackNotificationScreen"
+        component={StackNotificationScreen}
         options={{
           tabBarIcon: tabInfo => (
             <AppMaterIcon
@@ -41,8 +47,8 @@ function BottomTabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Favourite"
-        component={Favourite}
+        name="StackFavouriteScreen"
+        component={StackFavouriteScreen}
         options={{
           tabBarIcon: tabInfo => (
             <AppFoundation
@@ -55,8 +61,8 @@ function BottomTabNavigation() {
       />
 
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="StackProfileScreen"
+        component={StackProfileScreen}
         options={{
           tabBarIcon: tabInfo => (
             <AppMaterIcon

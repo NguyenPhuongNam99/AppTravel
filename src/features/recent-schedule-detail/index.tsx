@@ -7,7 +7,7 @@ import ListRencentSchedule from './ListRencentSchedule';
 const RecentScheduleDetail = () => {
   return (
     <View style={styles.container}>
-      <Header title="Lịch trình gần đây" />
+      <Header title="Lịch trình gần đây" backOption={true} />
       <ListRencentSchedule />
     </View>
   );

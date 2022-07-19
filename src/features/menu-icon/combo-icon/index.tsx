@@ -12,7 +12,7 @@ const ComboIcon = () => {
   return (
     <ScrollView style={styles.scroll}>
       <View style={styles.container}>
-        <Header title="Combo" />
+        <Header title="Combo" backOption={false} />
         <View style={styles.searchContainer}>
           <View style={styles.searchblock}>
             <TextInput

@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
   return (
     <ScrollView style={styles.view}>
       <View style={styles.container}>
-        <Header title="Chính sách bảo mật" />
+        <Header title="Chính sách bảo mật" backOption={true} />
 
         <View style={{width: '100%', paddingHorizontal: 16, marginTop: 20}}>
           <Text>

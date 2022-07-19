@@ -11,7 +11,7 @@ const InformationProfile = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Header title="Thông tin cá nhân" />
+      <Header title="Thông tin cá nhân" backOption={false} />
       <View style={styles.avatarContainer}>
         <View style={styles.leftAvatar}>
           <Image source={images.AVARTAR} style={styles.imageAvatar} />

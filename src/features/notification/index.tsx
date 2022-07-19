@@ -6,7 +6,7 @@ import images from '../../assets/images';
 const Notification = () => {
   return (
     <View>
-      <Header title="Thông báo" />
+      <Header title="Thông báo" backOption={false} />
       <View style={styles.margin}>
         <TouchableOpacity style={styles.blockList}>
           <View style={styles.blockLeft}>
@@ -16,7 +16,16 @@ const Notification = () => {
             <Text numberOfLines={1}>
               Bạn có muốn đi TP Hồ Chí Minh? OKGO có tất cả
             </Text>
-            <Text>20/12/2019 lúc 10:30</Text>
+            <Text>20/12/2022 lúc 10:30</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.blockList}>
+          <View style={styles.blockLeft}>
+            <Image source={images.AVARTAR} style={styles.image} />
+          </View>
+          <View style={styles.blockRight}>
+            <Text numberOfLines={1}>Hà Nội những ngày đầu thu !</Text>
+            <Text>20/08/2022 lúc 09:30</Text>
           </View>
         </TouchableOpacity>
       </View>
