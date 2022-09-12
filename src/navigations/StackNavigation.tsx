@@ -48,6 +48,8 @@ export const StackLoginScreen = () => {
       <StackHome.Screen name="SplashScreen" component={SplashScreen} />
       <StackHome.Screen name="Login" component={Login} />
       <StackHome.Screen name="Register" component={Register} />
+      <StackHome.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+
     </StackLogin.Navigator>
   );
 };
