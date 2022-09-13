@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import images from '../../../assets/images';
 import AppIonicons from '../../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
@@ -7,6 +14,7 @@ import {styles} from './styles';
 import {setOpenModal} from '../../scheduleOverview/scheduleOverviewSlice';
 import {useAppDispatch, useAppSelector} from '../../../app/store';
 import OrderSuccess from '../../../components/orderSuccess';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 const RecentScheduleDetailV2 = ({route}) => {
   const navigation = useNavigation();
@@ -44,11 +52,24 @@ const RecentScheduleDetailV2 = ({route}) => {
           </View>
 
           <View style={styles.blockMap}>
-            <Image
-              source={images.MAP}
-              style={styles.fullWidth}
-              resizeMode="cover"
-            />
+            <MapView
+              provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+              style={{
+                ...StyleSheet.absoluteFillObject,
+              }}
+              region={{
+                latitude: item.latitude,
+                longitude: item.longitude,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.0121,
+              }}>
+              <Marker
+                coordinate={{
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                }}
+              />
+            </MapView>
           </View>
 
           <View style={styles.blockImage}>

@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/core';
 import {setOpenModal} from '../../scheduleOverview/scheduleOverviewSlice';
 import {useAppDispatch, useAppSelector} from '../../../app/store';
 import OrderSuccess from '../../../components/orderSuccess';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 const PopularPlaceDetailV2 = ({route}) => {
   const {item} = route.params;
@@ -56,11 +57,24 @@ const PopularPlaceDetailV2 = ({route}) => {
         </View>
         <View style={styles.mapContainer}>
           <View style={styles.mapBlock}>
-            <Image
-              source={images.MAP}
-              style={styles.fullWidth}
-              resizeMode="cover"
-            />
+            <MapView
+              provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+              style={{
+                ...StyleSheet.absoluteFillObject,
+              }}
+              region={{
+                latitude: item.latitude,
+                longitude: item.longitude,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.0121,
+              }}>
+              <Marker
+                coordinate={{
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                }}
+              />
+            </MapView>
           </View>
         </View>
         <View style={styles.imageContainer}>
