@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    // backgroundColor: 'blue',
   },
   twoLevel: {
     flex: 4,
