@@ -4,11 +4,13 @@ import Header from '../../components/header/Header';
 import {styles} from './styles';
 import ListRencentSchedule from './ListRencentSchedule';
 
-const RecentScheduleDetail = () => {
+const RecentScheduleDetail = ({route}) => {
+  const {passData} = route.params;
+
   return (
     <View style={styles.container}>
       <Header title="Lịch trình gần đây" backOption={true} />
-      <ListRencentSchedule />
+      <ListRencentSchedule passData={passData}/>
     </View>
   );
 };

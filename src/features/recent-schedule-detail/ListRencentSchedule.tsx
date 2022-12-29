@@ -6,19 +6,20 @@ import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
 import {scheduleData} from '../homepage/fake-data/FakeData';
 
-const ListRencentSchedule = () => {
+const ListRencentSchedule = ({passData}: any) => {
   const navigation = useNavigation();
+
   return (
     <FlatList
-      data={scheduleData}
-      renderItem={({item}) => {
+      data={passData}
+      renderItem={(itemList) => {
         return (
           <TouchableOpacity
             style={styles.scheduleContainer}
             onPress={() =>
               navigation.navigate(
                 'RecentScheduleDetailV2' as never,
-                {item: item} as never,
+                {item: itemList} as never,
               )
             }>
             <View style={styles.scheduleBlock}>
@@ -26,27 +27,27 @@ const ListRencentSchedule = () => {
                 <View style={styles.topLeftSchedule}>
                   <Image
                     resizeMode="cover"
-                    source={item.imageTopLeft}
+                  source={{uri: itemList.item.item.thumbnail[0].url}}
                     style={styles.imageSchedule}
                   />
                 </View>
                 <View style={styles.topRightSchedule}>
                   <View style={styles.topRightTop}>
                     <Image
-                      source={item.imageTopRight}
+                    source={{uri: itemList.item.item.thumbnail[1].url}}
                       style={styles.imageSchedule}
                     />
                   </View>
                   <View style={styles.topRightBottom}>
                     <View style={styles.bottomLeft}>
                       <Image
-                        source={item.imageTopLeftBottom}
+                      source={{uri: itemList.item.item.thumbnail[2].url}}
                         style={styles.imageSchedule}
                       />
                     </View>
                     <View style={styles.bottomRight}>
                       <Image
-                        source={item.imageTopRightBottom}
+                      source={{uri: itemList.item.item.thumbnail[3].url}}
                         style={styles.imageSchedule}
                       />
                     </View>
@@ -56,20 +57,20 @@ const ListRencentSchedule = () => {
               <View style={styles.scheduleBottom}>
                 <View style={styles.titleContainer}>
                   <Text style={styles.bold}>
-                    {item.title}{' '}
-                    <Text style={styles.colorTime}>{item.time}</Text>
+                    {itemList.item.item.tour_name}
+                    <Text style={styles.colorTime}>ss</Text>
                   </Text>
                   <View style={styles.destination}>
                     <AppMaterIcon name="place" color={'#3076FE'} />
-                    <Text style={styles.colorPlace}>{item.place}</Text>
+                    <Text style={styles.colorPlace}>Việt Nam</Text>
                   </View>
                 </View>
                 <View style={styles.bottomBlock}>
                   <View style={styles.bottomLeft1}>
-                    <Text numberOfLines={1}>{item.description}</Text>
+                    <Text numberOfLines={1}>ss</Text>
                   </View>
                   <TouchableOpacity style={styles.bottomRight1}>
-                    <Text style={styles.price}>{item.price}</Text>
+                    <Text style={styles.price}>{itemList.item.item.price}  đ/ người</Text>
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={{alignSelf: 'flex-end'}}>

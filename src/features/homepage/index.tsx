@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   View,
@@ -20,22 +20,50 @@ import homePageApi from './homepageApi';
 import SpecialExprienceHome from './special-experience-home';
 import {Destination12, dataListPoPularPlace} from './fake-data/FakeData';
 import Carousel from 'react-native-banner-carousel';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomePage = () => {
-  const _getListUser = async () => {
+  const [dataVoucher, setDataVoucher] = useState();
+  const [dataTravel, setDataTravel] = useState([]);
+
+  const getListDiscount = async () => {
+    const tokenNew = await AsyncStorage.getItem('storage_Key');
     try {
-      const response = await homePageApi.getListUser();
-      console.log('response new data ', response);
-    } catch (error) {
-      console.log('err new', error);
-    }
+      const response = await axios.get(
+        'http://206.189.37.26:8080/v1/voucher/getAllVoucher',
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      setDataVoucher(response.data);
+    } catch (error) {}
   };
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      _getListUser();
-    }, 5000);
+  const getListAllTravel = async () => {
+    try {
+      const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+      const response = await axios.get(
+        'http://206.189.37.26:8080/v1/tour/getAllTour',
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+
+      setDataTravel(response.data)
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getListDiscount();
+    getListAllTravel();
   }, []);
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
@@ -57,12 +85,12 @@ const HomePage = () => {
               overflow: 'hidden',
             }}>
             <Carousel autoplay autoplayTimeout={3000} loop index={0}>
-              {dataDiscount.map((item, index) => {
+              {dataVoucher?.map((item, index) => {
                 return (
                   <View style={styles.discount}>
                     <Image
-                      source={item.image}
-                      resizeMode="cover"
+                      source={{uri: item.image_url}}
+                      resizeMode="contain"
                       style={{
                         width: '91.7%',
                         height: '100%',
@@ -78,8 +106,9 @@ const HomePage = () => {
         <TitleBlock
           label="Lịch trình gần đây"
           navigateScreen={'RecentScheduleDetail'}
+          passData={dataTravel}
         />
-        <RecentSchedule />
+        <RecentSchedule data={dataTravel}/>
         <TitleBlock
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}

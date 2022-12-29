@@ -15,10 +15,17 @@ import {setOpenModal} from '../../scheduleOverview/scheduleOverviewSlice';
 import {useAppDispatch, useAppSelector} from '../../../app/store';
 import OrderSuccess from '../../../components/orderSuccess';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import RenderHtml from 'react-native-render-html';
 
 const RecentScheduleDetailV2 = ({route}) => {
   const navigation = useNavigation();
   const {item, hotel} = route?.params;
+
+  console.log('item new',item?.item?.time_line);
+  const source = {
+    html: `
+${item?.item?.item?.description}`,
+  };
   const dispatch = useAppDispatch();
   const openModal = useAppSelector(
     state => state.scheduleOverviewSlice.openModal,
@@ -30,7 +37,7 @@ const RecentScheduleDetailV2 = ({route}) => {
         <ScrollView style={{marginBottom: 50}}>
           <View style={styles.blockImageContainer}>
             <Image
-              source={item.imageTopLeft || item.image}
+              source={{uri: item.item.item.thumbnail[0].url}}
               resizeMode="cover"
               style={styles.fullWidth}
             />
@@ -58,15 +65,15 @@ const RecentScheduleDetailV2 = ({route}) => {
                 ...StyleSheet.absoluteFillObject,
               }}
               region={{
-                latitude: item.latitude,
-                longitude: item.longitude,
+                latitude: 21.030653,
+                longitude: 105.84713,
                 latitudeDelta: 0.015,
                 longitudeDelta: 0.0121,
               }}>
               <Marker
                 coordinate={{
-                  latitude: item.latitude,
-                  longitude: item.longitude,
+                  latitude: 21.030653,
+                  longitude: 105.84713,
                 }}
               />
             </MapView>
@@ -75,21 +82,21 @@ const RecentScheduleDetailV2 = ({route}) => {
           <View style={styles.blockImage}>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopRight || item.image1}
+                source={{uri: item.item.item.thumbnail[1].url}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopRightBottom || item.image2}
+                source={{uri: item.item.item.thumbnail[2].url}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={item.imageTopLeftBottom || item.image3}
+                source={{uri: item.item.item.thumbnail[3].url}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
@@ -97,26 +104,13 @@ const RecentScheduleDetailV2 = ({route}) => {
           </View>
 
           <View style={styles.viewText}>
-            <Text style={styles.bold}>{item.headerText1}</Text>
-            <Text style={styles.textTitle}>{item.textHeader1}</Text>
-          </View>
-          <View style={styles.viewText}>
-            <Text style={styles.bold}>{item.headerText2}</Text>
-            <Text style={styles.textTitle}>{item.textHeader2}</Text>
-          </View>
-          <View style={styles.viewText}>
-            <Text style={styles.bold}>{item.HeaderText3}</Text>
-            <Text style={styles.textTitle}>{item.textHeader3}</Text>
-          </View>
-          <View style={styles.viewText}>
-            <Text style={styles.bold}>{item.HeaderText4}</Text>
-            <Text style={styles.textTitle}>{item.textHeader4}</Text>
+            <RenderHtml contentWidth={200} source={source} />
           </View>
         </ScrollView>
       </View>
       <View style={styles.blockSubmit}>
         <View style={styles.leftSubmit}>
-          <Text style={styles.colorLeftSubmit}>{item.price}</Text>
+          <Text style={styles.colorLeftSubmit}>{item.item.item.price} d/ nguoi</Text>
         </View>
         <View style={styles.rightSubmit}>
           <TouchableOpacity

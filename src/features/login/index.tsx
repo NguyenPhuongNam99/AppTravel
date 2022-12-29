@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   View,
   Image,
@@ -12,6 +12,8 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
 import {userContext} from '../../hook/useLogin';
 import Loading from '../../components/loading';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -28,6 +30,37 @@ const Login = () => {
       .then(() => {})
       .catch(err => console.log('err ', err));
   };
+
+  // const getApi = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       'http://206.189.37.26:8080/v1/restaurant/getAllRestaurant',
+  //     );
+  //   } catch (error) {
+  //     console.log('errro', error);
+  //   }
+  // };
+
+  const submitForm = async () => {
+    try {
+      axios({
+        method: 'post',
+        url: 'http://206.189.37.26:8080/v1/auth/login',
+        data: {
+          username: data.userName,
+          password: data.password,
+        },
+      }).then(async data => {
+        console.log('data new', data?.data?.accesToken);
+        await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
+        navigation.navigate('BottomTabNavigation' as never);
+      });
+    } catch (error) {}
+  };
+
+  // useEffect(() => {
+  //   getApi();
+  // }, []);
 
   return (
     <View style={styles.container}>
@@ -59,7 +92,7 @@ const Login = () => {
                   setData({...data, password: text})
                 }
               />
-              <TouchableOpacity style={styles.submit} onPress={onSubmit}>
+              <TouchableOpacity style={styles.submit} onPress={submitForm}>
                 <Text style={styles.colorSubmit}>Đăng nhập</Text>
               </TouchableOpacity>
 

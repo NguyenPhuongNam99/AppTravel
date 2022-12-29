@@ -19,44 +19,22 @@ import {useAppSelector, useAppDispatch} from '../../app/store';
 
 const ScheduleOverview = ({route}) => {
   const {item} = route.params;
-  const [indexData, setIndexData] = useState<number>(0);
   const navigation = useNavigation();
-  const openModal = useAppSelector(
-    state => state.scheduleOverviewSlice.openModal,
-  );
-  const dispatch = useAppDispatch();
-
-  console.log('openModal', openModal);
-
-  const dataMenuOverviewSchedule = [
-    {
-      id: '1',
-      title: 'Lịch trình',
-    },
-    {
-      id: '2',
-      title: 'Di chuyển',
-    },
-    {
-      id: '3',
-      title: 'Khách sạn',
-    },
-    {
-      id: '4',
-      title: 'Thăm quan',
-    },
-  ];
+  const formatTime = item.item.time_line.map(itemTime => itemTime.day);
+  const [indexData, setIndexData] = useState(0);
 
   return (
     <View style={styles.container}>
-      {/* <SafeAreaView style={styles.safeView} /> */}
       <View style={styles.imageBlock}>
         <Image
-          source={item?.imageTopLeft || item.image}
+          source={{uri: item.item.item.thumbnail[0].url}}
           resizeMode="cover"
           style={styles.fullwidth}
         />
-        <Image source={images.AVARTAR} style={styles.avatar} />
+        <View style={styles.backgroundBlur} />
+        <Text style={styles.timeFormat}>
+          {formatTime[0] + '  đến  ' + formatTime[formatTime.length - 1]}
+        </Text>
         <AppIonicons
           name="chevron-back-outline"
           size={20}
@@ -65,121 +43,113 @@ const ScheduleOverview = ({route}) => {
           onPress={() => navigation.goBack()}
         />
       </View>
-      <View style={styles.titleAvatar}>
-        <Text style={styles.bold}>{item.title}</Text>
-        <Text>{item?.durationTime}</Text>
-      </View>
-      <View style={styles.blockMenuIcon}>
+
+      <View style={{width: '100%', height: 60, paddingLeft: 14}}>
         <FlatList
-          data={dataMenuOverviewSchedule}
+          data={item.item.time_line}
           horizontal
           showsHorizontalScrollIndicator={false}
           renderItem={({item, index}) => {
             return (
               <TouchableOpacity
-                style={[styles.menuClick, checkbackground(index, indexData)]}
-                onPress={() => setIndexData(index)}>
-                <Text style={checkColor(index, indexData)}>{item.title}</Text>
+                onPress={() => setIndexData(index)}
+                style={{
+                  width: 80,
+                  height: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginRight: 10,
+                }}>
+                <Text>Ngày {index}</Text>
+                <Text style={{color: 'black'}}>{item.day}</Text>
               </TouchableOpacity>
             );
           }}
         />
       </View>
-      <TitleBlock
-        label="Kế hoạch"
-        navigateScreen={'DetailPlan'}
-        passData={item}
-      />
 
-      <View style={styles.planContainer}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.blockviewPlan}>
-            <View style={styles.viewPlan}>
-              <Image
-                source={item?.imageTopRight || item.image1}
-                style={styles.fullwidth}
-              />
-            </View>
-            <View style={styles.viewTitleBlock}>
-              <Text>{item?.listSchedule[0].date}</Text>
-              <Text
-                style={
-                  styles.colorDestination
-                }>{`${item?.listSchedule[0].schedule.length} điểm đến`}</Text>
-            </View>
-          </View>
-          <View style={styles.blockviewPlan}>
-            <View style={styles.viewPlan}>
-              <Image
-                source={item.imageTopRightBottom || item.image2}
-                style={styles.fullwidth}
-              />
-            </View>
-            <View style={styles.viewTitleBlock}>
-              <Text>{item?.listSchedule[1].date}</Text>
-              <Text
-                style={
-                  styles.colorDestination
-                }>{`${item?.listSchedule[1].schedule.length} điểm đến`}</Text>
-            </View>
-          </View>
-          <View style={styles.blockviewPlan}>
-            <View style={styles.viewPlan}>
-              <Image
-                source={item.imageTopLeftBottom || item.image3}
-                style={styles.fullwidth}
-              />
-            </View>
-            <View style={styles.viewTitleBlock}>
-              <Text>{item?.listSchedule[2].date}</Text>
-              <Text
-                style={
-                  styles.colorDestination
-                }>{`${item?.listSchedule[2].schedule.length} điểm đến`}</Text>
-            </View>
-          </View>
-          <View style={styles.blockviewPlan}>
-            <View style={styles.viewPlan}>
-              <Image
-                source={item.imageTopLeft || item.image}
-                style={styles.fullwidth}
-              />
-            </View>
-            <View style={styles.viewTitleBlock}>
-              <Text>{item?.listSchedule[3].date}</Text>
-              <Text
-                style={
-                  styles.colorDestination
-                }>{`${item?.listSchedule[3].schedule.length} điểm đến`}</Text>
-            </View>
-          </View>
-        </ScrollView>
-      </View>
-      <Text style={[styles.bold, styles.margin]}>Chuyến đi gồm :</Text>
       <View
         style={{
-          marginTop: 16,
-          marginLeft: 16,
-          flexDirection: 'row',
-          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+          marginTop: 10,
+          paddingHorizontal: 14,
         }}>
-        <AppMaterIcon name="hotel" size={20} color={'#9A9A9A'} />
-        <View style={{paddingLeft: 10}}>
-          <Text style={styles.bold}>Khách sạn</Text>
-          <Text>1 khách sạn, 5 ngày 4 đêm</Text>
-        </View>
+        <FlatList
+          data={item.item.time_line[indexData].schedule}
+          renderItem={({item, index}) => {
+            return (
+              <View
+                style={{
+                  width: '100%',
+                  height: 60,
+
+                  borderRadius: 6,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginBottom: 25,
+                }}>
+                <View
+                  style={{
+                    width: '5%',
+                    height: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                  }}>
+                  <Text style={{fontWeight: 'bold', color: 'black'}}>
+                    {index}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    width: '95%',
+                    height: '100%',
+                    flexDirection: 'row',
+                    backgroundColor: 'white',
+                    borderRadius: 6,
+                  }}>
+                  <View
+                    style={{
+                      width: '30%',
+                    }}>
+                    <Image
+                      source={{uri: item.thumbnail}}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'black',
+                        borderRadius: 6,
+                      }}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      width: '70%',
+                      justifyContent: 'center',
+                      alignItems: 'flex-start',
+                      paddingLeft: 10,
+                    }}>
+                    <Text style={{color: 'black'}}>{item.location}</Text>
+                    <Text numberOfLines={1} style={{color: 'black'}}>
+                      {item.description}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            );
+          }}
+        />
       </View>
-      <View style={styles.blockSubmit}>
-        <View style={styles.leftSubmit}>
-          <Text style={styles.colorLeftSubmit}>{item?.price}</Text>
-        </View>
-        <View style={styles.rightSubmit}>
-          <TouchableOpacity
-            style={styles.rightClick}
-            onPress={() => navigation.navigate('Payment' as never)}>
-            <Text style={styles.colorWhite}>Đặt ngay</Text>
-          </TouchableOpacity>
-        </View>
+
+      <View style={{width: '100%', height: 50, backgroundColor: 'white', position: 'absolute', bottom: 0, flexDirection: 'row', paddingHorizontal: 13}}>
+          <View style={{width: '60%', height: '100%', justifyContent: 'center', alignItems: 'flex-start'}}>
+              <Text style={{color: '#FF5F24', fontSize: 16, fontWeight: '700'}}>5,200,000 đ/ người</Text>
+          </View>
+            <View style={{width: '40%', height: '100%', justifyContent: 'center', alignItems: 'flex-end'}}>
+              <TouchableOpacity style={{width: 70, height: 25, backgroundColor: '#FF5F24', justifyContent: 'center', alignItems: 'center', borderRadius: 6}}>
+                <Text style={{color: 'white'}}>Đặt ngay</Text>
+              </TouchableOpacity>
+          </View>
       </View>
     </View>
   );

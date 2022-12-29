@@ -7,7 +7,6 @@ const getFullMethod = (
 ): string => {
   return microServiceName + methodVersion + methodName;
 };
-
 const API_METHOD = {
   MS_AUTH: {
     Register: getFullMethod('v1/', 'auth/', 'register'),

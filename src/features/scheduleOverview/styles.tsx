@@ -6,8 +6,10 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   safeView: {backgroundColor: 'white'},
-  imageBlock: {width: '100%', height: 200, backgroundColor: 'yellow'},
+  imageBlock: {width: '100%', height: 140, backgroundColor: 'yellow'},
   fullwidth: {width: '100%', height: '100%'},
+  backgroundBlur: {width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)', position: 'absolute', top: 0, left: 0},
+  timeFormat: {position: 'absolute', top: '50%',left: '25%', color: 'white', zIndex: 99},
   avatar: {
     width: 50,
     height: 50,

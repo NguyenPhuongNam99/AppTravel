@@ -4,9 +4,12 @@ import Header from '../../components/header/Header';
 import styles from './styles';
 import {dataDiscount} from '../homepage/fake-data/FakeData';
 import MapView from 'react-native-maps';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Discount = ({route}) => {
   const {item} = route.params;
+    console.log('response view', AsyncStorage.getItem('storage_Key'))
+
   return (
     <View style={styles.container}>
       <Header title="Khuyến mại" backOption={true} />

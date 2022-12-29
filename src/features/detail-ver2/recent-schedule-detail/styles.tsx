@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
-  iconBack: {position: 'absolute', top: '20%', left: 10, zIndex: 99},
+  iconBack: {position: 'absolute', top: '20%', left: 10, zIndex: 99,  width: 30, height: 30},
   blockMap: {width: '100%', height: 140, marginTop: 16},
   blockImage: {
     width: '100%',

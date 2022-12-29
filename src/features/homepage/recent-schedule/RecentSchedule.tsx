@@ -5,60 +5,51 @@ import styles from '../styles';
 import {scheduleData} from '../fake-data/FakeData';
 import {useNavigation} from '@react-navigation/core';
 
-const RecentSchedule = () => {
-  const navigation = useNavigation();
-  const data = [
-    {
-      id: '1',
-      imageTopLeft: images.SCHEDULE_ONE,
-      imageTopRight: images.RIGHT_SCHEDULE,
-      imageRightLeft: images.BOTTOM_SCHEDULE,
-      imageRight: images.BOTTOM_SCHEDULE_ONE,
-      place: 'Đà Lạt, Lâm Đồng',
-      time: '(5 ngày)',
-      price: '5,200,000 đ/ người',
-    },
-  ];
+interface TypeRecentSchedule {
+  data: any;
+}
 
+const RecentSchedule: React.FC<TypeRecentSchedule> = ({data}) => {
+  const navigation = useNavigation();
   return (
     <FlatList
-      data={scheduleData}
+      data={data}
       horizontal
       showsHorizontalScrollIndicator={false}
-      renderItem={({item}) => {
+      renderItem={itemList => {
         return (
           <TouchableOpacity
             style={styles.scheduleContainer}
             onPress={() =>
               navigation.navigate(
                 'RecentScheduleDetailV2' as never,
-                {item: item} as never,
+                {item: data} as never,
               )
             }>
             <View style={styles.topSchedule}>
               <View style={styles.topLeftSchedule}>
                 <Image
-                  source={item.imageTopLeft}
+                  source={{uri: itemList.item.item.thumbnail[0].url}}
                   style={styles.imageScheduleFull}
                 />
               </View>
               <View style={styles.topRightSchedule}>
                 <View style={styles.topRightHeader}>
                   <Image
-                    source={item.imageTopRight}
+                    source={{uri: itemList.item.item.thumbnail[1].url}}
                     style={styles.imageScheduleFull}
                   />
                 </View>
                 <View style={styles.topBottomSchedule}>
                   <View style={styles.topBottomItem}>
                     <Image
-                      source={item.imageTopLeftBottom}
+                      source={{uri: itemList.item.item.thumbnail[2].url}}
                       style={styles.imageScheduleFull}
                     />
                   </View>
                   <View style={styles.topBottomItem}>
                     <Image
-                      source={item.imageTopRightBottom}
+                      source={{uri: itemList.item.item.thumbnail[3].url}}
                       style={styles.imageScheduleFull}
                     />
                   </View>
@@ -69,7 +60,7 @@ const RecentSchedule = () => {
               <View style={styles.blockBottomSchedule}>
                 <View style={styles.bottomTop}>
                   <Text style={styles.weight600}>
-                    {item.title}
+                    {itemList.item.item.tour_name}
                     <Text style={styles.textColor}>(5 ngày)</Text>
                   </Text>
                   <Text>Việt Nam</Text>
@@ -79,7 +70,9 @@ const RecentSchedule = () => {
                     <Text>10 giờ trước</Text>
                   </View>
                   <TouchableOpacity style={styles.bottomRight}>
-                    <Text style={styles.price}>5,200,000 đ/ người</Text>
+                    <Text style={styles.price}>
+                      {itemList.item.item.price} đ/ người
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>

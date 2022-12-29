@@ -25,11 +25,14 @@ const UseLogin = props => {
       };
       const response = await loginAPI
         .login(params)
-        .then(() => {
+        .then((data) => {
+          console.log('data new', data)
           setIsLogin(true);
           // navigation.navigate('HomePage' as never);
         })
-        .catch(() => {});
+        .catch((error) => {
+          console.log('erorr', error)
+        });
       setLoading(false);
     } catch (error) {
       setIsLogin(false);
