@@ -32,6 +32,7 @@ import PopularPlaceDetailV2 from '../features/detail-ver2/popular-place-detail';
 import Payment from '../features/payments';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import OrderSuccess from '../components/orderSuccess/index';
+import HotelDetailv2 from '../features/detail-ver2/recent-schedule-detail/hotelDetailv2';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -81,9 +82,14 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="PayGuide" component={PayGuide} />
 
       <StackHome.Screen name="DetailPlace" component={DetailPlace} />
+      
       <StackHome.Screen
         name="RecentScheduleDetailV2"
         component={RecentScheduleDetailV2}
+      />
+       <StackHome.Screen
+        name="HotelDetailv2"
+        component={HotelDetailv2}
       />
       <StackHome.Screen name="ScheduleOverview" component={ScheduleOverview} />
       <StackHome.Screen name="DetailPlan" component={DetailPlan} />

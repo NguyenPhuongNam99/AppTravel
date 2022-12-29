@@ -17,18 +17,18 @@ import OrderSuccess from '../../../components/orderSuccess';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import RenderHtml from 'react-native-render-html';
 
-const RecentScheduleDetailV2 = ({route}) => {
+const HotelDetailv2 = ({route}) => {
   const navigation = useNavigation();
   const {item, hotel} = route?.params;
 
-  const source = {
-    html: `
-${item?.item?.item?.description}`,
-  };
-  const dispatch = useAppDispatch();
-  const openModal = useAppSelector(
-    state => state.scheduleOverviewSlice.openModal,
-  );
+//   const source = {
+//     html: `
+// ${item?.item?.item?.description}`,
+//   };
+//   const dispatch = useAppDispatch();
+//   const openModal = useAppSelector(
+//     state => state.scheduleOverviewSlice.openModal,
+//   );
 
   return (
     <>
@@ -36,15 +36,15 @@ ${item?.item?.item?.description}`,
         <ScrollView style={{marginBottom: 50}}>
           <View style={styles.blockImageContainer}>
             <Image
-              source={{uri: item.item.item.thumbnail[0].url}}
+              source={{uri: item?.image[0]?.image}}
               resizeMode="cover"
               style={styles.fullWidth}
             />
             <View style={styles.viewPosition}>
-              <Text style={styles.headerPosition}>{item.title}</Text>
+              <Text style={styles.headerPosition}>{item.name}</Text>
               <Text style={styles.colorWhite}>
                 <AppIonicons name="ios-location-outline" size={15} />
-                {item.place}
+                {item.address_detail}
               </Text>
             </View>
             <AppIonicons
@@ -81,21 +81,21 @@ ${item?.item?.item?.description}`,
           <View style={styles.blockImage}>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[1].url}}
+                source={{uri: item?.image[1]?.image}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[2].url}}
+                source={{uri: item?.image[2]?.image}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[3].url}}
+                source={{uri: item?.image[3]?.image}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
@@ -103,13 +103,13 @@ ${item?.item?.item?.description}`,
           </View>
 
           <View style={styles.viewText}>
-            <RenderHtml contentWidth={200} source={source} />
+            {/* <RenderHtml contentWidth={200} source={source} /> */}
           </View>
         </ScrollView>
       </View>
       <View style={styles.blockSubmit}>
         <View style={styles.leftSubmit}>
-          <Text style={styles.colorLeftSubmit}>{item.item.item.price} d/ nguoi</Text>
+          <Text style={styles.colorLeftSubmit}>{item.price} d/ nguoi</Text>
         </View>
         <View style={styles.rightSubmit}>
           <TouchableOpacity
@@ -121,7 +121,7 @@ ${item?.item?.item?.description}`,
                   {item: item} as never,
                 );
               } else {
-                dispatch(setOpenModal(true));
+                // dispatch(setOpenModal(true));
               }
             }}>
             <Text style={styles.colorWhite}>
@@ -130,9 +130,9 @@ ${item?.item?.item?.description}`,
           </TouchableOpacity>
         </View>
       </View>
-      {openModal && <OrderSuccess />}
+      {/* {openModal && <OrderSuccess />} */}
     </>
   );
 };
 
-export default RecentScheduleDetailV2;
+export default HotelDetailv2;

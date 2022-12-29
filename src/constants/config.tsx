@@ -1,5 +1,6 @@
 import RNConfig from 'react-native-config';
 
+
 export const config = {
   BASE_URL: RNConfig.BASE_URL,
 };

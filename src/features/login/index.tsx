@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  ActivityIndicator,
 } from 'react-native';
 import images from '../../assets/images';
 import styles from './styles';
@@ -14,6 +15,7 @@ import {userContext} from '../../hook/useLogin';
 import Loading from '../../components/loading';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -21,6 +23,7 @@ const Login = () => {
     userName: '',
     password: '',
   });
+  const [loadingLogin, setLoadingLogin] = useState(false);
   const {_onLogin, getIsLoading} = useContext(userContext);
   const loading = getIsLoading();
   console.log('loading new', loading);
@@ -43,6 +46,7 @@ const Login = () => {
 
   const submitForm = async () => {
     try {
+      setLoadingLogin(true);
       axios({
         method: 'post',
         url: 'http://206.189.37.26:8080/v1/auth/login',
@@ -52,10 +56,25 @@ const Login = () => {
         },
       }).then(async data => {
         console.log('data new', data?.data?.accesToken);
+        setLoadingLogin(false);
+
+        Toast.show({
+          type: 'success',
+          text1: 'Đăng nhập thành công 👋',
+        });
         await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
-        navigation.navigate('BottomTabNavigation' as never);
+        setTimeout(() => {
+          navigation.navigate('BottomTabNavigation' as never);
+        }, 1000);
       });
-    } catch (error) {}
+    } catch (error) {
+      setLoadingLogin(false);
+
+      Toast.show({
+        type: 'success',
+        text1: error,
+      });
+    }
   };
 
   // useEffect(() => {
@@ -69,6 +88,28 @@ const Login = () => {
         resizeMode={'stretch'}
         style={styles.imageBackground}>
         <View style={styles.listContent}>
+          <View style={{zIndex: 99}}>
+            <Toast />
+          </View>
+
+          {loadingLogin && (
+            <View
+              style={{
+                width: '100%',
+                height: '100%',
+                zIndex: 99,
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'rgba(0,0,0.4)',
+              }}>
+              <ActivityIndicator size={'large'} color={'green'} />
+            </View>
+          )}
           <View style={styles.topLevel}>
             <Image source={images.LOGO_ICON} style={styles.logoIcon} />
           </View>
@@ -85,6 +126,7 @@ const Login = () => {
               />
               <TextInput
                 style={styles.input}
+              
                 placeholder="Nhập mật khẩu của bạn"
                 placeholderTextColor={'white'}
                 value={data.password}

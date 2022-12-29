@@ -23,7 +23,7 @@ const RecentSchedule: React.FC<TypeRecentSchedule> = ({data}) => {
             onPress={() =>
               navigation.navigate(
                 'RecentScheduleDetailV2' as never,
-                {item: data} as never,
+                {item: itemList} as never,
               )
             }>
             <View style={styles.topSchedule}>

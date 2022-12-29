@@ -7,40 +7,64 @@ import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import {dataResortHotel} from '../homepage/fake-data/FakeData';
 import {useNavigation} from '@react-navigation/core';
 
-const HotelResortDetail = () => {
+const HotelResortDetail = ({route}) => {
   const navigation = useNavigation();
+  const {passData} = route.params;
 
   return (
     // dataResortHotel
     <View style={styles.container}>
       <Header title="Khách sạn & Resort" backOption={true} />
       <FlatList
-        data={dataResortHotel}
+        data={passData}
         renderItem={({item}) => {
           return (
             <TouchableOpacity
               style={styles.hotelContainer}
               onPress={() =>
                 navigation.navigate(
-                  'RecentScheduleDetailV2' as never,
+                  'HotelDetailv2' as never,
                   {item: item, hotel: true} as never,
                 )
               }>
               <View style={styles.hotelBlock}>
                 <View style={styles.hotelTop}>
                   <View style={styles.hotelTopLeft}>
-                    <Image source={item.image} style={styles.image} />
+                    <Image
+                      source={{
+                        uri:
+                          item?.image[0]?.image !== undefined
+                            ? item?.image[0]?.image
+                            : item?.image[1]?.image,
+                      }}
+                      style={styles.image}
+                    />
                   </View>
                   <View style={styles.topRightContainer}>
                     <View style={styles.topBlock}>
-                      <Image source={item.image1} style={styles.image} />
+                      <Image
+                        source={{
+                          uri: item?.image[1]?.image,
+                        }}
+                        style={styles.image}
+                      />
                     </View>
                     <View style={styles.bottomBlock}>
                       <View style={styles.bottomView}>
-                        <Image source={item.image2} style={styles.image} />
+                        <Image
+                          source={{
+                            uri: item?.image[2]?.image,
+                          }}
+                          style={styles.image}
+                        />
                       </View>
                       <View style={styles.bottomView}>
-                        <Image source={item.image3} style={styles.image} />
+                        <Image
+                          source={{
+                            uri: item?.image[3]?.image,
+                          }}
+                          style={styles.image}
+                        />
                       </View>
                     </View>
                   </View>
@@ -48,15 +72,15 @@ const HotelResortDetail = () => {
                 <View style={styles.hotelBottom}>
                   <View style={styles.bottomStar}>
                     <Text style={styles.colorBottom}>Khách sạn</Text>
-                    <Image source={images.STAR} />
+                    {/* <Image source={images.STAR} /> */}
                   </View>
-                  <Text style={styles.fontWeight}>{item.title}</Text>
+                  <Text style={styles.fontWeight}>{item.name}</Text>
                   <View style={styles.placeRow}>
                     <View style={styles.row}>
                       <AppMaterIcon name="place" color={'#3076FE'} />
-                      <Text>{item.place}</Text>
+                      <Text>{item.address_detail}</Text>
                     </View>
-                    <Text style={{color: 'red'}}>Từ {item.price}</Text>
+                    <Text style={{color: 'red'}}>Từ {item.price} đồng</Text>
                   </View>
                 </View>
               </View>

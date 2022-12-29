@@ -1,3 +1,6 @@
+
+export const Base_Url = 'http://206.189.37.26:8080' 
+
 export const appConstants = {
   API_STATUS_CODE: {
     BAD_REQUEST: 400,

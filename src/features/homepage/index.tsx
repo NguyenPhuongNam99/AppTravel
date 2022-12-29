@@ -22,16 +22,20 @@ import {Destination12, dataListPoPularPlace} from './fake-data/FakeData';
 import Carousel from 'react-native-banner-carousel';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import RNConfig from 'react-native-config';
+import { Base_Url } from '../../constants/const';
 
 const HomePage = () => {
   const [dataVoucher, setDataVoucher] = useState();
   const [dataTravel, setDataTravel] = useState([]);
+  const [dataHotel, setDataHotel] = useState([]);
+  const [dataHomeStay, setDataHomeStay] = useState();
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
     try {
       const response = await axios.get(
-        'http://206.189.37.26:8080/v1/voucher/getAllVoucher',
+        `${Base_Url}/v1/voucher/getAllVoucher`,
         {
           headers: {
             Authorization: `Bearer ${tokenNew}`,
@@ -47,7 +51,7 @@ const HomePage = () => {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
       const response = await axios.get(
-        'http://206.189.37.26:8080/v1/tour/getAllTour',
+        `${Base_Url}/v1/tour/getAllTour`,
         {
           headers: {
             Authorization: `Bearer ${tokenNew}`,
@@ -55,13 +59,52 @@ const HomePage = () => {
         },
       );
 
-      setDataTravel(response.data)
+      setDataTravel(response.data);
     } catch (error) {}
+  };
+
+  const getListAllHotel = async () => {
+    try {
+      const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+      const response = await axios.get(
+        `${Base_Url}/v1/hotel/getType`,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      setDataHotel(response.data)
+      // console.log('response new', response.data);
+    } catch (error) {}
+  };
+
+   const getListAllHomeStay = async () => {
+    try {
+      const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+      const response = await axios.get(
+        `${Base_Url}/v1/hotel/getHomeStayType`,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      setDataHomeStay(response.data)
+      console.log('response new', response.data);
+    } catch (error) {
+      console.log('error', error)
+    }
   };
 
   useEffect(() => {
     getListDiscount();
     getListAllTravel();
+    getListAllHotel();
+    getListAllHomeStay();
+    // fakeApi();
   }, []);
 
   return (
@@ -108,7 +151,7 @@ const HomePage = () => {
           navigateScreen={'RecentScheduleDetail'}
           passData={dataTravel}
         />
-        <RecentSchedule data={dataTravel}/>
+        <RecentSchedule data={dataTravel} />
         <TitleBlock
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}
@@ -122,10 +165,17 @@ const HomePage = () => {
         <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
         <ListPopularPlace data={Destination12} />
         <TitleBlock
-          label="Khách sạn & Resort"
+          label="Khách sạn"
           navigateScreen={'HotelResortDetail'}
+          passData={dataHotel}
         />
-        <ListHotelResort />
+        <ListHotelResort  data={dataHotel}/>
+         <TitleBlock
+          label="HomeStay"
+          navigateScreen={'HotelResortDetail'}
+          passData={dataHomeStay}
+        />
+        <ListHotelResort  data={dataHomeStay}/>
       </View>
     </ScrollView>
   );
