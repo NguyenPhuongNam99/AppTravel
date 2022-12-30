@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import {
   View,
   Image,
@@ -11,7 +11,6 @@ import {
 import images from '../../assets/images';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/core';
-import {userContext} from '../../hook/useLogin';
 import Loading from '../../components/loading';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,25 +23,13 @@ const Login = () => {
     password: '',
   });
   const [loadingLogin, setLoadingLogin] = useState(false);
-  const {_onLogin, getIsLoading} = useContext(userContext);
-  const loading = getIsLoading();
-  console.log('loading new', loading);
 
-  const onSubmit = () => {
-    _onLogin(data.userName, data.password)
-      .then(() => {})
-      .catch(err => console.log('err ', err));
-  };
-
-  // const getApi = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       'http://206.189.37.26:8080/v1/restaurant/getAllRestaurant',
-  //     );
-  //   } catch (error) {
-  //     console.log('errro', error);
-  //   }
+  // const onSubmit = () => {
+  //   _onLogin(data.userName, data.password)
+  //     .then(() => {})
+  //     .catch(err => console.log('err ', err));
   // };
+
 
   const submitForm = async () => {
     try {
@@ -77,10 +64,6 @@ const Login = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getApi();
-  // }, []);
-
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -105,7 +88,7 @@ const Login = () => {
                 bottom: 0,
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'rgba(0,0,0.4)',
+                backgroundColor: 'rgba(0,0,0,0.7)',
               }}>
               <ActivityIndicator size={'large'} color={'green'} />
             </View>
@@ -152,7 +135,7 @@ const Login = () => {
               </TouchableOpacity>
             </View>
           </View>
-          {loading && <Loading />}
+       
         </View>
 
         <Image

@@ -23,25 +23,22 @@ import Carousel from 'react-native-banner-carousel';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNConfig from 'react-native-config';
-import { Base_Url } from '../../constants/const';
+import {Base_Url} from '../../constants/const';
 
 const HomePage = () => {
   const [dataVoucher, setDataVoucher] = useState();
   const [dataTravel, setDataTravel] = useState([]);
   const [dataHotel, setDataHotel] = useState([]);
-  const [dataHomeStay, setDataHomeStay] = useState();
+  const [dataHomeStay, setDataHomeStay] = useState([]);
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
     try {
-      const response = await axios.get(
-        `${Base_Url}/v1/voucher/getAllVoucher`,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
+      const response = await axios.get(`${Base_Url}/v1/voucher/getAllVoucher`, {
+        headers: {
+          Authorization: `Bearer ${tokenNew}`,
         },
-      );
+      });
       setDataVoucher(response.data);
     } catch (error) {}
   };
@@ -50,14 +47,11 @@ const HomePage = () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(
-        `${Base_Url}/v1/tour/getAllTour`,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
+      const response = await axios.get(`${Base_Url}/v1/tour/getAllTour`, {
+        headers: {
+          Authorization: `Bearer ${tokenNew}`,
         },
-      );
+      });
 
       setDataTravel(response.data);
     } catch (error) {}
@@ -67,35 +61,28 @@ const HomePage = () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(
-        `${Base_Url}/v1/hotel/getType`,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
+      const response = await axios.get(`${Base_Url}/v1/hotel/getType`, {
+        headers: {
+          Authorization: `Bearer ${tokenNew}`,
         },
-      );
-      setDataHotel(response.data)
+      });
+      setDataHotel(response.data);
       // console.log('response new', response.data);
     } catch (error) {}
   };
 
-   const getListAllHomeStay = async () => {
+  const getListAllHomeStay = async () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(
-        `${Base_Url}/v1/hotel/getHomeStayType`,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
+      const response = await axios.get(`${Base_Url}/v1/hotel/getHomeStayType`, {
+        headers: {
+          Authorization: `Bearer ${tokenNew}`,
         },
-      );
-      setDataHomeStay(response.data)
-      console.log('response new', response.data);
+      });
+      setDataHomeStay(response.data);
     } catch (error) {
-      console.log('error', error)
+      console.log('error', error);
     }
   };
 
@@ -169,13 +156,17 @@ const HomePage = () => {
           navigateScreen={'HotelResortDetail'}
           passData={dataHotel}
         />
-        <ListHotelResort  data={dataHotel}/>
-         <TitleBlock
-          label="HomeStay"
-          navigateScreen={'HotelResortDetail'}
-          passData={dataHomeStay}
-        />
-        <ListHotelResort  data={dataHomeStay}/>
+        <ListHotelResort data={dataHotel} />
+        {dataHomeStay.length >0 && (
+          <>
+            <TitleBlock
+              label="HomeStay"
+              navigateScreen={'HotelResortDetail'}
+              passData={dataHomeStay}
+            />
+            <ListHotelResort data={dataHomeStay} />
+          </>
+        )}
       </View>
     </ScrollView>
   );

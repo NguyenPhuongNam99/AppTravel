@@ -6,13 +6,13 @@ import images from '../../assets/images';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import {dataResortHotel} from '../homepage/fake-data/FakeData';
 import {useNavigation} from '@react-navigation/core';
+import RenderHtml from 'react-native-render-html';
 
 const HotelResortDetail = ({route}) => {
   const navigation = useNavigation();
   const {passData} = route.params;
 
   return (
-    // dataResortHotel
     <View style={styles.container}>
       <Header title="Khách sạn & Resort" backOption={true} />
       <FlatList

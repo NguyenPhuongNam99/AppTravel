@@ -21,14 +21,11 @@ const HotelDetailv2 = ({route}) => {
   const navigation = useNavigation();
   const {item, hotel} = route?.params;
 
-//   const source = {
-//     html: `
-// ${item?.item?.item?.description}`,
-//   };
-//   const dispatch = useAppDispatch();
-//   const openModal = useAppSelector(
-//     state => state.scheduleOverviewSlice.openModal,
-//   );
+  const source = {
+    html: `
+${item?.description}`,
+  };
+
 
   return (
     <>
@@ -103,7 +100,7 @@ const HotelDetailv2 = ({route}) => {
           </View>
 
           <View style={styles.viewText}>
-            {/* <RenderHtml contentWidth={200} source={source} /> */}
+            <RenderHtml contentWidth={200} source={source} />
           </View>
         </ScrollView>
       </View>
