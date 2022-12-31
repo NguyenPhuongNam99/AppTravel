@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
+  ActivityIndicator,
   Image,
   ImageBackground,
   Text,
@@ -9,9 +10,11 @@ import {
 } from 'react-native';
 import images from '../../assets/images';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import registerApi from './registerApi';
 import Loading from '../../components/loading';
+import axios from 'axios';
+import Toast from 'react-native-toast-message';
 
 const Register = () => {
   const [value, setValue] = useState({
@@ -23,23 +26,37 @@ const Register = () => {
 
   const navigation = useNavigation();
   const subit = async () => {
-    const params = {
-      username: value.accountName,
-      email: value.email,
-      password: value.password,
-    };
     try {
       setLoading(true);
-      await registerApi._onRegister(params).then(
-        () => (
-          navigation.navigate('Login' as never),
-          setValue({
-            email: '',
-            accountName: '',
-            password: '',
-          })
-        ),
-      );
+      console.log('value', value);
+      axios({
+        method: 'post',
+        url: 'http://206.189.37.26:8080/v1/auth/register',
+        data: {
+          username: value.accountName,
+          email: value.email,
+          password: value.password,
+          last_name: '',
+          gender: true,
+          phone_number: '',
+          avatar_url: '',
+          role: '',
+          status: '',
+          first_name: '',
+        },
+      });
+      Toast.show({
+        type: 'success',
+        text1: 'Đăng nhập thành công 👋',
+      });
+      setValue({
+        email: '',
+        accountName: '',
+        password: '',
+      })
+      setTimeout(() => {
+        navigation.navigate('Login' as never);
+      }, 900);
       setLoading(false);
     } catch (error) {
       console.log('err ne', error);
@@ -54,6 +71,28 @@ const Register = () => {
         resizeMode={'stretch'}
         style={styles.imageBackground}>
         <View style={styles.blockImageContainer}>
+          <View style={{ zIndex: 99 }}>
+            <Toast />
+          </View>
+
+          {loading && (
+            <View
+              style={{
+                width: '100%',
+                height: '100%',
+                zIndex: 99,
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'rgba(0,0,0,0.7)',
+              }}>
+              <ActivityIndicator size={'large'} color={'green'} />
+            </View>
+          )}
           <View style={styles.topLevel}>
             <Image source={images.LOGO_ICON} style={styles.logoIcon} />
           </View>
@@ -65,7 +104,7 @@ const Register = () => {
                 placeholderTextColor={'white'}
                 value={value.email}
                 onChangeText={(text: string) =>
-                  setValue({...value, email: text})
+                  setValue({ ...value, email: text })
                 }
               />
               <TextInput
@@ -74,7 +113,7 @@ const Register = () => {
                 placeholderTextColor={'white'}
                 value={value.accountName}
                 onChangeText={(text: string) =>
-                  setValue({...value, accountName: text})
+                  setValue({ ...value, accountName: text })
                 }
               />
               <TextInput
@@ -83,9 +122,10 @@ const Register = () => {
                 placeholderTextColor={'white'}
                 value={value.password}
                 onChangeText={(text: string) =>
-                  setValue({...value, password: text})
+                  setValue({ ...value, password: text })
                 }
               />
+
               <TouchableOpacity
                 disabled={
                   !value.accountName && !value.password && !value.email && true
@@ -105,7 +145,6 @@ const Register = () => {
               </Text>
             </View>
           </View>
-          {loading && <Loading />}
         </View>
         <Image source={images.BACKGROUND_OPACITY} style={styles.imageOpacity} />
       </ImageBackground>

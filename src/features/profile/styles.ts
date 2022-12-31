@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  imageAvatar: {width: 60, height: 60, marginRight: 16},
+  imageAvatar: {width: 60, height: 60, marginRight: 16, borderRadius: 9},
   blockList: {
     width: '100%',
     height: 207,
@@ -45,6 +45,6 @@ export const styles = StyleSheet.create({
   },
   listRight1: {
     width: '88%',
-  
-  }
+  },
+  imageAvatarUser: {width: '100%', height: '100%', borderRadius: 9}
 });

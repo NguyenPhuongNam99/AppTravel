@@ -4,25 +4,19 @@ import {
   View,
   TouchableOpacity,
   Image,
-  FlatList,
   ScrollView,
-  Dimensions,
 } from 'react-native';
 import styles from './styles';
 import Header from './header/Header';
-import images from '../../assets/images';
-import {dataMenuIcon, dataDiscount} from './fake-data/FakeData';
 import TitleBlock from './Title-block/TitleBlock';
 import RecentSchedule from './recent-schedule/RecentSchedule';
 import ListPopularPlace from '../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../components/list-hotel-resort';
-import homePageApi from './homepageApi';
 import SpecialExprienceHome from './special-experience-home';
 import {Destination12, dataListPoPularPlace} from './fake-data/FakeData';
 import Carousel from 'react-native-banner-carousel';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import RNConfig from 'react-native-config';
 import {Base_Url} from '../../constants/const';
 
 const HomePage = () => {

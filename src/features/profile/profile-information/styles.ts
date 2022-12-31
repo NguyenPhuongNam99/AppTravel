@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView } from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -40,15 +40,69 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16,
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   cancel: {
-      color: '#828282'
+    color: '#828282',
   },
   titleHeader: {
-      fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   save: {
-      color: '#FF5F24'
-  }
+    color: '#FF5F24',
+  },
+  blockAvatar: {
+    width: '100%',
+    height: 50,
+    marginTop: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  blockImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+    backgroundColor: 'green',
+  },
+  imageAvatarUser: {width: '100%', height: '100%', borderRadius: 9},
+  blockInput: {
+    width: '100%',
+    height: '100%',
+    marginTop: 30,
+    paddingHorizontal: 12,
+  },
+  containerInput: {width: '100%', height: 60, marginTop: 10},
+  imagePicker: {
+    position: 'absolute',
+    top: -9,
+    right: -9,
+    backgroundColor: '#7FFFD4',
+    borderRadius: 8,
+  },
+  inputInfor: {
+    width: '100%',
+    height: 35,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: '#BEBEBE',
+    paddingLeft: 10,
+  },
+  blockSubmit: {
+    width: '100%',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 40,
+  },
+  containerSubmit: {
+    width: 100,
+    height: 50,
+    backgroundColor: '#FF5F24',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 9,
+   fontSize: 12
+  },
+  textSubmit: {color: 'white'},
 });

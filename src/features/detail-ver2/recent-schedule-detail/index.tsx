@@ -57,26 +57,28 @@ ${item?.item?.item?.description}`,
             <View style={styles.backgroundPosition} />
           </View>
 
-          <View style={styles.blockMap}>
-            <MapView
-              provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-              style={{
-                ...StyleSheet.absoluteFillObject,
-              }}
-              region={{
-                latitude: 21.030653,
-                longitude: 105.84713,
-                latitudeDelta: 0.015,
-                longitudeDelta: 0.0121,
-              }}>
-              <Marker
-                coordinate={{
-                  latitude: 21.030653,
-                  longitude: 105.84713,
+          {item.item.namelat && item.item.namelng && (
+            <View style={styles.blockMap}>
+              <MapView
+                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                style={{
+                  ...StyleSheet.absoluteFillObject,
                 }}
-              />
-            </MapView>
-          </View>
+                region={{
+                  latitude: Number(item.item.namelat),
+                  longitude: Number(item.item.namelng),
+                  latitudeDelta: 0.015,
+                  longitudeDelta: 0.0121,
+                }}>
+                <Marker
+                  coordinate={{
+                    latitude: Number(item.item.namelat),
+                    longitude: Number(item.item.namelng),
+                  }}
+                />
+              </MapView>
+            </View>
+          )}
 
           <View style={styles.blockImage}>
             <View style={styles.blockItem}>
@@ -109,7 +111,9 @@ ${item?.item?.item?.description}`,
       </View>
       <View style={styles.blockSubmit}>
         <View style={styles.leftSubmit}>
-          <Text style={styles.colorLeftSubmit}>{item.item.item.price} d/ nguoi</Text>
+          <Text style={styles.colorLeftSubmit}>
+            {item.item.item.price} d/ nguoi
+          </Text>
         </View>
         <View style={styles.rightSubmit}>
           <TouchableOpacity

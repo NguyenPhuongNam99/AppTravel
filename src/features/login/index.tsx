@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Image,
@@ -15,6 +15,8 @@ import Loading from '../../components/loading';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
+import { useAppDispatch } from '../../app/store';
+import { setUserInfor } from './loginSlice';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -23,13 +25,7 @@ const Login = () => {
     password: '',
   });
   const [loadingLogin, setLoadingLogin] = useState(false);
-
-  // const onSubmit = () => {
-  //   _onLogin(data.userName, data.password)
-  //     .then(() => {})
-  //     .catch(err => console.log('err ', err));
-  // };
-
+  const dispatch = useAppDispatch();
 
   const submitForm = async () => {
     try {
@@ -49,7 +45,10 @@ const Login = () => {
           type: 'success',
           text1: 'Đăng nhập thành công 👋',
         });
-        await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
+
+       await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
+      //  await AsyncStorage.setItem('usercontact', data?.data);
+        dispatch(setUserInfor(data?.data));
         setTimeout(() => {
           navigation.navigate('BottomTabNavigation' as never);
         }, 1000);
@@ -109,7 +108,6 @@ const Login = () => {
               />
               <TextInput
                 style={styles.input}
-              
                 placeholder="Nhập mật khẩu của bạn"
                 placeholderTextColor={'white'}
                 value={data.password}
@@ -135,7 +133,6 @@ const Login = () => {
               </TouchableOpacity>
             </View>
           </View>
-       
         </View>
 
         <Image

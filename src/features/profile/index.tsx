@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 import images from '../../assets/images';
@@ -6,9 +6,17 @@ import AppFeatherIcon from '../../components/icon/AppFeatherIcon';
 import AppFoundation from '../../components/icon/AppFoundation';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
+import {useAppDispatch, useAppSelector} from '../../app/store';
+import _ from 'lodash'
 
 const Profile = () => {
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const data: any = useAppSelector(state => state.LoginSlice.data);
+  const imageDefault =
+    'https://hri.com.vn/wp-content/uploads/2017/09/default-avatar-ginger-guy.png';
+  console.log('data new', _.isEmpty(data.avatar_url));
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.safeView}>
@@ -19,8 +27,13 @@ const Profile = () => {
       <TouchableOpacity
         style={styles.headerInfo}
         onPress={() => navigation.navigate('InformationProfile' as never)}>
-        <Image source={images.AVARTAR} style={styles.imageAvatar} />
-        <Text>Nguyen Phuong Nam</Text>
+        <Image
+          source={{
+            uri: _.isEmpty(data.avatar_url) ? imageDefault : data.avatar_url,
+          }}
+          style={styles.imageAvatar}
+        />
+        <Text>{_.isEmpty(data.avatar_url) ? 'Fullname User' : data?.first_name + ' ' + data?.last_name}</Text>
       </TouchableOpacity>
       <View style={styles.blockList}>
         <TouchableOpacity style={styles.listView}>

@@ -63,7 +63,7 @@ const RecentSchedule: React.FC<TypeRecentSchedule> = ({data}) => {
                     {itemList.item.item.tour_name}
                     <Text style={styles.textColor}>(5 ngày)</Text>
                   </Text>
-                  <Text>Việt Nam</Text>
+                  <Text>{itemList.item.nameCIty}</Text>
                 </View>
                 <View style={styles.bottomBlock}>
                   <View style={styles.bottomLeft}>

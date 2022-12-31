@@ -1,5 +1,7 @@
 import {AxiosError} from 'axios';
 import {appConstants} from './constants/const';
+import * as Yup from 'yup';
+
 
 export const createAppError = (type, error, appErrorCode) => {
   if (type === 'APP_ERROR') {
@@ -109,3 +111,15 @@ export const checkColor = (indexValue: number, indexData: number) => {
   }
   return {color: '#242424'};
 };
+
+export const UpdateInforSchema = Yup.object().shape({
+   first_name: Yup.string()
+     .min(2, 'Too Short!')
+     .max(50, 'Too Long!')
+     .required('Required'),
+   last_name: Yup.string()
+     .min(2, 'Too Short!')
+     .max(50, 'Too Long!')
+     .required('Required'),
+   phone_number: Yup.string().required('Required'),
+ });

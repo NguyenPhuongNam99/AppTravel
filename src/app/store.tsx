@@ -1,10 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import scheduleOverviewSlice from '../features/scheduleOverview/scheduleOverviewSlice';
+import LoginSlice from '../features/login/loginSlice';
+
 
 export const store = configureStore({
   reducer: {
     scheduleOverviewSlice: scheduleOverviewSlice,
+    LoginSlice,
   },
 });
 
