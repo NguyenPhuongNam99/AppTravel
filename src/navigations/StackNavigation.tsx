@@ -33,6 +33,8 @@ import Payment from '../features/payments';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import OrderSuccess from '../components/orderSuccess/index';
 import HotelDetailv2 from '../features/detail-ver2/recent-schedule-detail/hotelDetailv2';
+import CitySearch from '../features/city-search/CitySearch';
+import ConfirmScreen from '../features/confirm-screen/ConfirmScreen';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -49,8 +51,10 @@ export const StackLoginScreen = () => {
       <StackHome.Screen name="SplashScreen" component={SplashScreen} />
       <StackHome.Screen name="Login" component={Login} />
       <StackHome.Screen name="Register" component={Register} />
-      <StackHome.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
-
+      <StackHome.Screen
+        name="BottomTabNavigation"
+        component={BottomTabNavigation}
+      />
     </StackLogin.Navigator>
   );
 };
@@ -82,15 +86,12 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="PayGuide" component={PayGuide} />
 
       <StackHome.Screen name="DetailPlace" component={DetailPlace} />
-      
+
       <StackHome.Screen
         name="RecentScheduleDetailV2"
         component={RecentScheduleDetailV2}
       />
-       <StackHome.Screen
-        name="HotelDetailv2"
-        component={HotelDetailv2}
-      />
+      <StackHome.Screen name="HotelDetailv2" component={HotelDetailv2} />
       <StackHome.Screen name="ScheduleOverview" component={ScheduleOverview} />
       <StackHome.Screen name="DetailPlan" component={DetailPlan} />
       <StackHome.Screen
@@ -99,6 +100,9 @@ export const StackHomeScreen = () => {
       />
       <StackHome.Screen name="Payment" component={Payment} />
       <StackHome.Screen name="OrderSuccess" component={OrderSuccess} />
+      <StackHome.Screen name="CitySearch" component={CitySearch} />
+            <StackHome.Screen name="ConfirmScreen" component={ConfirmScreen} />
+
     </StackHome.Navigator>
   );
 };

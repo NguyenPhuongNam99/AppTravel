@@ -146,7 +146,7 @@ const ScheduleOverview = ({route}) => {
               <Text style={{color: '#FF5F24', fontSize: 16, fontWeight: '700'}}>5,200,000 đ/ người</Text>
           </View>
             <View style={{width: '40%', height: '100%', justifyContent: 'center', alignItems: 'flex-end'}}>
-              <TouchableOpacity style={{width: 70, height: 25, backgroundColor: '#FF5F24', justifyContent: 'center', alignItems: 'center', borderRadius: 6}}>
+              <TouchableOpacity onPress={() => navigation.navigate('ConfirmScreen' as never, {item: item} as never)}  style={{width: 70, height: 25, backgroundColor: '#FF5F24', justifyContent: 'center', alignItems: 'center', borderRadius: 6}}>
                 <Text style={{color: 'white'}}>Đặt ngay</Text>
               </TouchableOpacity>
           </View>
