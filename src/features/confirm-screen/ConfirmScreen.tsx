@@ -34,14 +34,15 @@ const ConfirmScreen = ({route}) => {
         tour_id: item.item.item.idTour,
         voucher_id: '',
         total_price: item.item.item.price,
-        status: 'cho xac nhan',
+        // status: 'cho xac nhan',
         payment_status: '',
         assyneBy: '',
         evaluate: '',
         fullName: dataUserInfor.first_name + ' ' + dataUserInfor.last_name,
         phoneUser: dataUserInfor.phone_number,
         tourName: item.item.item.tour_name,
-        emailUser: dataUserInfor.email
+        emailUser: dataUserInfor.email,
+        status: 'chờ xác nhận '
       };
       const response = await axios.post(
         `${Base_Url}/v1/orderTour/createOrderTour`,

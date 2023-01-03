@@ -34,15 +34,23 @@ const UpdateInformationProfile = () => {
         console.log('responseData.assets[0]', responseData.assets[0]);
         const datas = new FormData();
 
-        datas.append('upload', responseData.assets[0]);
+        datas.append('upload', {
+          uri: responseData.assets[0].uri,
+          // name: responseData.assets[0].fileName,
+          type: 'image/jpeg',
+        });
 
-        fetch('http://206.189.37.26:8080/uploadImageCloud', {
+        fetch('http://10.0.2.2:8080/uploadImageCloud', {
           method: 'POST',
           body: datas,
         })
-          .then(response => {
-            console.log('response new', response);
-            setResponse(response)
+          .then((response: any) => {
+            return response.json();
+            // console.log('response new', response);
+            // setResponse(response)
+          })
+          .then(data => {
+            console.log('data', data);
           })
           .catch(error => console.log('error', error));
       });
