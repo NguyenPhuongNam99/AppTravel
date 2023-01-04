@@ -1,51 +1,31 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Header from '../../components/header/Header';
 import images from '../../assets/images';
+import styles from '../homepage/styles';
+import TourMe from '../tour-me/TourMe';
 
 const Notification = () => {
+  const data = [
+    {
+      id: '1',
+      imageTopLeft: images.SCHEDULE_ONE,
+      imageTopRight: images.RIGHT_SCHEDULE,
+      imageRightLeft: images.BOTTOM_SCHEDULE,
+      imageRight: images.BOTTOM_SCHEDULE_ONE,
+      place: 'Đà Lạt, Lâm Đồng',
+      time: '(5 ngày)',
+      price: '5,200,000 đ/ người',
+    },
+  ];
+
   return (
-    <View>
-      <Header title="Thông báo" backOption={false} />
-      <View style={styles.margin}>
-        <TouchableOpacity style={styles.blockList}>
-          <View style={styles.blockLeft}>
-            <Image source={images.AVARTAR} style={styles.image} />
-          </View>
-          <View style={styles.blockRight}>
-            <Text numberOfLines={1}>
-              Bạn có muốn đi TP Hồ Chí Minh? OKGO có tất cả
-            </Text>
-            <Text>20/12/2022 lúc 10:30</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.blockList}>
-          <View style={styles.blockLeft}>
-            <Image source={images.AVARTAR} style={styles.image} />
-          </View>
-          <View style={styles.blockRight}>
-            <Text numberOfLines={1}>Hà Nội những ngày đầu thu !</Text>
-            <Text>20/08/2022 lúc 09:30</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <>
+      <Header title="Tour của bạn" backOption={false} />
+      <TourMe />
+      
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  margin: {marginTop: 16},
-  blockList: {
-    width: '100%',
-    height: 56,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-  },
-  blockLeft: {width: '15%'},
-  image: {width: 34, height: 34},
-  blockRight: {width: '85%'},
-});
 
 export default Notification;
