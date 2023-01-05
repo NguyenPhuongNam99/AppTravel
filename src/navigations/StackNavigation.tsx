@@ -35,6 +35,7 @@ import OrderSuccess from '../components/orderSuccess/index';
 import HotelDetailv2 from '../features/detail-ver2/recent-schedule-detail/hotelDetailv2';
 import CitySearch from '../features/city-search/CitySearch';
 import ConfirmScreen from '../features/confirm-screen/ConfirmScreen';
+import EvaluateTour from '../features/evaluateTour/EvaluateTour';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -101,7 +102,7 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="Payment" component={Payment} />
       <StackHome.Screen name="OrderSuccess" component={OrderSuccess} />
       <StackHome.Screen name="CitySearch" component={CitySearch} />
-            <StackHome.Screen name="ConfirmScreen" component={ConfirmScreen} />
+      <StackHome.Screen name="ConfirmScreen" component={ConfirmScreen} />
 
     </StackHome.Navigator>
   );
@@ -139,6 +140,7 @@ export const StackNotificationScreen = () => {
   return (
     <StackNotifi.Navigator screenOptions={{headerShown: false}}>
       <StackHome.Screen name="Notification" component={Notification} />
+      <StackHome.Screen name="EvaluateTour" component={EvaluateTour} />
     </StackNotifi.Navigator>
   );
 };

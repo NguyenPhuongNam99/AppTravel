@@ -2,20 +2,14 @@ import React, {useState} from 'react';
 import {
   FlatList,
   Image,
-  ScrollView,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import images from '../../assets/images';
 import {styles} from './styles';
-import {checkbackground, checkColor} from '../../Utils';
-import TitleBlock from '../homepage/Title-block/TitleBlock';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/core';
-import AppMaterIcon from '../../components/icon/AppMaterialIcons';
-import OrderSuccess from '../../components/orderSuccess';
-import {useAppSelector, useAppDispatch} from '../../app/store';
+
 
 const ScheduleOverview = ({route}) => {
   const {item} = route.params;

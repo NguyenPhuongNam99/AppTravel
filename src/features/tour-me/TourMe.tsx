@@ -33,9 +33,13 @@ const TourMe = () => {
     <FlatList
       data={dataTour}
       renderItem={itemList => {
-        console.log('list', itemList.item.item)
+        console.log('list', itemList.item.item.statusTour)
         return (
-          <TouchableOpacity style={styles.scheduleContainer}>
+          <TouchableOpacity style={styles.scheduleContainer} onPress={() => {
+            if(String(itemList.item.item.statusTour) === 'finish'){
+              navigation.navigate('EvaluateTour' as never)
+            }
+          }}>
             <View style={styles.scheduleBlock}>
               <View style={styles.scheduleTop}>
                 <View style={styles.topLeftSchedule}>
