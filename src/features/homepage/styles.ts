@@ -127,14 +127,14 @@ const styles = StyleSheet.create({
   bottomTop: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
   },
   weight600: {fontWeight: '600'},
   textColor:{color: '#494949'},
   bottomBlock: {
     width: '100%',
     height: 25,
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 9

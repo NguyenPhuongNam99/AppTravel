@@ -14,19 +14,24 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
-    borderRadius: 5
+    borderRadius: 5,
   },
   scheduleTop: {
     flex: 0.64,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
-  scheduleBottom: {flex: 0.36, paddingHorizontal: 16,justifyContent: 'center', alignItems: 'flex-start'},
+  scheduleBottom: {
+    flex: 0.36,
+    paddingHorizontal: 16,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
   imageSchedule: {width: '100%', height: '100%'},
   topLeftSchedule: {flex: 0.41},
   topRightSchedule: {flex: 0.57},
-  topRightTop:{flex: 0.48},
+  topRightTop: {flex: 0.48},
   topRightBottom: {
     flex: 0.52,
     flexDirection: 'row',
@@ -41,32 +46,44 @@ export const styles = StyleSheet.create({
     width: '48%',
     height: '92%',
   },
-  titleContainer: {flexDirection: 'row', justifyContent: 'space-between', width: '100%'},
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
   bold: {fontWeight: 'bold'},
   colorTime: {color: '#494949'},
-  destination: {flexDirection: 'row', alignItems: 'center'},
+  destination: {flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', width: '30%', right: 0, justifyContent: 'flex-end'},
   bottomBlock: {
     width: '100%',
     height: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 9
+    marginTop: 3,
   },
-  bottomLeft1: {flexDirection: 'row', alignItems: 'center', },
+  bottomLeft1: {flexDirection: 'column', alignItems: 'center'},
   bottomRight1: {
     backgroundColor: '#FF5F24',
     height: '100%',
     width: 105,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5
+    borderRadius: 5,
   },
   imageAvatar: {width: 25, height: 25},
   price: {fontSize: 10, color: 'white'},
   padding: {
-    paddingLeft: 7
+    paddingLeft: 7,
   },
   colorPlace: {
-      color: '#3076FE'
-  }
+    color: '#3076FE',
+  },
+  iconContainer: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    zIndex: 99,
+    backgroundColor: 'green',
+  },
+  iconEvaluate: {width: 30, height: 30}
 });

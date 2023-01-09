@@ -12,7 +12,7 @@ const ListRencentSchedule = ({passData}: any) => {
   return (
     <FlatList
       data={passData}
-      renderItem={(itemList) => {
+      renderItem={itemList => {
         return (
           <TouchableOpacity
             style={styles.scheduleContainer}
@@ -27,27 +27,27 @@ const ListRencentSchedule = ({passData}: any) => {
                 <View style={styles.topLeftSchedule}>
                   <Image
                     resizeMode="cover"
-                  source={{uri: itemList.item.item.thumbnail[0].url}}
+                    source={{uri: itemList.item.item.thumbnail[0].url}}
                     style={styles.imageSchedule}
                   />
                 </View>
                 <View style={styles.topRightSchedule}>
                   <View style={styles.topRightTop}>
                     <Image
-                    source={{uri: itemList.item.item.thumbnail[1].url}}
+                      source={{uri: itemList.item.item.thumbnail[1].url}}
                       style={styles.imageSchedule}
                     />
                   </View>
                   <View style={styles.topRightBottom}>
                     <View style={styles.bottomLeft}>
                       <Image
-                      source={{uri: itemList.item.item.thumbnail[2].url}}
+                        source={{uri: itemList.item.item.thumbnail[2].url}}
                         style={styles.imageSchedule}
                       />
                     </View>
                     <View style={styles.bottomRight}>
                       <Image
-                      source={{uri: itemList.item.item.thumbnail[3].url}}
+                        source={{uri: itemList.item.item.thumbnail[3].url}}
                         style={styles.imageSchedule}
                       />
                     </View>
@@ -56,13 +56,17 @@ const ListRencentSchedule = ({passData}: any) => {
               </View>
               <View style={styles.scheduleBottom}>
                 <View style={styles.titleContainer}>
-                  <Text style={styles.bold}>
-                    {itemList.item.item.tour_name}
-                    <Text style={styles.colorTime}>ss</Text>
-                  </Text>
-                  <View style={styles.destination}>
-                    <AppMaterIcon name="place" color={'#3076FE'} />
-                    <Text style={styles.colorPlace}>Việt Nam</Text>
+                  <View style={{width: '65%'}}>
+                    <Text style={styles.bold} numberOfLines={1}>
+                      {itemList.item.item.tour_name}
+                      <Text style={styles.colorTime}>ss</Text>
+                    </Text>
+                  </View>
+                  <View style={{width: '35%'}}>
+                    <View style={styles.destination}>
+                      <AppMaterIcon name="place" color={'#3076FE'} />
+                      <Text style={styles.colorPlace}>Việt Nam</Text>
+                    </View>
                   </View>
                 </View>
                 <View style={styles.bottomBlock}>
@@ -70,7 +74,9 @@ const ListRencentSchedule = ({passData}: any) => {
                     <Text numberOfLines={1}>ss</Text>
                   </View>
                   <TouchableOpacity style={styles.bottomRight1}>
-                    <Text style={styles.price}>{itemList.item.item.price}  đ/ người</Text>
+                    <Text style={styles.price}>
+                      {itemList.item.item.price} đ/ người
+                    </Text>
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={{alignSelf: 'flex-end'}}>

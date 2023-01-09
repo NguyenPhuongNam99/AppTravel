@@ -59,11 +59,15 @@ const RecentSchedule: React.FC<TypeRecentSchedule> = ({data}) => {
             <View style={styles.bottomSchedule}>
               <View style={styles.blockBottomSchedule}>
                 <View style={styles.bottomTop}>
-                  <Text style={styles.weight600}>
-                    {itemList.item.item.tour_name}
-                    <Text style={styles.textColor}>(5 ngày)</Text>
-                  </Text>
-                  <Text>{itemList.item.nameCIty}</Text>
+                  <View style={{width: '50%', height: '100%'}}>
+                    <Text style={styles.weight600} numberOfLines={1}>
+                      {itemList.item.item.tour_name}
+                      <Text style={styles.textColor}>(5 ngày)</Text>
+                    </Text>
+                  </View>
+                  <View style={{width: '50%', height: '100%'}}>
+                    <Text style={{alignSelf: 'flex-end'}}>{itemList.item.nameCIty}</Text>
+                  </View>
                 </View>
                 <View style={styles.bottomBlock}>
                   <View style={styles.bottomLeft}>
