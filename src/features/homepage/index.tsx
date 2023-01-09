@@ -24,6 +24,7 @@ const HomePage = () => {
   const [dataTravel, setDataTravel] = useState([]);
   const [dataHotel, setDataHotel] = useState([]);
   const [dataHomeStay, setDataHomeStay] = useState([]);
+  const [travelPopular, setTravelPopular] = useState([])
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -47,6 +48,8 @@ const HomePage = () => {
         },
       });
 
+      console.log('ress', response.data.filter((item) => item.item.is_popular === 'true'))
+      setTravelPopular(response.data.filter((item) => item.item.is_popular === 'true'))
       setDataTravel(response.data);
     } catch (error) {}
   };
@@ -128,11 +131,17 @@ const HomePage = () => {
           </View>
         </View>
         <TitleBlock
-          label="Lịch trình gần đây"
+          label="Tất cả lịch trình"
           navigateScreen={'RecentScheduleDetail'}
           passData={dataTravel}
         />
         <RecentSchedule data={dataTravel} />
+        <TitleBlock
+          label="Danh mục phổ biến"
+          navigateScreen={'RecentScheduleDetail'}
+          passData={travelPopular}
+        />
+        <RecentSchedule data={travelPopular} />
         <TitleBlock
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}

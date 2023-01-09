@@ -69,4 +69,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  blockInfo: {width: '100%', height: 80, position: 'absolute', bottom: -40, paddingHorizontal: 15, zIndex: 99},
+  containInfo: {width: '100%', height: '100%', backgroundColor: 'white', borderRadius: 8,zIndex: 9, justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10},
+  textInfo: {
+    fontSize: 12,
+    color: 'black'
+  },
+  containerClick: {width: '100%', height: 40,  marginTop: 10, paddingHorizontal: 10},
+  blockClick: {width: '100%', height: '100%', backgroundColor: '#FF5F24', borderRadius: 9, justifyContent: 'center', alignItems: 'center'}
 });

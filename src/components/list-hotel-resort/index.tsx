@@ -18,13 +18,12 @@ const ListHotelResort = ({data}: any) => {
       renderItem={({item}) => {
         const regex = /(<([^>]+)>)/gi;
         const result = item?.description?.replace(regex, '');
-        console.log('result', result);
         return (
           <TouchableOpacity
             style={styles.hotelContainer}
             onPress={() =>
               navigation.navigate(
-                'HotelDetailv2' as never,
+                'HotelDetailv3' as never,
                 {item: item, hotel: true} as never,
               )
             }>
