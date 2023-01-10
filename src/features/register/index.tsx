@@ -28,7 +28,6 @@ const Register = () => {
   const subit = async () => {
     try {
       setLoading(true);
-      console.log('value', value);
       axios({
         method: 'post',
         url: 'http://206.189.37.26:8080/v1/auth/register',

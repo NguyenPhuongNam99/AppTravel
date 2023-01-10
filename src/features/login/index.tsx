@@ -38,7 +38,6 @@ const Login = () => {
           password: data.password,
         },
       }).then(async data => {
-        console.log('data new', data?.data?.accesToken);
         setLoadingLogin(false);
 
         Toast.show({

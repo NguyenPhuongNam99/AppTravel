@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   scheduleContainer: {
     width: 300,
-    height: 230,
+    height: 255,
     backgroundColor: '#FFFFFF',
     marginLeft: 16,
     marginTop: 16,

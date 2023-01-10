@@ -26,10 +26,8 @@ const EvaluateTour = ({route}) => {
   ]);
   const [loading, setLoading] = useState(false);
   const data: any = useAppSelector(state => state.LoginSlice.data);
-  console.log('data new', data);
 
   const {item} = route.params;
-  console.log('item', item.item.item.item.idTour);
 
   const navigation = useNavigation();
 

@@ -27,7 +27,6 @@ const UpdateInformationProfile = () => {
   const includeExtra = true;
   const navigation = useNavigation();
 
-  console.log('response', response);
   const onButtonPress = React.useCallback((type, options) => {
     if (type === 'capture') {
       ImagePicker.launchCamera(options, responseData => {
@@ -50,7 +49,6 @@ const UpdateInformationProfile = () => {
             // setResponse(response)
           })
           .then(data => {
-            console.log('data', data);
           })
           .catch(error => console.log('error', error));
       });

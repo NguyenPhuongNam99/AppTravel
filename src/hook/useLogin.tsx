@@ -26,7 +26,6 @@ const UseLogin = props => {
       const response = await loginAPI
         .login(params)
         .then((data) => {
-          console.log('data new', data)
           setIsLogin(true);
           // navigation.navigate('HomePage' as never);
         })

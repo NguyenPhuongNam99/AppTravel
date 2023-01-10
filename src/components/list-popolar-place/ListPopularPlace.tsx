@@ -6,6 +6,9 @@ import {useNavigation} from '@react-navigation/core';
 const ListPopularPlace = data => {
   const navigation = useNavigation();
 
+
+
+
   return (
     <FlatList
       data={data.data}
@@ -18,8 +21,8 @@ const ListPopularPlace = data => {
             style={styles.destinationPopolar}
             onPress={() =>
               navigation.navigate(
-                'PopularPlaceDetailV2' as never,
-                {item: item} as never,
+                'Place12Detail' as never,
+                {dataPass: item, title: item.title} as never,
               )
             }>
             <View style={styles.destinationBlock}>

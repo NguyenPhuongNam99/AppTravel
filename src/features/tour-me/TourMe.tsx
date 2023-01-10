@@ -13,7 +13,6 @@ const TourMe = () => {
   const navigation = useNavigation();
   const [dataTour, setDataTour] = useState([]);
   const data: any = useAppSelector(state => state.LoginSlice.data);
-  console.log('dataa', data);
   const isFocused = useIsFocused();
 
   const fetchTourMe = async () => {
@@ -22,7 +21,6 @@ const TourMe = () => {
         `${Base_Url}/v1/orderTour/getOrderTourofUser/${data._id}`,
       );
       setDataTour(response.data);
-      console.log('response data', response.data);
     } catch (error) {
       console.log('error', error);
     }

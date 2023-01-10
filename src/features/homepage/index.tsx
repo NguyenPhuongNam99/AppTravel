@@ -48,7 +48,6 @@ const HomePage = () => {
         },
       });
 
-      console.log('ress', response.data.filter((item) => item.item.is_popular === 'true'))
       setTravelPopular(response.data.filter((item) => item.item.is_popular === 'true'))
       setDataTravel(response.data);
     } catch (error) {}
@@ -142,7 +141,7 @@ const HomePage = () => {
           passData={travelPopular}
         />
         <RecentSchedule data={travelPopular} />
-        <TitleBlock
+        {/* <TitleBlock
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}
         />
@@ -151,7 +150,7 @@ const HomePage = () => {
           label="Trải nghiệm nổi bật"
           navigateScreen={'SpecialExprience'}
         />
-        <SpecialExprienceHome />
+        <SpecialExprienceHome /> */}
         <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
         <ListPopularPlace data={Destination12} />
         <TitleBlock

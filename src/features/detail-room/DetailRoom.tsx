@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Image,
@@ -9,10 +9,46 @@ import {
 } from 'react-native';
 import AppIonicons from '../../components/icon/AppIonicons';
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Modal} from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 
 const DetailRoom = ({route}) => {
   const {item} = route.params;
   const navigation = useNavigation();
+  const [idClick, setIdClick] = useState();
+  const [visiable, setVisiable] = useState(false);
+
+  const statusRoom = async () => {
+    try {
+      const tokenNew = await AsyncStorage.getItem('storage_Key');
+      const obj = {
+        id: item._id,
+        idRoom: idClick,
+      };
+      const response = axios.put(
+        'http://206.189.37.26:8080/v1/hotel/updateRoomStatus',
+        obj,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      setVisiable(false);
+
+      Toast.show({
+        type: 'success',
+        text1: 'Chọn Phòng thành công 👋',
+      });
+    } catch (error) {
+      Toast.show({
+        type: 'success',
+        text1: 'Chọn Phòng thất bại 👋',
+      });
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -25,9 +61,11 @@ const DetailRoom = ({route}) => {
         <Text>Chọn phòng</Text>
         <Text></Text>
       </View>
-
+      <View style={{zIndex: 99}}>
+        <Toast />
+      </View>
       <FlatList
-        data={item.room}
+        data={item.room.filter((item) => item.room_status == 'false')}
         renderItem={({item}) => {
           return (
             <View style={styles.blockList}>
@@ -47,7 +85,11 @@ const DetailRoom = ({route}) => {
                   </Text>
                   <View style={styles.blockAccept}>
                     <Text>Gía: {item.room_price} đồng</Text>
-                    <TouchableOpacity style={styles.clickAccept}>
+                    <TouchableOpacity
+                      style={styles.clickAccept}
+                      onPress={() => (
+                        setIdClick(item._id), setVisiable(!visiable)
+                      )}>
                       <Text style={{color: 'white'}}>Chọn</Text>
                     </TouchableOpacity>
                   </View>
@@ -57,6 +99,15 @@ const DetailRoom = ({route}) => {
           );
         }}
       />
+
+      <Modal visible={visiable} style={styles.modalContainer}>
+        <View style={styles.blockContainer}>
+          <Text style={{color: 'black'}}>Xác nhận chọn phòng !</Text>
+          <TouchableOpacity style={styles.clickConfirm} onPress={statusRoom}>
+            <Text style={{color: 'white'}}>Xác nhận</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -108,6 +159,31 @@ const styles = StyleSheet.create({
     borderRadius: 9,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modalContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 99,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '100%',
+    height: '100%',
+  },
+  blockContainer: {
+    width: 200,
+    height: 150,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 9,
+  },
+  clickConfirm: {
+    width: 120,
+    height: 30,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FF5F24',
+    marginTop: 10,
   },
 });
 

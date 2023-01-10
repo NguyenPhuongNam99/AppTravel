@@ -30,7 +30,6 @@ const CitySearch = () => {
           Authorization: `Bearer ${tokenNew}`,
         },
       });
-      console.log('response new', response.data);
       setDataCity(response.data);
     } catch (error) {
       console.log('error', error);
@@ -54,7 +53,6 @@ const CitySearch = () => {
 
   const onChange = async (text: string) => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
-    console.log('empty', _.isEmpty(text))
 
     const textValue = _.isEmpty(text) ? 't': text;
     try {
@@ -63,7 +61,6 @@ const CitySearch = () => {
           Authorization: `Bearer ${tokenNew}`,
         },
       });
-      console.log('response new', response.data);
       setDataSearch(response.data)
       setDataCity(response.data);
     } catch (error) {

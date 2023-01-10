@@ -16,7 +16,6 @@ const PlacePoplular = () => {
         data={dataListPoPularPlace}
         style={{marginBottom: 10}}
         renderItem={({item}) => {
-          console.log('item data', item);
           return (
             <TouchableOpacity
               style={styles.popularContainer}

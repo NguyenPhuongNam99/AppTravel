@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
   },
   bold: {fontWeight: 'bold'},
   colorTime: {color: '#494949'},
-  destination: {flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', width: '30%', right: 0, justifyContent: 'flex-end'},
+  destination: {flexDirection: 'row',  width: '100%', right: 0, justifyContent:'center', alignItems: 'center' },
   bottomBlock: {
     width: '100%',
     height: 25,
