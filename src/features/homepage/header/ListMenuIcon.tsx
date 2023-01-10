@@ -11,6 +11,9 @@ const ListMenuIcon = () => {
     if (item.id === String(2)) {
       navigation.navigate('HotelIcon' as never);
     }
+    if (item.id === String(3)) {
+      navigation.navigate('Blog' as never);
+    }
     if (item.id === String(5)) {
       navigation.navigate('RestaurantIcon' as never);
     }
@@ -20,9 +23,7 @@ const ListMenuIcon = () => {
     if (item.id === String(1)) {
       navigation.navigate('Payment' as never);
     }
-    if (item.id === String(3)) {
-      navigation.navigate('Notification' as never);
-    }
+    
   };
   return (
     <View style={styles.listIcon}>

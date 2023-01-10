@@ -39,6 +39,8 @@ import EvaluateTour from '../features/evaluateTour/EvaluateTour';
 import HotelDetailv3 from '../features/detail-ver2/recent-schedule-detail/hotelDetailv3';
 import DetailRoom from '../features/detail-room/DetailRoom';
 import Place12Detail from '../features/place12-detail/Place12-detail';
+import Blog from '../features/blog/Blog';
+import BlogDetail from '../features/blog-detail/BlogDetail';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -92,6 +94,8 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="DetailPlace" component={DetailPlace} />
       <StackHome.Screen name="DetailRoom" component={DetailRoom} />
       <StackHome.Screen name="Place12Detail" component={Place12Detail} />
+      <StackHome.Screen name="Blog" component={Blog} />
+      <StackHome.Screen name="BlogDetail" component={BlogDetail} />
 
       <StackHome.Screen
         name="RecentScheduleDetailV2"
