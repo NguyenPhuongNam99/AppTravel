@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import styles from './styles';
 import Header from './header/Header';
@@ -12,19 +13,21 @@ import TitleBlock from './Title-block/TitleBlock';
 import RecentSchedule from './recent-schedule/RecentSchedule';
 import ListPopularPlace from '../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../components/list-hotel-resort';
-import SpecialExprienceHome from './special-experience-home';
-import {Destination12, dataListPoPularPlace} from './fake-data/FakeData';
+import {Destination12} from './fake-data/FakeData';
 import Carousel from 'react-native-banner-carousel';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Base_Url} from '../../constants/const';
+import { useNavigation } from '@react-navigation/native';
 
 const HomePage = () => {
   const [dataVoucher, setDataVoucher] = useState();
   const [dataTravel, setDataTravel] = useState([]);
   const [dataHotel, setDataHotel] = useState([]);
   const [dataHomeStay, setDataHomeStay] = useState([]);
-  const [travelPopular, setTravelPopular] = useState([])
+  const [travelPopular, setTravelPopular] = useState([]);
+  const [dataBlog, setDataBlog] = useState();
+  const navigation = useNavigation();
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -48,7 +51,9 @@ const HomePage = () => {
         },
       });
 
-      setTravelPopular(response.data.filter((item) => item.item.is_popular === 'true'))
+      setTravelPopular(
+        response.data.filter(item => item.item.is_popular === 'true'),
+      );
       setDataTravel(response.data);
     } catch (error) {}
   };
@@ -82,11 +87,31 @@ const HomePage = () => {
     }
   };
 
+  const getAllBlog = async () => {
+    const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+    try {
+      const response = await axios.get(
+        'http://206.189.37.26:8080/v1/blog/getAllBlog',
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      console.log('response', response.data);
+      setDataBlog(response.data);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   useEffect(() => {
     getListDiscount();
     getListAllTravel();
     getListAllHotel();
     getListAllHomeStay();
+    getAllBlog();
     // fakeApi();
   }, []);
 
@@ -151,15 +176,16 @@ const HomePage = () => {
           navigateScreen={'SpecialExprience'}
         />
         <SpecialExprienceHome /> */}
-        <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
-        <ListPopularPlace data={Destination12} />
         <TitleBlock
           label="Khách sạn"
           navigateScreen={'HotelResortDetail'}
           passData={dataHotel}
         />
         <ListHotelResort data={dataHotel} />
-        {dataHomeStay.length >0 && (
+        <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
+        <ListPopularPlace data={Destination12} />
+
+        {dataHomeStay.length > 0 && (
           <>
             <TitleBlock
               label="HomeStay"
@@ -169,6 +195,40 @@ const HomePage = () => {
             <ListHotelResort data={dataHomeStay} />
           </>
         )}
+        <View style={styles.blogTop}>
+          <Text style={{color: 'black'}}>Bí kíp du lịch</Text>
+          <Text style={{fontSize: 11}}>Chơi - ăn - ở như người địa phương</Text>
+        </View>
+        <FlatList
+          data={dataBlog}
+          horizontal
+          style={{marginLeft: 10}}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity style={styles.containerBlog} onPress={() => navigation.navigate('BlogDetail' as never, {item : item} as never) }>
+                <View style={styles.blogBottom}>
+                  <View style={styles.blogImage}>
+                    <Image
+                      style={styles.fullWidth}
+                      source={{
+                        uri: item.thumbnail,
+                      }}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      paddingLeft: 10,
+                      justifyContent: 'center',
+                      alignItems: 'flex-start',
+                    }}>
+                    <Text numberOfLines={1}>{item.title}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            );
+          }}
+        />
       </View>
     </ScrollView>
   );

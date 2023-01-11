@@ -6,7 +6,12 @@ import styles from '../../features/homepage/styles';
 import {dataResortHotel} from '../../features/homepage/fake-data/FakeData';
 import {useNavigation} from '@react-navigation/core';
 
-const ListHotelResort = ({data}: any) => {
+interface TypeListHotelResort {
+  data: any;
+  restaurant?: boolean;
+}
+
+const ListHotelResort: React.FC<TypeListHotelResort> = ({data, restaurant}) => {
   const navigation = useNavigation();
 
   return (
@@ -18,6 +23,7 @@ const ListHotelResort = ({data}: any) => {
       renderItem={({item}) => {
         const regex = /(<([^>]+)>)/gi;
         const result = item?.description?.replace(regex, '');
+        console.log('iterm', item)
         return (
           <TouchableOpacity
             style={styles.hotelContainer}
@@ -34,9 +40,10 @@ const ListHotelResort = ({data}: any) => {
                 }}
                 source={{
                   uri:
-                    item?.image[0]?.image !== undefined
-                      ? item?.image[0]?.image
-                      : item?.image[1]?.image,
+                    restaurant == true
+                      ? item?.images[0].image : (item?.image[0]?.image !== undefined
+                        ? item?.image[0]?.image
+                        : item?.image[1]?.image),
                 }}
                 style={styles.imageSchedule}
               />

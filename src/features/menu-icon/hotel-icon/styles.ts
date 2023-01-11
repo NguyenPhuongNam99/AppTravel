@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     paddingLeft: 16,
   },
-  fullWidth: {width: '100%', height: '100%'},
+  fullWidth: {width: '100%', height: '100%', paddingTop: 0, paddingBottom: 0},
   bannerContainer: {
     width: '100%',
     height: 150,

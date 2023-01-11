@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-    scroll: {flex: 1, marginBottom: 40},
+    scroll: {flex: 1},
     container: {
     flex: 1,
   },
@@ -18,5 +18,5 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     paddingLeft: 16,
   },
-  fullWidth: {width: '100%', height: '100%'},
+  fullWidth: {width: '100%', height: '100%', paddingTop: 0, paddingBottom: 0},
 });

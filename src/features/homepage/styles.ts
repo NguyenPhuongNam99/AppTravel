@@ -186,6 +186,11 @@ const styles = StyleSheet.create({
   },
   specialBlock: {width: 220, height: 230},
   specialImage: {width: '100%', height: 200, borderRadius: 6},
-  specialTitle: {color: '#3076FE'}
+  specialTitle: {color: '#3076FE'},
+  containerBlog: {width: 280, height: 150,  marginRight: 10},
+  blogTop: {width: '100%', height: 40,  paddingLeft: 11, marginTop: 10},
+  blogBottom: {width: '100%', height: '100%'},
+  blogImage: {width: '100%', height: '80%'},
+  fullWidth:{width: '100%', height: '100%', borderRadius: 9}
 });
 export default styles;
