@@ -35,7 +35,7 @@ const UpdateInformationProfile = () => {
 
         datas.append('upload', {
           uri: responseData.assets[0].uri,
-          // name: responseData.assets[0].fileName,
+          name: responseData.assets[0].fileName,
           type: 'image/jpeg',
         });
 
@@ -49,6 +49,7 @@ const UpdateInformationProfile = () => {
             // setResponse(response)
           })
           .then(data => {
+            console.log('data', data)
           })
           .catch(error => console.log('error', error));
       });

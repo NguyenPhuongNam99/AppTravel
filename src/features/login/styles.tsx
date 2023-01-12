@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   twoLevel: {
     flex: 4,
-    zIndex: 99,
+    zIndex: 30,
     paddingHorizontal: 16,
   },
   logoIcon: {
@@ -21,14 +21,14 @@ const styles = StyleSheet.create({
     height: 220,
     zIndex: 2,
   },
-  blockLevel: {width: '100%', height: '100%', paddingTop: 60, zIndex: 99},
+  blockLevel: {width: '100%', height: '100%', paddingTop: 60, zIndex: 40},
   input: {
     width: '100%',
     height: 40,
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.5)',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 99,
+    zIndex: 30,
     borderRadius: 30,
     color: 'white',
     marginBottom: 30,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#055EEE',
   },
   imageAbsolute: {width: '100%', height: '100%', position: 'absolute'},
-  listContent: {width: '100%', height: '100%', zIndex: 99},
+  listContent: {width: '100%', height: '100%', zIndex: 30},
 });
 
 export default styles;

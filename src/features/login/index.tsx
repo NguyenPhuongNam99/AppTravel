@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -10,13 +10,14 @@ import {
 } from 'react-native';
 import images from '../../assets/images';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import Loading from '../../components/loading';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
 import { useAppDispatch } from '../../app/store';
 import { setUserInfor } from './loginSlice';
+import Lottie from 'lottie-react-native';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -38,18 +39,20 @@ const Login = () => {
           password: data.password,
         },
       }).then(async data => {
-        setLoadingLogin(false);
 
-        Toast.show({
-          type: 'success',
-          text1: 'Đăng nhập thành công 👋',
-        });
-
-       await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
-      //  await AsyncStorage.setItem('usercontact', data?.data);
+        await AsyncStorage.setItem('storage_Key', data?.data?.accesToken);
+        //  await AsyncStorage.setItem('usercontact', data?.data);
         dispatch(setUserInfor(data?.data));
         setTimeout(() => {
-          navigation.navigate('BottomTabNavigation' as never);
+          setLoadingLogin(false);
+          Toast.show({
+            type: 'success',
+            text1: 'Đăng nhập thành công 👋',
+          });
+          setTimeout(() => {
+          
+            navigation.navigate('BottomTabNavigation' as never);
+          }, 1000);
         }, 1000);
       });
     } catch (error) {
@@ -64,33 +67,19 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
+      {loadingLogin && (
+        <Loading />
+      )}
       <ImageBackground
         source={images.BACKGROUND_LOGIN}
         resizeMode={'stretch'}
         style={styles.imageBackground}>
         <View style={styles.listContent}>
-          <View style={{zIndex: 99}}>
+          <View style={{ zIndex: 99 }}>
             <Toast />
           </View>
 
-          {loadingLogin && (
-            <View
-              style={{
-                width: '100%',
-                height: '100%',
-                zIndex: 99,
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'rgba(0,0,0,0.7)',
-              }}>
-              <ActivityIndicator size={'large'} color={'green'} />
-            </View>
-          )}
+
           <View style={styles.topLevel}>
             <Image source={images.LOGO_ICON} style={styles.logoIcon} />
           </View>
@@ -102,7 +91,7 @@ const Login = () => {
                 placeholderTextColor={'white'}
                 value={data.userName}
                 onChangeText={(text: string) =>
-                  setData({...data, userName: text})
+                  setData({ ...data, userName: text })
                 }
               />
               <TextInput
@@ -111,7 +100,7 @@ const Login = () => {
                 placeholderTextColor={'white'}
                 value={data.password}
                 onChangeText={(text: string) =>
-                  setData({...data, password: text})
+                  setData({ ...data, password: text })
                 }
               />
               <TouchableOpacity style={styles.submit} onPress={submitForm}>

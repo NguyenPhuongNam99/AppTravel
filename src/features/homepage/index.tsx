@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   View,
@@ -13,12 +13,13 @@ import TitleBlock from './Title-block/TitleBlock';
 import RecentSchedule from './recent-schedule/RecentSchedule';
 import ListPopularPlace from '../../components/list-popolar-place/ListPopularPlace';
 import ListHotelResort from '../../components/list-hotel-resort';
-import {Destination12} from './fake-data/FakeData';
+import { Destination12 } from './fake-data/FakeData';
 import Carousel from 'react-native-banner-carousel';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Base_Url} from '../../constants/const';
+import { Base_Url } from '../../constants/const';
 import { useNavigation } from '@react-navigation/native';
+import Loading from '../../components/loading';
 
 const HomePage = () => {
   const [dataVoucher, setDataVoucher] = useState();
@@ -28,6 +29,7 @@ const HomePage = () => {
   const [travelPopular, setTravelPopular] = useState([]);
   const [dataBlog, setDataBlog] = useState();
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(true);
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -38,7 +40,7 @@ const HomePage = () => {
         },
       });
       setDataVoucher(response.data);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const getListAllTravel = async () => {
@@ -55,7 +57,7 @@ const HomePage = () => {
         response.data.filter(item => item.item.is_popular === 'true'),
       );
       setDataTravel(response.data);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const getListAllHotel = async () => {
@@ -69,7 +71,7 @@ const HomePage = () => {
       });
       setDataHotel(response.data);
       // console.log('response new', response.data);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const getListAllHomeStay = async () => {
@@ -107,66 +109,78 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    setLoading(true)
     getListDiscount();
     getListAllTravel();
     getListAllHotel();
     getListAllHomeStay();
     getAllBlog();
+
+    setTimeout(() => {
+        setLoading(false)
+    }, 1000);
+
+    // setLoading(false)
     // fakeApi();
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.container}>
-        <Header />
-        <View style={styles.optionClickContainer}>
-          <TouchableOpacity style={styles.optionClick}>
-            <Text style={styles.colorOptionClick}>Xem gợi ý</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionClick}>
-            <Text style={styles.colorOptionClick}>Tạo lịch trình</Text>
-          </TouchableOpacity>
-        </View>
-        <TitleBlock label="Khuyến mại" navigateScreen={'Discount'} />
-        <View style={styles.blockDiscountContainer}>
-          <View
-            style={{
-              width: '100%',
-              height: '100%',
-              overflow: 'hidden',
-            }}>
-            <Carousel autoplay autoplayTimeout={3000} loop index={0}>
-              {dataVoucher?.map((item, index) => {
-                return (
-                  <View style={styles.discount}>
-                    <Image
-                      source={{uri: item.image_url}}
-                      resizeMode="contain"
-                      style={{
-                        width: '91.7%',
-                        height: '100%',
-                        borderRadius: 6,
-                      }}
-                    />
-                  </View>
-                );
-              })}
-            </Carousel>
+    <>
+      {
+        loading &&
+        <Loading />
+      }
+      <ScrollView style={styles.container}>
+        <View style={styles.container}>
+          <Header />
+          <View style={styles.optionClickContainer}>
+            <TouchableOpacity style={styles.optionClick}>
+              <Text style={styles.colorOptionClick}>Xem gợi ý</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.optionClick}>
+              <Text style={styles.colorOptionClick}>Tạo lịch trình</Text>
+            </TouchableOpacity>
           </View>
-        </View>
-        <TitleBlock
-          label="Tất cả lịch trình"
-          navigateScreen={'RecentScheduleDetail'}
-          passData={dataTravel}
-        />
-        <RecentSchedule data={dataTravel} />
-        <TitleBlock
-          label="Danh mục phổ biến"
-          navigateScreen={'RecentScheduleDetail'}
-          passData={travelPopular}
-        />
-        <RecentSchedule data={travelPopular} />
-        {/* <TitleBlock
+          <TitleBlock label="Khuyến mại" navigateScreen={'Discount'} />
+          <View style={styles.blockDiscountContainer}>
+            <View
+              style={{
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+              }}>
+              <Carousel autoplay autoplayTimeout={3000} loop index={0}>
+                {dataVoucher?.map((item, index) => {
+                  return (
+                    <View style={styles.discount}>
+                      <Image
+                        source={{ uri: item.image_url }}
+                        resizeMode="contain"
+                        style={{
+                          width: '91.7%',
+                          height: '100%',
+                          borderRadius: 6,
+                        }}
+                      />
+                    </View>
+                  );
+                })}
+              </Carousel>
+            </View>
+          </View>
+          <TitleBlock
+            label="Tất cả lịch trình"
+            navigateScreen={'RecentScheduleDetail'}
+            passData={dataTravel}
+          />
+          <RecentSchedule data={dataTravel} />
+          <TitleBlock
+            label="Danh mục phổ biến"
+            navigateScreen={'RecentScheduleDetail'}
+            passData={travelPopular}
+          />
+          <RecentSchedule data={travelPopular} />
+          {/* <TitleBlock
           label="Địa điểm phổ biến"
           navigateScreen={'PlacePoplular'}
         />
@@ -176,61 +190,63 @@ const HomePage = () => {
           navigateScreen={'SpecialExprience'}
         />
         <SpecialExprienceHome /> */}
-        <TitleBlock
-          label="Khách sạn"
-          navigateScreen={'HotelResortDetail'}
-          passData={dataHotel}
-        />
-        <ListHotelResort data={dataHotel} />
-        <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
-        <ListPopularPlace data={Destination12} />
+          <TitleBlock
+            label="Khách sạn"
+            navigateScreen={'HotelResortDetail'}
+            passData={dataHotel}
+          />
+          <ListHotelResort data={dataHotel} />
+          <TitleBlock label="Điểm đến tháng 12" navigateScreen={'Place12'} />
+          <ListPopularPlace data={Destination12} />
 
-        {dataHomeStay.length > 0 && (
-          <>
-            <TitleBlock
-              label="HomeStay"
-              navigateScreen={'HotelResortDetail'}
-              passData={dataHomeStay}
-            />
-            <ListHotelResort data={dataHomeStay} />
-          </>
-        )}
-        <View style={styles.blogTop}>
-          <Text style={{color: 'black'}}>Bí kíp du lịch</Text>
-          <Text style={{fontSize: 11}}>Chơi - ăn - ở như người địa phương</Text>
+          {dataHomeStay.length > 0 && (
+            <>
+              <TitleBlock
+                label="HomeStay"
+                navigateScreen={'HotelResortDetail'}
+                passData={dataHomeStay}
+              />
+              <ListHotelResort data={dataHomeStay} />
+            </>
+          )}
+          <View style={styles.blogTop}>
+            <Text style={{ color: 'black' }}>Bí kíp du lịch</Text>
+            <Text style={{ fontSize: 11 }}>Chơi - ăn - ở như người địa phương</Text>
+          </View>
+          <FlatList
+            data={dataBlog}
+            horizontal
+            style={{ marginLeft: 10 }}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity style={styles.containerBlog} onPress={() => navigation.navigate('BlogDetail' as never, { item: item } as never)}>
+                  <View style={styles.blogBottom}>
+                    <View style={styles.blogImage}>
+                      <Image
+                        style={styles.fullWidth}
+                        source={{
+                          uri: item.thumbnail,
+                        }}
+                      />
+                    </View>
+                    <View
+                      style={{
+                        paddingLeft: 10,
+                        justifyContent: 'center',
+                        alignItems: 'flex-start',
+                      }}>
+                      <Text numberOfLines={1}>{item.title}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+          />
         </View>
-        <FlatList
-          data={dataBlog}
-          horizontal
-          style={{marginLeft: 10}}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => {
-            return (
-              <TouchableOpacity style={styles.containerBlog} onPress={() => navigation.navigate('BlogDetail' as never, {item : item} as never) }>
-                <View style={styles.blogBottom}>
-                  <View style={styles.blogImage}>
-                    <Image
-                      style={styles.fullWidth}
-                      source={{
-                        uri: item.thumbnail,
-                      }}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      paddingLeft: 10,
-                      justifyContent: 'center',
-                      alignItems: 'flex-start',
-                    }}>
-                    <Text numberOfLines={1}>{item.title}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            );
-          }}
-        />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
+
   );
 };
 
