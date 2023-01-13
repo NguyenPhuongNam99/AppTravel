@@ -23,12 +23,14 @@ const ListHotelResort: React.FC<TypeListHotelResort> = ({data, restaurant}) => {
       renderItem={({item}) => {
         const regex = /(<([^>]+)>)/gi;
         const result = item?.description?.replace(regex, '');
-        console.log('iterm', item)
         return (
           <TouchableOpacity
             style={styles.hotelContainer}
             onPress={() =>
-              navigation.navigate(
+              restaurant == true ? navigation.navigate(
+                'RestaurantIconDetail' as never,
+                {item: item, hotel: true} as never,
+              ): navigation.navigate(
                 'HotelDetailv3' as never,
                 {item: item, hotel: true} as never,
               )
@@ -41,7 +43,7 @@ const ListHotelResort: React.FC<TypeListHotelResort> = ({data, restaurant}) => {
                 source={{
                   uri:
                     restaurant == true
-                      ? item?.images[0].image : (item?.image[0]?.image !== undefined
+                      ? item?.images[0]?.image : (item?.image[0]?.image !== undefined
                         ? item?.image[0]?.image
                         : item?.image[1]?.image),
                 }}

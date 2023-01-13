@@ -20,6 +20,8 @@ const DetailRoom = ({route}) => {
   const [idClick, setIdClick] = useState();
   const [visiable, setVisiable] = useState(false);
 
+  console.log('item room', item)
+
   const statusRoom = async () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');

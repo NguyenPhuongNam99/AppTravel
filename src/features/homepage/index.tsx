@@ -30,6 +30,7 @@ const HomePage = () => {
   const [dataBlog, setDataBlog] = useState();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
+  const [tourOneday, setTourOneDay] = useState([])
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -52,10 +53,10 @@ const HomePage = () => {
           Authorization: `Bearer ${tokenNew}`,
         },
       });
-
       setTravelPopular(
         response.data.filter(item => item.item.is_popular === 'true'),
       );
+      setTourOneDay(response.data.filter(item => item.time_line.length <2 ))
       setDataTravel(response.data);
     } catch (error) { }
   };
@@ -117,7 +118,7 @@ const HomePage = () => {
     getAllBlog();
 
     setTimeout(() => {
-        setLoading(false)
+      setLoading(false)
     }, 1000);
 
     // setLoading(false)
@@ -243,6 +244,20 @@ const HomePage = () => {
               );
             }}
           />
+
+
+         {
+          tourOneday.length > 1 && (
+            <>
+             <TitleBlock
+            label="Tour 1 ngày"
+            navigateScreen={'RecentScheduleDetail'}
+            passData={tourOneday}
+          />
+          <RecentSchedule data={tourOneday} />
+            </>
+          )
+         }
         </View>
       </ScrollView>
     </>
