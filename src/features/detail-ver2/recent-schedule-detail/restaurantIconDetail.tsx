@@ -83,11 +83,11 @@ ${item?.description}`,
           />
         </View>
       </View>
-      <View style={styles.containerClick}>
+      {/* <View style={styles.containerClick}>
         <TouchableOpacity style={styles.blockClick} >
           <Text style={{color: 'white'}}>Chọn phòng</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
 
       <View style={styles.viewText}>
         <RenderHtml contentWidth={200} source={source} />

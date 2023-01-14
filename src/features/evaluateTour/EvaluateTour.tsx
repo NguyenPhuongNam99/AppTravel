@@ -29,6 +29,7 @@ const EvaluateTour = ({route}) => {
 
   const {item} = route.params;
 
+
   const navigation = useNavigation();
 
   const sendReview = async () => {
@@ -41,9 +42,10 @@ const EvaluateTour = ({route}) => {
         rate_star: value,
         tour_id: item.item.item.item.idTour,
         title: title,
+        objectIdTour: item.item.item.item._id
       };
       const response = await axios.post(
-        'http://206.189.37.26:8080/v1/review/createreview',
+        'http://10.0.2.2:8080/v1/review/createreview',
         obj,
         {
           headers: {
