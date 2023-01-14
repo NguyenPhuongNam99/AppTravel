@@ -122,6 +122,7 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="RestaurantIconDetail" component={RestaurantIconDetail} />
       <StackHome.Screen name="SuggestScreen" component={SuggestScreen} />
       <StackHome.Screen name="SuggestScreenDetail" component={SuggestScreenDetail} />
+      <StackHome.Screen name="UpdateInformationProfile" component={UpdateInformationProfile} />
 
     </StackHome.Navigator>
   );

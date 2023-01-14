@@ -191,6 +191,9 @@ const styles = StyleSheet.create({
   blogTop: {width: '100%', height: 40,  paddingLeft: 11, marginTop: 10},
   blogBottom: {width: '100%', height: '100%'},
   blogImage: {width: '100%', height: '80%'},
-  fullWidth:{width: '100%', height: '100%', borderRadius: 9}
+  fullWidth:{width: '100%', height: '100%', borderRadius: 9},
+  modalContaierUpdate: {width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', zIndex:100},
+  modalBlock: {width: 250, height: 150, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 9},
+  clickModal: {width: 80, height: 40, justifyContent: 'center', alignItems: 'center', borderRadius: 9, backgroundColor: '#FF5F24'}
 });
 export default styles;

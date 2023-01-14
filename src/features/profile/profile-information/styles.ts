@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     width: '40%',
     height: '100%',
   },
-  imageAvatar: {width: 60, height: 60, alignSelf: 'center'},
+  imageAvatar: {width: 80, height: 80, alignSelf: 'center', borderRadius: 9},
   titleAvatar: {textAlign: 'center', paddingTop: 4},
   rightAvatar: {
     width: '60%',

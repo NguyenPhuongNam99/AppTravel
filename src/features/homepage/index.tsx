@@ -20,6 +20,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Base_Url } from '../../constants/const';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../components/loading';
+import { useAppSelector } from '../../app/store';
+import Modal from "react-native-modal";
 
 const HomePage = () => {
   const [dataVoucher, setDataVoucher] = useState();
@@ -32,6 +34,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [tourOneday, setTourOneDay] = useState([]);
   const [tourPopular, setTourPopular] = useState([]);
+  const [visiable, setVisiable] = useState(false);
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -145,8 +148,32 @@ const HomePage = () => {
     // fakeApi();
   }, []);
 
+  const dataLogin: any = useAppSelector((state) => state.LoginSlice.data);
+  console.log('dataaa', dataLogin?.first_name !== '' && dataLogin?.last_name !== '')
+
+  useEffect(() => {
+    if (dataLogin?.first_name === '' && dataLogin?.last_name === '') {
+      console.log('run')
+      setVisiable(true)
+    }
+  }, [])
+
   return (
     <>
+      {
+        dataLogin?.first_name === '' && dataLogin?.last_name === '' && !loading && (
+          <Modal isVisible={visiable} style={{ flex: 1, zIndex: 100 }}>
+            <View style={styles.modalContaierUpdate}>
+              <View style={styles.modalBlock}>
+                <Text>Bạn cần cập nhật thêm thông tin </Text>
+                <TouchableOpacity style={styles.clickModal} onPress={() => (setVisiable(!visiable), navigation.navigate('UpdateInformationProfile' as never))}>
+                  <Text style={styles.colorWhite}>Cập nhật</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
+        )
+      }
       {
         loading &&
         <Loading />
@@ -158,7 +185,7 @@ const HomePage = () => {
             <TouchableOpacity style={styles.optionClick} onPress={() => navigation.navigate('SuggestScreen' as never)}>
               <Text style={styles.colorOptionClick}>Xem gợi ý</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionClick} onPress={() => navigation.navigate('RecentScheduleDetail' as never, {passData: tourPopular, title: 'Tour nổi bật'} as never)}>
+            <TouchableOpacity style={styles.optionClick} onPress={() => navigation.navigate('RecentScheduleDetail' as never, { passData: tourPopular, title: 'Tour nổi bật' } as never)}>
               <Text style={styles.colorOptionClick}>Tour nổi bật</Text>
             </TouchableOpacity>
           </View>
