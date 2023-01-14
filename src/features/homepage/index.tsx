@@ -30,7 +30,8 @@ const HomePage = () => {
   const [dataBlog, setDataBlog] = useState();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
-  const [tourOneday, setTourOneDay] = useState([])
+  const [tourOneday, setTourOneDay] = useState([]);
+  const [tourPopular, setTourPopular] = useState([]);
 
   const getListDiscount = async () => {
     const tokenNew = await AsyncStorage.getItem('storage_Key');
@@ -56,7 +57,7 @@ const HomePage = () => {
       setTravelPopular(
         response.data.filter(item => item.item.is_popular === 'true'),
       );
-      setTourOneDay(response.data.filter(item => item.time_line.length <2 ))
+      setTourOneDay(response.data.filter(item => item.time_line.length < 2))
       setDataTravel(response.data);
     } catch (error) { }
   };
@@ -102,12 +103,30 @@ const HomePage = () => {
           },
         },
       );
-      console.log('response', response.data);
       setDataBlog(response.data);
     } catch (error) {
       console.log('error', error);
     }
   };
+
+  const getTourPopular = async () => {
+    try {
+      const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+      const response = await axios.get(
+        'http://10.0.2.2:8080/v1/tour/getTourPopular',
+        {
+          headers: {
+            Authorization: `Bearer ${tokenNew}`,
+          },
+        },
+      );
+      setTourPopular(response.data)
+
+    } catch (error) {
+
+    }
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -116,6 +135,7 @@ const HomePage = () => {
     getListAllHotel();
     getListAllHomeStay();
     getAllBlog();
+    getTourPopular();
 
     setTimeout(() => {
       setLoading(false)
@@ -135,11 +155,11 @@ const HomePage = () => {
         <View style={styles.container}>
           <Header />
           <View style={styles.optionClickContainer}>
-            <TouchableOpacity style={styles.optionClick}>
+            <TouchableOpacity style={styles.optionClick} onPress={() => navigation.navigate('SuggestScreen' as never)}>
               <Text style={styles.colorOptionClick}>Xem gợi ý</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionClick}>
-              <Text style={styles.colorOptionClick}>Tạo lịch trình</Text>
+            <TouchableOpacity style={styles.optionClick} onPress={() => navigation.navigate('RecentScheduleDetail' as never, {passData: tourPopular, title: 'Tour nổi bật'} as never)}>
+              <Text style={styles.colorOptionClick}>Tour nổi bật</Text>
             </TouchableOpacity>
           </View>
           <TitleBlock label="Khuyến mại" navigateScreen={'Discount'} />
@@ -246,18 +266,18 @@ const HomePage = () => {
           />
 
 
-         {
-          tourOneday.length > 1 && (
-            <>
-             <TitleBlock
-            label="Tour 1 ngày"
-            navigateScreen={'RecentScheduleDetail'}
-            passData={tourOneday}
-          />
-          <RecentSchedule data={tourOneday} />
-            </>
-          )
-         }
+          {
+            tourOneday.length > 1 && (
+              <>
+                <TitleBlock
+                  label="Tour 1 ngày"
+                  navigateScreen={'RecentScheduleDetail'}
+                  passData={tourOneday}
+                />
+                <RecentSchedule data={tourOneday} />
+              </>
+            )
+          }
         </View>
       </ScrollView>
     </>

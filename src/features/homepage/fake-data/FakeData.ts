@@ -13,7 +13,7 @@ export const dataMenuIcon = [
   },
   {
     id: '3',
-    title: 'Máy bay',
+    title: 'Blog',
     image: images.FLIGHT,
   },
   {

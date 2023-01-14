@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
   },
-  discoveryHeader: {alignSelf: 'flex-start', color: 'white', fontSize: 18},
+  discoveryHeader: {alignSelf: 'flex-start', color: 'white', fontSize: 18, paddingLeft: 5},
   colorWhite: {color: 'white', marginTop: 10},
   imageHeader: {width: '100%', height: '100%', position: 'absolute'},
   listIcon: {

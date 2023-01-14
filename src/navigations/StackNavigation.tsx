@@ -42,6 +42,8 @@ import Place12Detail from '../features/place12-detail/Place12-detail';
 import Blog from '../features/blog/Blog';
 import BlogDetail from '../features/blog-detail/BlogDetail';
 import RestaurantIconDetail from '../features/detail-ver2/recent-schedule-detail/restaurantIconDetail'
+import SuggestScreen from '../features/suggest-screen/SuggestScreen';
+import SuggestScreenDetail from '../features/suggestScreen-detail/SuggestScreenDetail'
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -118,6 +120,8 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="CitySearch" component={CitySearch} />
       <StackHome.Screen name="ConfirmScreen" component={ConfirmScreen} />
       <StackHome.Screen name="RestaurantIconDetail" component={RestaurantIconDetail} />
+      <StackHome.Screen name="SuggestScreen" component={SuggestScreen} />
+      <StackHome.Screen name="SuggestScreenDetail" component={SuggestScreenDetail} />
 
     </StackHome.Navigator>
   );
