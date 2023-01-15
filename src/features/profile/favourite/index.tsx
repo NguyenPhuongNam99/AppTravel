@@ -5,26 +5,28 @@ import Header from '../../../components/header/Header';
 import ListRencentSchedule from '../../recent-schedule-detail/ListRencentSchedule';
 import { useAppSelector } from '../../../app/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Loading from '../../../components/loading/index';
+
 const Favourite = () => {
 
   const dataUser = useAppSelector((state) => state.LoginSlice.data)
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   const getTourFavourite = async () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
-
+      setLoading(true)
       const response = await axios.get(`http://10.0.2.2:8080/v1/tour/getTourFavouriteOfAllTour/${dataUser._id}`, {
         headers: {
           Authorization: `Bearer ${tokenNew}`,
         },
       })
-
-      console.log('response', response.data)
+      setLoading(false)
       setData(response.data)
     } catch (error) {
-
+      setLoading(false)
     }
   }
 
@@ -35,6 +37,9 @@ const Favourite = () => {
   return (
     <View>
       <Header title="Yêu thích" backOption={false} />
+      {
+        loading && <Loading />
+      }
       <ListRencentSchedule passData={data} love={true} />
     </View>
   );

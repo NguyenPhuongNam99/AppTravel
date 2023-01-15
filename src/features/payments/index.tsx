@@ -5,11 +5,7 @@ import PaymentDetail from './payment-detail';
 
 const Payment = () => {
   return (
-    <StripeProvider
-      publishableKey={''}
-      merchantIdentifier="merchant.identifier">
       <PaymentDetail />
-    </StripeProvider>
   );
 };
 
