@@ -45,7 +45,7 @@ const EvaluateTour = ({route}) => {
         objectIdTour: item.item.item.item._id
       };
       const response = await axios.post(
-        'http://10.0.2.2:8080/v1/review/createreview',
+        'http://206.189.37.26:8080/v1/review/createreview',
         obj,
         {
           headers: {

@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAppSelector } from '../../app/store';
 import Loading from '../../components/loading/index';
 import Toast from 'react-native-toast-message';
+import { zip } from 'lodash';
 
 interface TypeListRecent {
   passData?: any;
@@ -28,8 +29,8 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
         tour_id: value1,
         _idTour: value2
       }
-
-      const response = await axios.post('http://10.0.2.2:8080/v1/tourFavourite/createTourFavourite',
+      setLoading(true)
+      const response = await axios.post('http://206.189.37.26:8080/v1/tourFavourite/createTourFavourite',
         obj,
         {
           headers: {
@@ -45,6 +46,7 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
         setLoading(false)
       }, 1000)
     } catch (error) {
+      console.log('eee', error)
       setLoading(false)
     }
   }
@@ -52,15 +54,17 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
   return (
     <>
 
-      <View style={{ zIndex: 99 }}>
-        <Toast />{
+      <View style={{ zIndex: 99, flex: 1, backgroundColor: 'green', justifyContent: 'center', alignItems: 'center' }}>
+        <Toast />
+        {
           loading && <Loading />
         }
       </View>
       <FlatList
         data={passData}
+        contentContainerStyle={{marginBottom: 20}}
         renderItem={itemList => {
-
+        
           console.log('list', itemList.item.item._id, itemList.item.item.idTour)
           return (
             <TouchableOpacity

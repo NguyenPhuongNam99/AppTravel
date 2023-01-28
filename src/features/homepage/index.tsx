@@ -117,7 +117,7 @@ const HomePage = () => {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
       const response = await axios.get(
-        'http://10.0.2.2:8080/v1/tour/getTourPopular',
+        'http://206.189.37.26:8080/v1/tour/getTourPopular',
         {
           headers: {
             Authorization: `Bearer ${tokenNew}`,

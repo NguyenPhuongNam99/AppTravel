@@ -10,7 +10,7 @@ import { useAppSelector } from '../../app/store';
 import { useIsFocused } from '@react-navigation/native';
 import Loading from '../../components/loading/index';
 
-const TourMe = () => {
+const TourOrderDetail = () => {
   const navigation = useNavigation();
   const [dataTour, setDataTour] = useState([]);
   const data: any = useAppSelector(state => state.LoginSlice.data);
@@ -23,7 +23,7 @@ const TourMe = () => {
       const response = await axios.get(
         `${Base_Url}/v1/orderTour/getOrderTourofUser/${data._id}`,
       );
-      const filterData = response.data.filter((item) =>item.item.item ).filter((item) => item.item.statusTour === 'finish' )
+      const filterData = response.data.filter((item) =>item.item.item ).filter((item) => item.item.statusTour !== 'finish' )
       console.log('filteerrr', filterData)
       setDataTour(filterData);
       setLoading(false)
@@ -55,27 +55,6 @@ const TourMe = () => {
                     <TouchableOpacity style={styles.scheduleContainer}>
                       <View style={styles.scheduleBlock}>
                         <View style={styles.scheduleTop}>
-                          {itemList.item.item.statusTour === 'finish' && (
-                            <TouchableOpacity
-                              style={styles.iconContainer}
-                              onPress={() => {
-                                if (
-                                  String(itemList.item.item.statusTour) === 'finish'
-                                ) {
-                                  navigation.navigate(
-                                    'EvaluateTour' as never,
-                                    { item: itemList } as never,
-                                  );
-                                }
-                              }}>
-                              <Image
-                                source={{
-                                  uri: 'https://as1.ftcdn.net/v2/jpg/01/01/23/02/1000_F_101230299_PNPvE82KSDpr6bOJ8ER9CRhe4DX6f8Kv.jpg',
-                                }}
-                                style={styles.iconEvaluate}
-                              />
-                            </TouchableOpacity>
-                          )}
 
                           <View style={styles.topLeftSchedule}>
                             <Image
@@ -180,4 +159,4 @@ const TourMe = () => {
   );
 };
 
-export default TourMe;
+export default TourOrderDetail;

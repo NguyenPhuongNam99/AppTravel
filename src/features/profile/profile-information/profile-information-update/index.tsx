@@ -44,7 +44,7 @@ const UpdateInformationProfile = () => {
           type: 'image/jpeg',
         });
 
-        fetch('http://10.0.2.2:8080/uploadImageCloud', {
+        fetch('http://206.189.37.26:8080/uploadImageCloud', {
           method: 'POST',
           body: datas,
         })

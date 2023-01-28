@@ -24,7 +24,7 @@ const InformationProfile = () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(`http://10.0.2.2:8080/v1/tour/getTourFavouriteOfAllTour/${dataUser._id}`, {
+      const response = await axios.get(`http://206.189.37.26:8080/v1/tour/getTourFavouriteOfAllTour/${dataUser._id}`, {
         headers: {
           Authorization: `Bearer ${tokenNew}`,
         },
@@ -42,7 +42,7 @@ const InformationProfile = () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
       setLoading(true)
-      const response = await axios.get(`http://10.0.2.2:8080/v1/user/userId/${dataUser._id}`, {
+      const response = await axios.get(`http://206.189.37.26:8080/v1/user/userId/${dataUser._id}`, {
         headers: {
           Authorization: `Bearer ${tokenNew}`,
         },

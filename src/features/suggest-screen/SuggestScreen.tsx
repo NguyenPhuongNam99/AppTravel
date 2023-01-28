@@ -48,7 +48,7 @@ const SuggestScreen = () => {
 
             console.log('obj', obj)
             const response = await axios.post(
-                'http://10.0.2.2:8080/v1/tour/getTourForOptionPerson',
+                'http://206.189.37.26:8080/v1/tour/getTourForOptionPerson',
                 obj, {
                 headers: {
                     Authorization: `Bearer ${tokenNew}`,

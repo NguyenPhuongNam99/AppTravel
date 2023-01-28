@@ -13,7 +13,7 @@ const PaymentDetail = () => {
   );
 
   const fetchPaymentIntentClientSecret = async () => {
-    const response = await fetch(`http://10.0.2.2:8080/v1/stripe/create-payment-intent`, {
+    const response = await fetch(`http://206.189.37.26:8080/v1/stripe/create-payment-intent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

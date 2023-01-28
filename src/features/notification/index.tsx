@@ -9,7 +9,7 @@ const Notification = () => {
 
   return (
     <>
-      <Header title="Tour của bạn22" backOption={false} />
+      <Header title="Đánh giá Tour đã đi" backOption={false} />
       <TourMe />
       
     </>

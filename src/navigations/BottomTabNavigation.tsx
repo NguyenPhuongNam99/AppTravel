@@ -13,6 +13,7 @@ import {
   StackFavouriteScreen,
   StackProfileScreen,
   StackNotificationScreen,
+  StackTourOrder,
 } from './StackNavigation';
 
 const Tab = createBottomTabNavigator();
@@ -39,7 +40,20 @@ function BottomTabNavigation() {
         options={{
           tabBarIcon: tabInfo => (
             <AppMaterIcon
-              name="notifications"
+              name="rate-review"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
+          ),
+        }}
+      />
+       <Tab.Screen
+        name="StackTourOrder"
+        component={StackTourOrder}
+        options={{
+          tabBarIcon: tabInfo => (
+            <AppMaterIcon
+              name="tour"
               size={27}
               color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
             />

@@ -44,12 +44,15 @@ import BlogDetail from '../features/blog-detail/BlogDetail';
 import RestaurantIconDetail from '../features/detail-ver2/recent-schedule-detail/restaurantIconDetail'
 import SuggestScreen from '../features/suggest-screen/SuggestScreen';
 import SuggestScreenDetail from '../features/suggestScreen-detail/SuggestScreenDetail'
+import TourOrder from '../features/TourOrder/TourOrder';
+import TourOrderDetail from '../features/tourOrder-detail/TourOrderDetail';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
 const StackFavourite = createNativeStackNavigator();
 const StackProfile = createNativeStackNavigator();
 const StackLogin = createNativeStackNavigator();
+const StackTourOrderNavigation = createNativeStackNavigator();
 
 // const {getIsLogin} = userAppUser();
 // const isLogin = getIsLogin();
@@ -164,3 +167,14 @@ export const StackNotificationScreen = () => {
     </StackNotifi.Navigator>
   );
 };
+
+
+export const StackTourOrder = () => {
+  return (
+    <StackTourOrderNavigation.Navigator screenOptions={{headerShown: false}}>
+      <StackHome.Screen name="TourOrder" component={TourOrder} />
+      <StackHome.Screen name="TourOrderDetail" component={TourOrderDetail} />
+
+    </StackTourOrderNavigation.Navigator>
+  )
+}
