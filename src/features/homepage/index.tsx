@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   FlatList,
+  Platform,
 } from 'react-native';
 import styles from './styles';
 import Header from './header/Header';
@@ -202,10 +203,14 @@ const HomePage = () => {
                   return (
                     <View style={styles.discount}>
                       <Image
-                        source={{ uri: item.image_url }}
-                        resizeMode="contain"
+                        source={{ uri: String(item.image_url) }}
+                        {
+                        ...Platform.OS === 'android' && ({
+                          resizeMode: "contain"
+                        })
+                        }
                         style={{
-                          width: '91.7%',
+                          width: Platform.OS === 'android' ? '91.7%' : '91.7%',
                           height: '100%',
                           borderRadius: 6,
                         }}
@@ -274,7 +279,7 @@ const HomePage = () => {
                       <Image
                         style={styles.fullWidth}
                         source={{
-                          uri: item.thumbnail,
+                          uri: String(item.thumbnail),
                         }}
                       />
                     </View>

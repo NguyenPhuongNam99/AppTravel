@@ -37,15 +37,12 @@ const ListHotelResort: React.FC<TypeListHotelResort> = ({data, restaurant}) => {
             }>
             <View style={styles.hotelTop}>
               <Image
-                defaultSource={{
-                  uri: 'https://i.pinimg.com/736x/85/03/fa/8503fae3fc4810a28fac2f8913664749.jpg',
-                }}
                 source={{
                   uri:
                     restaurant == true
-                      ? item?.images[0]?.image : (item?.image[0]?.image !== undefined
-                        ? item?.image[0]?.image
-                        : item?.image[1]?.image),
+                      ? String(item?.images[0]?.image) : (item?.image[0]?.image !== undefined
+                        ? String(item?.image[0]?.image)
+                        : String(item?.image[1]?.image)),
                 }}
                 style={styles.imageSchedule}
               />

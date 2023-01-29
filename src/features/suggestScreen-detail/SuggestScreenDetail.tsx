@@ -25,7 +25,7 @@ const SuggestScreenDetail = ({ route }) => {
                     return (
                         <TouchableOpacity style={styles.containerList} onPress={() => navigation.navigate('RecentScheduleDetailV2' as never, {item:itemData} as never)}>
                             <View style={styles.listLeft}>
-                                <Image source={{ uri: itemVert.item.thumbnail[0].url }} style={styles.fullWidth} />
+                                <Image source={{ uri: String(itemVert.item.thumbnail[0].url) }} style={styles.fullWidth} />
                             </View>
                             <View style={styles.listRight}>
                                 <Text style={styles.colorHeader}>{itemVert.item.tour_name}</Text>

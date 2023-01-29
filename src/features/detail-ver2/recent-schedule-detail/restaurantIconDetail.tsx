@@ -17,7 +17,7 @@ ${item?.description}`,
     <ScrollView style={{flex: 1}}>
       <View style={styles.blockImageContainer}>
         <Image
-          source={{uri: item.images[0].image}}
+          source={{uri: String(item.images[0].image)}}
           resizeMode="cover"
           style={styles.fullWidth}
         />
@@ -63,21 +63,21 @@ ${item?.description}`,
       <View style={styles.blockImage}>
         <View style={styles.blockItem}>
           <Image
-            source={{uri: item.images[1].image}}
+            source={{uri: String(item.images[1].image)}}
             resizeMode="cover"
             style={styles.fullWidth}
           />
         </View>
         <View style={styles.blockItem}>
           <Image
-            source={{uri: item.images[2].image}}
+            source={{uri: String(item.images[2].image)}}
             resizeMode="cover"
             style={styles.fullWidth}
           />
         </View>
         <View style={styles.blockItem}>
           <Image
-            source={{uri: item.images[3].image}}
+            source={{uri: String(item.images[3].image)}}
             resizeMode="cover"
             style={styles.fullWidth}
           />

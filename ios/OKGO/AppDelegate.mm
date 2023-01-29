@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -15,10 +16,7 @@
 #import <ReactCommon/RCTTurboModuleManager.h>
 
 
-
 #import <react/config/ReactNativeConfig.h>
-#import <GoogleMaps/GoogleMaps.h>
-#import <Firebase.h>
 @interface AppDelegate () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
   RCTTurboModuleManager *_turboModuleManager;
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
@@ -35,7 +33,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // [GMSServices provideAPIKey:@"AIzaSyC_MbZkXmw2KOeGZD3T8H302BNEqkRDt9E"];
+  [GMSServices provideAPIKey:@"AIzaSyD1JzhXjNtlbmfdchtN4wzbLzzEL1LKQfs"];
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];

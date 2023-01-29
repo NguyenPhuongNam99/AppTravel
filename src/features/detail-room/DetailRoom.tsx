@@ -75,7 +75,7 @@ const DetailRoom = ({route}) => {
                 <View style={styles.topClick}>
                   <Image
                     style={styles.image}
-                    source={{uri: item.room_thumbnail}}
+                    source={{uri: String(item.room_thumbnail)}}
                   />
                 </View>
                 <View style={styles.bottomClick}>

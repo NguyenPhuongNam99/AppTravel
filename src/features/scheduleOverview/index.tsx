@@ -21,7 +21,7 @@ const ScheduleOverview = ({route}) => {
     <View style={styles.container}>
       <View style={styles.imageBlock}>
         <Image
-          source={{uri: item.item.item.thumbnail[0].url}}
+          source={{uri: String(item.item.item.thumbnail[0].url)}}
           resizeMode="cover"
           style={styles.fullwidth}
         />
@@ -107,7 +107,7 @@ const ScheduleOverview = ({route}) => {
                       width: '30%',
                     }}>
                     <Image
-                      source={{uri: item.thumbnail}}
+                      source={{uri: String(item.thumbnail)}}
                       style={{
                         width: '100%',
                         height: '100%',

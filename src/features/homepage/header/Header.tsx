@@ -31,6 +31,8 @@ const Header = () => {
             onFocus={() => navigation.navigate('CitySearch' as never)}
             style={styles.inputSearch}
             placeholder="Bạn muốn đi đâu?"
+            autoFocus={false}
+
           />
         </View>
       </View>

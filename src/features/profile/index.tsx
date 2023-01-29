@@ -29,7 +29,7 @@ const Profile = () => {
         onPress={() => navigation.navigate('InformationProfile' as never)}>
         <Image
           source={{
-            uri: _.isEmpty(data.avatar_url) ? imageDefault : data.avatar_url,
+            uri: _.isEmpty(data.avatar_url) ? imageDefault : String(data.avatar_url),
           }}
           style={styles.imageAvatar}
         />

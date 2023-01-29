@@ -48,7 +48,7 @@ const Blog = () => {
                 <View style={styles.blockLeft}>
                   <Image
                     source={{
-                      uri: item.thumbnail,
+                      uri: String(item.thumbnail),
                     }}
                     style={styles.fullwidth}
                   />

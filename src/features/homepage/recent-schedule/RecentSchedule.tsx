@@ -29,27 +29,27 @@ const RecentSchedule: React.FC<TypeRecentSchedule> = ({data}) => {
             <View style={styles.topSchedule}>
               <View style={styles.topLeftSchedule}>
                 <Image
-                  source={{uri: itemList.item.item.thumbnail[0].url}}
+                  source={{uri: String(itemList.item.item.thumbnail[0].url)}}
                   style={styles.imageScheduleFull}
                 />
               </View>
               <View style={styles.topRightSchedule}>
                 <View style={styles.topRightHeader}>
                   <Image
-                    source={{uri: itemList.item.item.thumbnail[1].url}}
+                    source={{uri: String(itemList.item.item.thumbnail[1].url)}}
                     style={styles.imageScheduleFull}
                   />
                 </View>
                 <View style={styles.topBottomSchedule}>
                   <View style={styles.topBottomItem}>
                     <Image
-                      source={{uri: itemList.item.item.thumbnail[2].url}}
+                      source={{uri: String(itemList.item.item.thumbnail[2].url)}}
                       style={styles.imageScheduleFull}
                     />
                   </View>
                   <View style={styles.topBottomItem}>
                     <Image
-                      source={{uri: itemList.item.item.thumbnail[3].url}}
+                      source={{uri: String(itemList.item.item.thumbnail[3].url)}}
                       style={styles.imageScheduleFull}
                     />
                   </View>

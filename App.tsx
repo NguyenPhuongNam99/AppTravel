@@ -7,7 +7,7 @@ import { UseLogin } from './src/hook/useLogin';
 
 import { store } from './src/app/store';
 import { Provider } from 'react-redux';
-import { LogBox } from 'react-native';
+import { LogBox, SafeAreaView } from 'react-native';
 import RouteNavigation from './src/navigations/index';
 import { StripeProvider } from '@stripe/stripe-react-native';
 
@@ -27,11 +27,13 @@ const App = () => {
       publishableKey={'pk_test_51LKCh8HBvb3MzaZzQ4r8pyrGRybpjCGLES5RPWbnoifGK9solGIu6cSWWOlCKZIXtdZQedYF5DXxP4KK3cJJ1UwA00flLZaHHy'}
       merchantIdentifier="merchant.identifier">
       <Provider store={store}>
+
         <NavigationContainer>
           <UseLogin>
             <RouteNavigation />
           </UseLogin>
         </NavigationContainer>
+
       </Provider>
     </StripeProvider>
   );

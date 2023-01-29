@@ -27,7 +27,7 @@ ${item?.description}`,
 
         <View style={styles.headerTitle}>
           <View style={styles.blockTitle}>
-            <Image source={{uri: item.thumbnail}} style={styles.fullwidth} />
+            <Image source={{uri: String(item.thumbnail)}} style={styles.fullwidth} />
           </View>
         </View>
 

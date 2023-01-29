@@ -36,7 +36,7 @@ ${item?.item?.item?.description}`,
         <ScrollView style={{marginBottom: 50}}>
           <View style={styles.blockImageContainer}>
             <Image
-              source={{uri: item.item.item.thumbnail[0].url}}
+              source={{uri: String(item.item.item.thumbnail[0].url)}}
               resizeMode="cover"
               style={styles.fullWidth}
             />
@@ -83,21 +83,21 @@ ${item?.item?.item?.description}`,
           <View style={styles.blockImage}>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[1].url}}
+                source={{uri: String(item.item.item.thumbnail[1].url)}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[2].url}}
+                source={{uri: String(item.item.item.thumbnail[2].url)}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />
             </View>
             <View style={styles.blockItem}>
               <Image
-                source={{uri: item.item.item.thumbnail[3].url}}
+                source={{uri: String(item.item.item.thumbnail[3].url)}}
                 resizeMode="cover"
                 style={styles.fullWidth}
               />

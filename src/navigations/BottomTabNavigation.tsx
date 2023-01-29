@@ -15,12 +15,14 @@ import {
   StackNotificationScreen,
   StackTourOrder,
 } from './StackNavigation';
+import { SafeAreaView } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigation() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}}>
+    <SafeAreaView style={{flex :1}}>
+      <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}}>
       <Tab.Screen
         name="StackHomeScreen"
         component={StackHomeScreen}
@@ -88,6 +90,7 @@ function BottomTabNavigation() {
         }}
       />
     </Tab.Navigator>
+    </SafeAreaView>
   );
 }
 

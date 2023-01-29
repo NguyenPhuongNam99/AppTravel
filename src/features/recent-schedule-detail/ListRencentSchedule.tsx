@@ -80,27 +80,27 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
                   <View style={styles.topLeftSchedule}>
                     <Image
                       resizeMode="cover"
-                      source={{ uri: itemList.item.item.thumbnail[0].url }}
+                      source={{ uri: String(itemList.item.item.thumbnail[0].url) }}
                       style={styles.imageSchedule}
                     />
                   </View>
                   <View style={styles.topRightSchedule}>
                     <View style={styles.topRightTop}>
                       <Image
-                        source={{ uri: itemList.item.item.thumbnail[1].url }}
+                        source={{ uri: String(itemList.item.item.thumbnail[1].url) }}
                         style={styles.imageSchedule}
                       />
                     </View>
                     <View style={styles.topRightBottom}>
                       <View style={styles.bottomLeft}>
                         <Image
-                          source={{ uri: itemList.item.item.thumbnail[2].url }}
+                          source={{ uri: String(itemList.item.item.thumbnail[2].url) }}
                           style={styles.imageSchedule}
                         />
                       </View>
                       <View style={styles.bottomRight}>
                         <Image
-                          source={{ uri: itemList.item.item.thumbnail[3].url }}
+                          source={{ uri: String(itemList.item.item.thumbnail[3].url) }}
                           style={styles.imageSchedule}
                         />
                       </View>

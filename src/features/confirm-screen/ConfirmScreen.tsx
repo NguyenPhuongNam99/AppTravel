@@ -123,7 +123,7 @@ const ConfirmScreen = ({ route }) => {
       <View style={styles.imageHeader}>
         <Image
           resizeMode="contain"
-          source={{ uri: imageDefault }}
+          source={{ uri: String(imageDefault) }}
           style={{ height: 100 }}
         />
       </View>

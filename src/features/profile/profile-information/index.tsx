@@ -68,7 +68,7 @@ const InformationProfile = () => {
       }
       <View style={styles.avatarContainer}>
         <View style={styles.leftAvatar}>
-          <Image source={{ uri: user?.avatar_url }} style={styles.imageAvatar} />
+          <Image source={{ uri: String(user?.avatar_url) }} style={styles.imageAvatar} />
           <Text style={styles.titleAvatar}>{user?.first_name + '  ' + user?.last_name}</Text>
         </View>
         <View style={styles.rightAvatar}>

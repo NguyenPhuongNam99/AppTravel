@@ -34,8 +34,8 @@ const HotelResortDetail = ({route}) => {
                       source={{
                         uri:
                           item?.image[0]?.image !== undefined
-                            ? item?.image[0]?.image
-                            : item?.image[1]?.image,
+                            ? String(item?.image[0]?.image)
+                            : String(item?.image[1]?.image),
                       }}
                       style={styles.image}
                     />
@@ -44,7 +44,7 @@ const HotelResortDetail = ({route}) => {
                     <View style={styles.topBlock}>
                       <Image
                         source={{
-                          uri: item?.image[1]?.image,
+                          uri: String(item?.image[1]?.image),
                         }}
                         style={styles.image}
                       />
@@ -53,7 +53,7 @@ const HotelResortDetail = ({route}) => {
                       <View style={styles.bottomView}>
                         <Image
                           source={{
-                            uri: item?.image[2]?.image,
+                            uri: String(item?.image[2]?.image),
                           }}
                           style={styles.image}
                         />
@@ -61,7 +61,7 @@ const HotelResortDetail = ({route}) => {
                       <View style={styles.bottomView}>
                         <Image
                           source={{
-                            uri: item?.image[3]?.image,
+                            uri: String(item?.image[3]?.image),
                           }}
                           style={styles.image}
                         />
