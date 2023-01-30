@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
@@ -9,7 +9,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAppSelector } from '../../app/store';
 import Loading from '../../components/loading/index';
 import Toast from 'react-native-toast-message';
-import { zip } from 'lodash';
 
 interface TypeListRecent {
   passData?: any;
@@ -20,6 +19,8 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
   const navigation = useNavigation();
   const dataUser: any = useAppSelector((state) => state.LoginSlice.data);
   const [loading, setLoading] = useState(false)
+  const [loaded, setLoaded] = useState(false);
+
 
   const submitFavourite = async (value1, value2) => {
     try {
@@ -50,10 +51,11 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
       setLoading(false)
     }
   }
-
+  if (!loaded) {
+    return null;
+  }
   return (
     <>
-
       <View style={{ zIndex: 99, flex: 1, backgroundColor: 'green', justifyContent: 'center', alignItems: 'center' }}>
         <Toast />
         {
@@ -62,18 +64,18 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
       </View>
       <FlatList
         data={passData}
-        contentContainerStyle={{marginBottom: 20}}
+        contentContainerStyle={{ marginBottom: 20 }}
         renderItem={itemList => {
-        
+
           console.log('list', itemList.item.item._id, itemList.item.item.idTour)
           return (
             <TouchableOpacity
               style={styles.scheduleContainer}
-              onPress={() =>
+              onPress={() => (
                 navigation.navigate(
                   'RecentScheduleDetailV2' as never,
                   { item: itemList } as never,
-                )
+                ))
               }>
               <View style={styles.scheduleBlock}>
                 <View style={styles.scheduleTop}>

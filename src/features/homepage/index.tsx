@@ -263,7 +263,7 @@ const HomePage = () => {
             </>
           )}
           <View style={styles.blogTop}>
-            <Text style={{ color: 'black' }}>Bí kíp du lịch</Text>
+            <Text style={{ color: 'black', fontWeight: 'bold', fontSize:14 }}>Bí kíp du lịch</Text>
             <Text style={{ fontSize: 11 }}>Chơi - ăn - ở như người địa phương</Text>
           </View>
           <FlatList

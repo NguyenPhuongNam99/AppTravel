@@ -15,7 +15,6 @@ const Profile = () => {
   const data: any = useAppSelector(state => state.LoginSlice.data);
   const imageDefault =
     'https://hri.com.vn/wp-content/uploads/2017/09/default-avatar-ginger-guy.png';
-  console.log('data new', _.isEmpty(data.avatar_url));
 
   return (
     <View style={styles.container}>
