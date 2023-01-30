@@ -153,5 +153,7 @@ const images = {
   specialdetail12: require('./specialdetail12.jpeg'),
   specialdetail13: require('./specialdetail13.jpeg'),
   specialdetail14: require('./specialdetail14.webp'),
+
+  evaluate: require('./evalutate.jpeg')
 };
 export default images;

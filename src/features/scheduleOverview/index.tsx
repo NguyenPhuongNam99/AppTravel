@@ -137,7 +137,7 @@ const ScheduleOverview = ({route}) => {
 
       <View style={{width: '100%', height: 50, backgroundColor: 'white', position: 'absolute', bottom: 0, flexDirection: 'row', paddingHorizontal: 13}}>
           <View style={{width: '60%', height: '100%', justifyContent: 'center', alignItems: 'flex-start'}}>
-              <Text style={{color: '#FF5F24', fontSize: 16, fontWeight: '700'}}>5,200,000 đ/ người</Text>
+              <Text style={{color: '#FF5F24', fontSize: 16, fontWeight: '700'}}>{item.item.item.price} đ/ người</Text>
           </View>
             <View style={{width: '40%', height: '100%', justifyContent: 'center', alignItems: 'flex-end'}}>
               <TouchableOpacity onPress={() => navigation.navigate('ConfirmScreen' as never, {item: item} as never)}  style={{width: 70, height: 25, backgroundColor: '#FF5F24', justifyContent: 'center', alignItems: 'center', borderRadius: 6}}>

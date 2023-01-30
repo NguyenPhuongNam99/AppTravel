@@ -38,7 +38,6 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
             Authorization: `Bearer ${tokenNew}`,
           },
         })
-      console.log('response', response.data)
       Toast.show({
         type: 'success',
         text1: 'Bạn đã yêu thích'
@@ -51,12 +50,10 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
       setLoading(false)
     }
   }
-  if (!loaded) {
-    return null;
-  }
+ 
   return (
     <>
-      <View style={{ zIndex: 99, flex: 1, backgroundColor: 'green', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ zIndex: 99 }}>
         <Toast />
         {
           loading && <Loading />
@@ -66,8 +63,6 @@ const ListRencentSchedule: React.FC<TypeListRecent> = ({ passData, love }) => {
         data={passData}
         contentContainerStyle={{ marginBottom: 20 }}
         renderItem={itemList => {
-
-          console.log('list', itemList.item.item._id, itemList.item.item.idTour)
           return (
             <TouchableOpacity
               style={styles.scheduleContainer}

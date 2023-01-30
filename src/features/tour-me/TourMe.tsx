@@ -9,6 +9,7 @@ import { Base_Url } from '../../constants/const';
 import { useAppSelector } from '../../app/store';
 import { useIsFocused } from '@react-navigation/native';
 import Loading from '../../components/loading/index';
+import images from '../../assets/images/index';
 
 const TourMe = () => {
   const navigation = useNavigation();
@@ -24,7 +25,6 @@ const TourMe = () => {
         `${Base_Url}/v1/orderTour/getOrderTourofUser/${data._id}`,
       );
       const filterData = response.data.filter((item) =>item.item.item ).filter((item) => item.item.statusTour === 'finish' )
-      console.log('filteerrr', filterData)
       setDataTour(filterData);
       setLoading(false)
     } catch (error) {
@@ -69,9 +69,7 @@ const TourMe = () => {
                                 }
                               }}>
                               <Image
-                                source={{
-                                  uri: 'https://as1.ftcdn.net/v2/jpg/01/01/23/02/1000_F_101230299_PNPvE82KSDpr6bOJ8ER9CRhe4DX6f8Kv.jpg',
-                                }}
+                                source={images.evaluate}
                                 style={styles.iconEvaluate}
                               />
                             </TouchableOpacity>

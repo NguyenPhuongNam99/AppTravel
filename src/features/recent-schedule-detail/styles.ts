@@ -83,7 +83,6 @@ export const styles = StyleSheet.create({
     top: 5,
     right: 5,
     zIndex: 99,
-    backgroundColor: 'green',
   },
   iconEvaluate: {width: 30, height: 30}
 });

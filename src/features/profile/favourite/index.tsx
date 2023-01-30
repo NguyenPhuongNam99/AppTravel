@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import Header from '../../../components/header/Header';
 import ListRencentSchedule from '../../recent-schedule-detail/ListRencentSchedule';
 import { useAppSelector } from '../../../app/store';
@@ -35,12 +35,13 @@ const Favourite = () => {
   }, [])
 
   return (
-    <View>
+    <View style={{width: '100%', height: '100%'}}>
       <Header title="Yêu thích" backOption={false} />
-      {
+      {/* {
         loading && <Loading />
-      }
+      } */}
       <ListRencentSchedule passData={data} love={true} />
+      {/* <Text>sss</Text> */}
     </View>
   );
 };

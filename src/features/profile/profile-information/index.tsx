@@ -31,7 +31,6 @@ const rewarded = RewardedAd.createForAdRequest(adUnitId, {
 const InformationProfile = () => {
   const navigation = useNavigation();
   const dataUser = useAppSelector((state) => state.LoginSlice.data);
-  console.log('datauser', dataUser)
   const [user, setUser] = useState<any>();
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([]);
@@ -45,8 +44,6 @@ const InformationProfile = () => {
           Authorization: `Bearer ${tokenNew}`,
         },
       })
-
-      console.log('response', response.data)
       setData(response.data)
     } catch (error) {
 
