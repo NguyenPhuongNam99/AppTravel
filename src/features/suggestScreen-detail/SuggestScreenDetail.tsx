@@ -17,25 +17,34 @@ const SuggestScreenDetail = ({ route }) => {
 
             <View style={styles.contentContainer}>
 
-                <FlatList data={item} renderItem={( itemData) => {
-                    const itemVert = itemData.item;
-                    const regex = /(<([^>]+)>)/gi;
-                    const result = itemVert?.item.description?.replace(regex, '');
-                    console.log('item vr', itemVert)
-                    return (
-                        <TouchableOpacity style={styles.containerList} onPress={() => navigation.navigate('RecentScheduleDetailV2' as never, {item:itemData} as never)}>
-                            <View style={styles.listLeft}>
-                                <Image source={{ uri: String(itemVert.item.thumbnail[0].url) }} style={styles.fullWidth} />
-                            </View>
-                            <View style={styles.listRight}>
-                                <Text style={styles.colorHeader}>{itemVert.item.tour_name}</Text>
-                                <Text numberOfLines={2}>{result}</Text>
-                                <Text>{itemData.item.nameCIty}</Text>
-                            </View>
-
-                        </TouchableOpacity>
+                {
+                    item.length > 0 ? (
+                        <FlatList data={item} renderItem={( itemData) => {
+                            const itemVert = itemData.item;
+                            const regex = /(<([^>]+)>)/gi;
+                            const result = itemVert?.item.description?.replace(regex, '');
+                            console.log('item vr', itemVert)
+                            return (
+                                <TouchableOpacity style={styles.containerList} onPress={() => navigation.navigate('RecentScheduleDetailV2' as never, {item:itemData} as never)}>
+                                    <View style={styles.listLeft}>
+                                        <Image source={{ uri: String(itemVert.item.thumbnail[0].url) }} style={styles.fullWidth} />
+                                    </View>
+                                    <View style={styles.listRight}>
+                                        <Text style={styles.colorHeader}>{itemVert.item.tour_name}</Text>
+                                        <Text numberOfLines={2}>{result}</Text>
+                                        <Text>{itemData.item.nameCIty}</Text>
+                                    </View>
+        
+                                </TouchableOpacity>
+                            )
+                        }} />
                     )
-                }} />
+                    : (
+                        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                            <Text>Không có dữ liệu</Text>
+                        </View>
+                    )
+                }
 
             </View>
         </View>

@@ -99,6 +99,7 @@ const Login = () => {
                 placeholder="Nhập mật khẩu của bạn"
                 placeholderTextColor={'white'}
                 value={data.password}
+                secureTextEntry={true}
                 onChangeText={(text: string) =>
                   setData({ ...data, password: text })
                 }

@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Base_Url } from "../../constants/const";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import axios from "axios";
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -55,7 +55,7 @@ const SuggestScreen = () => {
                 },
             },
             );
-            console.log('responseeee', response.data);
+            console.log('respose', response.data)
             setTimeout(() => {
                 setLoading(false)
                 navigation.navigate('SuggestScreenDetail' as never, {item: response.data} as never)
@@ -83,7 +83,7 @@ const SuggestScreen = () => {
             )}
 
             <View style={styles.containerContent}>
-                <View style={styles.viewDropdown}>
+                <View style={[styles.viewDropdown, Platform.OS === 'ios' && {zIndex: 99}]}>
                     <Text style={styles.titlePlace}>Chọn địa điểm bạn muốn đến </Text>
                     <DropDownPicker
                         open={open}
@@ -100,7 +100,7 @@ const SuggestScreen = () => {
                 </View>
                 <View style={styles.viewDropdown}>
                     <Text style={styles.titlePlace}>Nhập tầm giá bạn muốn đi </Text>
-                    <TextInput style={styles.input} placeholder='Giá' placeholderTextColor={'black'} value={input} onChangeText={(text) => setInput(text)} />
+                    <TextInput style={[styles.input, Platform.OS === 'ios' && {height: 50}]} placeholder='Giá' placeholderTextColor={'black'} value={input} onChangeText={(text) => setInput(text)} />
                 </View>
 
 

@@ -15,8 +15,9 @@ import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import {useNavigation} from '@react-navigation/native';
 import _ from 'lodash'
 
-const CitySearch = () => {
+const CitySearch = ({route}) => {
   const [dataCity, setDataCity] = useState([]);
+  // const text = route?.params;
   const [dataSearch, setDataSearch] = useState<any>();
 
   const navigation = useNavigation();
@@ -109,11 +110,11 @@ const CitySearch = () => {
         }}
       />
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
       onPress={() => navigation.goBack()}
       style={{position: 'absolute', bottom: 0, left: 0, right: 0, width: '100%', height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 9, backgroundColor: 'orange'}}>
         <Text>Back</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

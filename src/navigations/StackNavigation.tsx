@@ -46,6 +46,7 @@ import SuggestScreen from '../features/suggest-screen/SuggestScreen';
 import SuggestScreenDetail from '../features/suggestScreen-detail/SuggestScreenDetail'
 import TourOrder from '../features/TourOrder/TourOrder';
 import TourOrderDetail from '../features/tourOrder-detail/TourOrderDetail';
+import RoomOrder from '../features/roomOrder/RoomOrder';
 
 const StackHome = createNativeStackNavigator();
 const StackNotifi = createNativeStackNavigator();
@@ -126,6 +127,7 @@ export const StackHomeScreen = () => {
       <StackHome.Screen name="SuggestScreen" component={SuggestScreen} />
       <StackHome.Screen name="SuggestScreenDetail" component={SuggestScreenDetail} />
       <StackHome.Screen name="UpdateInformationProfile" component={UpdateInformationProfile} />
+      <StackHome.Screen name="RoomOrder" component={RoomOrder} />
 
     </StackHome.Navigator>
   );

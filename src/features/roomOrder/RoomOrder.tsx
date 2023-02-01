@@ -15,25 +15,21 @@ import { Modal } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import { Base_Url } from '../../constants/const';
 import Loading from '../../components/loading';
-import { useAppSelector } from '../../app/store';
 
-const DetailRoom = ({ route }) => {
-  const { item } = route.params;
+const RoomOrder = () => {
   const navigation = useNavigation();
   const [idClick, setIdClick] = useState<any>();
   const [visiable, setVisiable] = useState(false);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false)
-  const dataLogin: any = useAppSelector((state) => state.LoginSlice.data);
 
-  console.log('data room', data)
 
   const getDetailRoomOfId = async () => {
     try {
       setLoading(true)
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(`${Base_Url}/v1/hotel/getRoomofId/${item._id}`, {
+      const response = await axios.get(`${Base_Url}/v1/hotelRoomOrder/getAllHotelRoomOrder`, {
         headers: {
           Authorization: `Bearer ${tokenNew}`,
         },
@@ -55,11 +51,12 @@ const DetailRoom = ({ route }) => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
       const obj = {
-        id: item._id,
-        idRoom: idClick._id,
+        id: idClick.hotel_id,
+        idRoom: idClick.room_id,
+        idHotelOrder: idClick._id
       };
       const response = axios.put(
-        'http://206.189.37.26:8080/v1/hotel/updateRoomStatus',
+        'http://206.189.37.26:8080/v1/hotel/updateRoomStatusAndDeleteHotelOrder',
         obj,
         {
           headers: {
@@ -67,47 +64,28 @@ const DetailRoom = ({ route }) => {
           },
         },
       );
-
-      const dataCreateRoomOrder = {
-        room_name: idClick.room_name,
-        room_price: idClick.room_price,
-        room_quantity: idClick.room_quantity,
-        room_status: idClick.room_status,
-        room_description: idClick.room_description,
-        room_thumbnail: idClick.room_thumbnail,
-        user_id: dataLogin._id,
-        hotel_id: item._id,
-        room_id: idClick._id
-      }
-      const createRoomOrder = await axios.post(
-        'http://206.189.37.26:8080/v1/hotelRoomOrder/createHotelRoomOrder',
-        dataCreateRoomOrder,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
-        },
-      );
-      console.log('createRoomOrder', createRoomOrder)
       setVisiable(false);
 
       Toast.show({
         type: 'success',
-        text1: 'Chọn Phòng thành công 👋',
+        text1: 'Trả phòng thành công 👋',
       });
+
       setTimeout(() => {
         navigation.goBack()
 
-      }, 2000)
+      }, 2000);
+
     } catch (error) {
       Toast.show({
         type: 'success',
-        text1: 'Chọn Phòng thất bại 👋',
+        text1: 'Trả phòng thất bại 👋',
       });
     }
   };
 
-  console.log('filter room', item.room.filter((item) => item.room_status == 'false'))
+  console.log('id click', idClick)
+
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>
@@ -116,7 +94,7 @@ const DetailRoom = ({ route }) => {
           size={20}
           onPress={() => navigation.goBack()}
         />
-        <Text>Chọn phòng</Text>
+        <Text>Khách sạn đã đặt phòng</Text>
         <Text></Text>
       </View>
       <View style={{ zIndex: 99 }}>
@@ -126,7 +104,9 @@ const DetailRoom = ({ route }) => {
         loading &&
         <Loading />
       }
-      <FlatList
+      {
+        data?.length > 0 ? (
+          <FlatList
         data={data}
         renderItem={({ item }) => {
           return (
@@ -152,7 +132,7 @@ const DetailRoom = ({ route }) => {
                       onPress={() => (
                         setIdClick(item), setVisiable(!visiable)
                       )}>
-                      <Text style={{ color: 'white' }}>Chọn</Text>
+                      <Text style={{ color: 'white' }}>Trả phòng</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -161,10 +141,17 @@ const DetailRoom = ({ route }) => {
           );
         }}
       />
+        )
+        : (
+          <View style={{width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
+            <Text>Bạn chưa đặt khách sạn nào !</Text>
+          </View>
+        )
+      }
 
       <Modal visible={visiable} style={styles.modalContainer}>
         <View style={styles.blockContainer}>
-          <Text style={{ color: 'black' }}>Xác nhận chọn phòng !</Text>
+          <Text style={{ color: 'black' }}>Xác nhận trả phòng !</Text>
           <TouchableOpacity style={styles.clickConfirm} onPress={statusRoom}>
             <Text style={{ color: 'white' }}>Xác nhận</Text>
           </TouchableOpacity>
@@ -249,4 +236,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DetailRoom;
+export default RoomOrder;

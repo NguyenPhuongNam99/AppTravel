@@ -3,7 +3,7 @@ import images from '../../../assets/images';
 export const dataMenuIcon = [
   {
     id: '1',
-    title: 'Lịch trình',
+    title: 'Phòng đã đặt',
     image: images.PLAN,
   },
   {
