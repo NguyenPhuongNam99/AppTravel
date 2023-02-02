@@ -50,6 +50,8 @@ const RoomOrder = () => {
   const statusRoom = async () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
+
+      console.log('id click', idClick)
       const obj = {
         id: idClick.hotel_id,
         idRoom: idClick.room_id,
@@ -84,7 +86,7 @@ const RoomOrder = () => {
     }
   };
 
-  console.log('id click', idClick)
+  console.log('data click', data)
 
   return (
     <View style={styles.container}>
@@ -109,6 +111,7 @@ const RoomOrder = () => {
           <FlatList
         data={data}
         renderItem={({ item }) => {
+          console.log('item view', item)
           return (
             <View style={styles.blockList}>
               <View style={styles.clickList}>

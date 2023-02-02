@@ -54,7 +54,7 @@ const ScheduleOverview = ({route}) => {
                   alignItems: 'center',
                   marginRight: 10,
                 }}>
-                <Text>Ngày {index}</Text>
+                <Text>Ngày {index + 1}</Text>
                 <Text style={{color: 'black'}}>{item.day}</Text>
               </TouchableOpacity>
             );

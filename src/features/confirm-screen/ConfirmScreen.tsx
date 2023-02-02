@@ -35,13 +35,16 @@ const ConfirmScreen = ({ route }) => {
       },
       body: JSON.stringify({
         currency: 'usd',
-        amount: item.item.item.price
+        amount: item.item.item.price,
+        email: dataUserInfor.email,
+        name: dataUserInfor.first_name + ' ' + dataUserInfor.last_name,
+        phone: dataUserInfor.phone_number
 
       }),
     });
-    const { clientSecret } = await response.json();
+    const {  receipt_url } = await response.json();
 
-    return clientSecret;
+    return {  receipt_url };
   };
 
   const handlePayPress = async () => {
@@ -55,19 +58,21 @@ const ConfirmScreen = ({ route }) => {
 
     // Fetch the intent client secret from the backend
     const clientSecretData = await fetchPaymentIntentClientSecret();
+    console.log('client data', clientSecretData)
 
     // Confirm the payment with the card details
-    const { paymentIntent, error } = await confirmPayment(clientSecretData, {
-      paymentMethodType: 'Card',
-      paymentMethodData: {
-        billingDetails,
-      },
-    });
+    // const { paymentIntent, error } = await confirmPayment(clientSecretData.clientSecret, {
+    //   paymentMethodType: 'Card',
+    //   paymentMethodData: {
+    //     billingDetails,
+    //   },
+    // });
 
-    if (error) {
-      console.log('Payment confirmation error', error);
-    } else if (paymentIntent) {
-      console.log('Success from promise', paymentIntent);
+    if (!clientSecretData.receipt_url) {
+      console.log('Payment confirmation error');
+      setLoading(false)
+    } else if (clientSecretData) {
+      console.log('Success from promise', clientSecretData);
       const tokenNew = await AsyncStorage.getItem('storage_Key');
       const obj = {
         user_id: dataUserInfor?._id,
@@ -82,7 +87,8 @@ const ConfirmScreen = ({ route }) => {
         phoneUser: dataUserInfor.phone_number,
         tourName: item.item.item.tour_name,
         emailUser: dataUserInfor.email,
-        status: 'chờ xác nhận '
+        status: 'chờ xác nhận ',
+        receipt_url: clientSecretData.receipt_url
       };
       const response = await axios.post(
         `${Base_Url}/v1/orderTour/createOrderTour`,
