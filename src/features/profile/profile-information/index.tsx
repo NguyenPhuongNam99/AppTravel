@@ -11,23 +11,7 @@ import { useAppSelector } from '../../../app/store'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loading from '../../../components/loading/index'
 import RecentSchedule from '../../homepage/recent-schedule/RecentSchedule';
-import {
-  InterstitialAd,
-  TestIds,
-  BannerAd,
-  RewardedAd,
-  AppOpenAd,
-  AdEventType,
-  GAMBannerAd,
-  BannerAdSize,
-  RewardedAdEventType,
-} from 'react-native-google-mobile-ads';
-const adUnitId = __DEV__ ? TestIds.REWARDED : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
-const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-  requestNonPersonalizedAdsOnly: true,
-  keywords: ['fashion', 'clothing'],
-});
 const InformationProfile = () => {
   const navigation = useNavigation();
   const dataUser = useAppSelector((state) => state.LoginSlice.data);
@@ -68,39 +52,11 @@ const InformationProfile = () => {
     }
   }
 
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
-      setLoaded(true);
-    });
-    const unsubscribeEarned = rewarded.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      reward => {
-        console.log('User earned reward of ', reward);
-        rewarded.load();
-        setLoaded(true)
-      },
-    );
-
-    // Start loading the rewarded ad straight away
-    rewarded.load();
-
-    // Unsubscribe from events on unmount
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeEarned();
-    };
-  }, []);
 
   useEffect(() => {
     fetUserId();
     getTourFavourite()
   }, [])
-
-  if(!loaded){
-    return null;
-  }
 
   return (
     <View style={styles.container}>
@@ -117,9 +73,7 @@ const InformationProfile = () => {
         <View style={styles.rightAvatar}>
           <TouchableOpacity
             style={styles.rightInfo}
-            onPress={() => (rewarded.show(), navigation.navigate('UpdateInformationProfile' as never))
-
-            }>
+            onPress={() => navigation.navigate('UpdateInformationProfile' as never)}>
             <Text>Sửa thông tin cá nhân</Text>
           </TouchableOpacity>
         </View>
