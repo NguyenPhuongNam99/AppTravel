@@ -57,6 +57,8 @@ const DetailRoom = ({ route }) => {
       const obj = {
         id: item._id,
         idRoom: idClick._id,
+        statusRoom: true,
+        user_room: dataLogin?._id
       };
       const response = axios.put(
         'http://206.189.37.26:8080/v1/hotel/updateRoomStatus',
@@ -67,29 +69,8 @@ const DetailRoom = ({ route }) => {
           },
         },
       );
-      
 
-      const dataCreateRoomOrder = {
-        room_name: idClick.room_name,
-        room_price: idClick.room_price,
-        room_quantity: idClick.room_quantity,
-        room_status: idClick.room_status,
-        room_description: idClick.room_description,
-        room_thumbnail: idClick.room_thumbnail,
-        user_id: dataLogin._id,
-        hotel_id: item._id,
-        room_id: idClick._id
-      }
-      const createRoomOrder = await axios.post(
-        'http://206.189.37.26:8080/v1/hotelRoomOrder/createHotelRoomOrder',
-        dataCreateRoomOrder,
-        {
-          headers: {
-            Authorization: `Bearer ${tokenNew}`,
-          },
-        },
-      );
-      console.log('createRoomOrder', createRoomOrder)
+      
       setVisiable(false);
 
       Toast.show({

@@ -15,6 +15,8 @@ import { Modal } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import { Base_Url } from '../../constants/const';
 import Loading from '../../components/loading';
+import { useAppSelector } from '../../app/store'
+import { useIsFocused } from '@react-navigation/native';
 
 const RoomOrder = () => {
   const navigation = useNavigation();
@@ -22,18 +24,21 @@ const RoomOrder = () => {
   const [visiable, setVisiable] = useState(false);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false)
-
+  const dataUser: any = useAppSelector((state) => state.LoginSlice.data);
+  console.log('dd', dataUser?._id)
+  const focus = useIsFocused();
 
   const getDetailRoomOfId = async () => {
     try {
       setLoading(true)
       const tokenNew = await AsyncStorage.getItem('storage_Key');
 
-      const response = await axios.get(`${Base_Url}/v1/hotelRoomOrder/getAllHotelRoomOrder`, {
+      const response = await axios.get(`${Base_Url}/v1/hotel/fill/1`, {
         headers: {
           Authorization: `Bearer ${tokenNew}`,
         },
       });
+      console.log('resposn', response.data)
       setData(response.data)
       setLoading(false)
       // setDataHomeStay(response.data);
@@ -45,20 +50,21 @@ const RoomOrder = () => {
 
   useEffect(() => {
     getDetailRoomOfId()
-  }, [])
+  }, [focus])
+
+  console.log('click', idClick)
 
   const statusRoom = async () => {
     try {
       const tokenNew = await AsyncStorage.getItem('storage_Key');
-
-      console.log('id click', idClick)
       const obj = {
-        id: idClick.hotel_id,
-        idRoom: idClick.room_id,
-        idHotelOrder: idClick._id
+        id: idClick.idHotel,
+        idRoom: idClick.itemRoomOrder._id,
+        statusRoom: false,
+        user_room: dataUser?._id
       };
       const response = axios.put(
-        'http://206.189.37.26:8080/v1/hotel/updateRoomStatusAndDeleteHotelOrder',
+        'http://206.189.37.26:8080/v1/hotel/updateRoomStatus',
         obj,
         {
           headers: {
@@ -86,7 +92,7 @@ const RoomOrder = () => {
     }
   };
 
-  console.log('data click', data)
+  console.log('id click', idClick)
 
   return (
     <View style={styles.container}>
@@ -109,47 +115,52 @@ const RoomOrder = () => {
       {
         data?.length > 0 ? (
           <FlatList
-        data={data}
-        renderItem={({ item }) => {
-          console.log('item view', item)
-          return (
-            <View style={styles.blockList}>
-              <View style={styles.clickList}>
-                <View style={styles.topClick}>
-                  <Image
-                    style={styles.image}
-                    source={{ uri: String(item.room_thumbnail) }}
-                  />
-                </View>
-                <View style={styles.bottomClick}>
-                  <Text style={styles.bottomHeader}>
-                    Tên phòng: {item.room_name}
-                  </Text>
-                  <Text numberOfLines={1}>
-                    Miêu tả phòng: {item.room_description}
-                  </Text>
-                  <View style={styles.blockAccept}>
-                    <Text>Gía: {item.room_price} đồng</Text>
-                    <TouchableOpacity
-                      style={styles.clickAccept}
-                      onPress={() => (
-                        setIdClick(item), setVisiable(!visiable)
-                      )}>
-                      <Text style={{ color: 'white' }}>Trả phòng</Text>
-                    </TouchableOpacity>
+            data={data}
+            renderItem={({ item }) => {
+              console.log('item', item)
+              return (
+                <View style={styles.blockList}>
+                  <View style={styles.clickList}>
+                    <View style={styles.topClick}>
+                      <Image
+                        style={styles.image}
+                        source={{ uri: String(item.itemRoomOrder.room_thumbnail) }}
+                      />
+                    </View>
+                    <View style={styles.bottomClick}>
+                      <Text style={styles.bottomHeader}>
+                        Tên phòng: {item.itemRoomOrder.room_name}
+                      </Text>
+                      <Text numberOfLines={1}>
+                        Miêu tả phòng: {item.itemRoomOrder.room_description}
+                      </Text>
+                      <View style={styles.blockAccept}>
+                        <Text>Gía: {item.itemRoomOrder.room_price} đồng</Text>
+                        <Text style={styles.bottomHeader}>
+                          Trạng thái: {item.itemRoomOrder.room_status === 'false' ? 'chờ xác nhận' : item.itemRoomOrder.room_status === 'xac nhan' ? item.itemRoomOrder.room_status : 'đã xác nhận'}
+                        </Text>
+                        {
+                          item.itemRoomOrder.room_status === 'xac nhan' && <TouchableOpacity
+                            style={styles.clickAccept}
+                            onPress={() => (
+                              setIdClick(item), setVisiable(!visiable)
+                            )}>
+                            <Text style={{ color: 'white' }}>Trả phòng</Text>
+                          </TouchableOpacity>
+                        }
+                      </View>
+                    </View>
                   </View>
                 </View>
-              </View>
+              );
+            }}
+          />
+        )
+          : (
+            <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+              <Text>Bạn chưa đặt khách sạn nào !</Text>
             </View>
-          );
-        }}
-      />
-        )
-        : (
-          <View style={{width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Bạn chưa đặt khách sạn nào !</Text>
-          </View>
-        )
+          )
       }
 
       <Modal visible={visiable} style={styles.modalContainer}>
@@ -177,7 +188,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
   },
-  blockList: { width: '100%', height: 240, marginTop: 20, paddingHorizontal: 10 },
+  blockList: { width: '100%', height: 255, marginTop: 20, paddingHorizontal: 10 },
   clickList: {
     width: '100%',
     height: '100%',

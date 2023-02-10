@@ -57,8 +57,8 @@ const ConfirmScreen = ({ route }) => {
     };
 
     // Fetch the intent client secret from the backend
-    const clientSecretData = await fetchPaymentIntentClientSecret();
-    console.log('client data', clientSecretData)
+    const {receipt_url} = await fetchPaymentIntentClientSecret();
+    console.log('client data', receipt_url)
 
     // Confirm the payment with the card details
     // const { paymentIntent, error } = await confirmPayment(clientSecretData.clientSecret, {
@@ -68,11 +68,11 @@ const ConfirmScreen = ({ route }) => {
     //   },
     // });
 
-    if (!clientSecretData.receipt_url) {
+    if (!receipt_url) {
       console.log('Payment confirmation error');
       setLoading(false)
-    } else if (clientSecretData) {
-      console.log('Success from promise', clientSecretData);
+    } else if (receipt_url) {
+      console.log('Success from promise', receipt_url);
       const tokenNew = await AsyncStorage.getItem('storage_Key');
       const obj = {
         user_id: dataUserInfor?._id,
@@ -88,7 +88,7 @@ const ConfirmScreen = ({ route }) => {
         tourName: item.item.item.tour_name,
         emailUser: dataUserInfor.email,
         status: 'chờ xác nhận ',
-        receipt_url: clientSecretData.receipt_url
+        receipt_url: receipt_url
       };
       const response = await axios.post(
         `${Base_Url}/v1/orderTour/createOrderTour`,
@@ -119,7 +119,7 @@ const ConfirmScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>Xác nhận đặt Tour</Text>
+      <Text style={styles.headerTitle}>Xác nhận đặt Touraa</Text>
       <View style={{ zIndex: 99 }}>
         <Toast />
       </View>
