@@ -68,12 +68,14 @@ const PopularPlaceDetailV2 = ({route}) => {
                 latitudeDelta: 0.015,
                 longitudeDelta: 0.0121,
               }}>
+
               <Marker
                 coordinate={{
                   latitude: item.latitude,
                   longitude: item.longitude,
                 }}
               />
+              
             </MapView>
           </View>
         </View>
